@@ -1,3 +1,5 @@
 import ty from "../main"
 
-ty.string().check("123")
+{
+  const data: string = ty.string().check("123")
+}
