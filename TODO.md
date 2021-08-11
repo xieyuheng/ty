@@ -1,1 +1,7 @@
-- try the typescript magic
+- `schemas/object` -- check
+- `schemas/number`
+- `schemas/null`
+- `schemas/boolean`
+- `schemas/undefined`
+- `schemas/array`
+- `schemas/union`
