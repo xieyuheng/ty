@@ -1,5 +1,3 @@
-- `Schema.fail`
-
 - `schemas/null`
 - `schemas/boolean`
 - `schemas/undefined`

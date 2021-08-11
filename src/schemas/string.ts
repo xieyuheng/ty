@@ -6,7 +6,7 @@ export class StringSchema extends Schema<string> {
     return new StringSchema()
   }
 
-  check(data: any): string {
+  validate(data: any): string {
     if (typeof data !== "string") {
       throw new Errors.InvalidData(data, {
         msg: "I am expecting the data to be a string.",

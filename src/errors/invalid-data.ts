@@ -25,8 +25,8 @@ export class InvalidData extends Error {
   get message(): string {
     return [
       `${this.msg}`,
-      `- path: ${this.path}`,
-      `- data: ${JSON.stringify(this.data)}`,
+      `  path: ${this.path}`,
+      `  data: ${JSON.stringify(this.data)}`,
     ].join("\n")
   }
 }

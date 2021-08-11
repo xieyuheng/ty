@@ -1,5 +1,24 @@
-export abstract class Schema<T> {
-  instanceofSchema = true
+import * as Errors from "../errors"
 
-  abstract check(data: any): T
+export abstract class Schema<T> {
+  abstract validate(data: any): T
+
+  assertInvalidate(data: any): void {
+    try {
+      this.validate(data)
+      throw new Error(
+        [
+          `I am expecting the data to be invalid according to the schema.`,
+          `  data: ${JSON.stringify(data)}`,
+          `  schema: ${JSON.stringify(this)}`,
+        ].join("\n")
+      )
+    } catch (error) {
+      if (error instanceof Errors.InvalidData) {
+        return
+      } else {
+        throw error
+      }
+    }
+  }
 }

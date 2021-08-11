@@ -16,11 +16,11 @@ export class ObjectSchema<T> extends Schema<T> {
     return new ObjectSchema<T>({ properties })
   }
 
-  check(data: any): Properties<T> {
+  validate(data: any): Properties<T> {
     for (const key in this.properties) {
       if (data.hasOwnProperty(key)) {
         try {
-          this.properties[key].check(data[key])
+          this.properties[key].validate(data[key])
         } catch (error) {
           if (error instanceof Errors.InvalidData) {
             error.keys.push(key)
