@@ -4,7 +4,6 @@
 
 - `Schema.fail`
 
-- `schemas/number`
 - `schemas/null`
 - `schemas/boolean`
 - `schemas/undefined`
