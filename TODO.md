@@ -2,11 +2,6 @@
 - `schemas/boolean`
 - `schemas/undefined`
 
-- `schemas/string` -- `{ min, max, length }`
-
-- `schemas/email` -- use json-schema
-- `schemas/url` -- use json-schema
-
 - `schemas/array`
 - `schemas/dict`
 
@@ -15,3 +10,13 @@
 
 - `schemas/const`
 - `schemas/enum`
+
+- `schemas/string` -- `{ min, max, length }`
+
+- `schemas/email` -- use json-schema -- subtype of `schemas/string`
+- `schemas/url` -- use json-schema -- subtype of `schemas/string`
+
+- `schemas/number` -- `{ min, max, length }`
+
+- `schemas/float` -- subtype of `schemas/number`
+- `schemas/int` -- subtype of `schemas/number`
