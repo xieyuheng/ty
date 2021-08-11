@@ -1,11 +1,11 @@
-import Ty from "../main"
+import ty from "../main"
 
 const data: {
   first_name: string
   last_name: string
-} = Ty.object({
-  first_name: Ty.string(),
-  last_name: Ty.string(),
+} = ty.object({
+  first_name: ty.string(),
+  last_name: ty.string(),
 }).check({
   first_name: "Yuheng",
   last_name: "Xie",

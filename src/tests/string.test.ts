@@ -1,3 +1,3 @@
-import Ty from "../main"
+import ty from "../main"
 
-Ty.string().check("123")
+ty.string().check("123")
