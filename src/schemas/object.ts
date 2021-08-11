@@ -1,4 +1,5 @@
 import { Schema } from "../schema"
+import * as Errors from "../errors"
 
 type SchemaProperties<T> = { [P in keyof T]: Schema<T[P]> }
 type Properties<T> = { [P in keyof T]: T[P] }
@@ -16,7 +17,24 @@ export class ObjectSchema<T> extends Schema<T> {
   }
 
   check(data: any): Properties<T> {
-    console.log(data)
+    for (const key in this.properties) {
+      if (data.hasOwnProperty(key)) {
+        try {
+          this.properties[key].check(data[key])
+        } catch (error) {
+          if (error instanceof Errors.InvalidData) {
+            error.keys.push(key)
+          }
+          throw error
+        }
+      } else {
+        throw new Errors.InvalidData(data, {
+          msg: `Missing required property: ${key}`,
+          keys: [key],
+        })
+      }
+    }
+
     return data
   }
 }

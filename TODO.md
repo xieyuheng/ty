@@ -1,7 +1,3 @@
-- `schemas/object` -- check
-
-- `errors/invalid-data` -- `InvalidData`
-
 - `Schema.fail`
 
 - `schemas/null`

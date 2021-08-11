@@ -1,4 +1,5 @@
 import { Schema } from "../schema"
+import * as Errors from "../errors"
 
 export class NumberSchema extends Schema<number> {
   static create(): NumberSchema {
@@ -7,7 +8,9 @@ export class NumberSchema extends Schema<number> {
 
   check(data: any): number {
     if (typeof data !== "number") {
-      throw new Error("expecting number")
+      throw new Errors.InvalidData(data, {
+        msg: "I am expecting the data to be a number.",
+      })
     }
 
     return data
