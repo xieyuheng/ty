@@ -7,5 +7,7 @@ import ty from ".."
   schema.assertInvalidate("")
   schema.assertInvalidate(0)
   schema.assertInvalidate(false)
+  schema.assertInvalidate([])
+  schema.assertInvalidate({})
   schema.assertInvalidate(undefined)
 }

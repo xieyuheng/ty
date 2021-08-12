@@ -1,5 +1,3 @@
-- `schemas/boolean`
-
 - `schemas/array`
 - `schemas/dict`
 

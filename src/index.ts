@@ -6,4 +6,5 @@ export default {
   number: Schemas.NumberSchema.create,
   null: Schemas.NullSchema.create,
   undefined: Schemas.UndefinedSchema.create,
+  boolean: Schemas.BooleanSchema.create,
 }
