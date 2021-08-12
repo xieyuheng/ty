@@ -3,9 +3,11 @@ import * as Schemas from "./schemas"
 export default {
   // NOTE primitive
   string: Schemas.StringSchema.create,
+  // email: Schemas.EmailSchema.create, // NOTE subtype of `string`
+  // Uri: Schemas.UriSchema.create, // NOTE subtype of `string`
   number: Schemas.NumberSchema.create,
-  // float: Schemas.FloatSchema.create, // NOTE subtype of number
-  // int: Schemas.IntSchema.create, // NOTE subtype of number
+  // float: Schemas.FloatSchema.create, // NOTE subtype of `number`
+  // int: Schemas.IntSchema.create, // NOTE subtype of `number`
   null: Schemas.NullSchema.create,
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
