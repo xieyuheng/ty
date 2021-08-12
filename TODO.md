@@ -1,3 +1,0 @@
-// structural
-
-- `schemas/omit`

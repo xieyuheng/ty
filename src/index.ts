@@ -28,4 +28,7 @@ export default {
   same: Schemas.SameSchema.create,
   union: Schemas.UnionSchema.create,
   intersection: Schemas.IntersectionSchema.create,
+
+  // NOTE structural
+  omit: Schemas.OmitSchema.create,
 }

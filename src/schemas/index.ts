@@ -14,3 +14,5 @@ export * from "./dict"
 export * from "./same"
 export * from "./union"
 export * from "./intersection"
+
+export * from "./omit"
