@@ -3,8 +3,17 @@ import * as Schemas from "./schemas"
 export default {
   // NOTE primitive
   string: Schemas.StringSchema.create,
-  email: Schemas.EmailSchema.create, // <: string
-  // uri: Schemas.UriSchema.create, // <: string
+  format: Schemas.FormatSchema.create, // <: string
+  email: (constraints: Schemas.StringConstraints) =>
+    Schemas.FormatSchema.create("email", constraints),
+  uri: (constraints: Schemas.StringConstraints) =>
+    Schemas.FormatSchema.create("uri", constraints),
+  date: (constraints: Schemas.StringConstraints) =>
+    Schemas.FormatSchema.create("date", constraints),
+  time: (constraints: Schemas.StringConstraints) =>
+    Schemas.FormatSchema.create("time", constraints),
+  datetime: (constraints: Schemas.StringConstraints) =>
+    Schemas.FormatSchema.create("date-time", constraints),
   number: Schemas.NumberSchema.create,
   int: Schemas.IntSchema.create, // <: number
   null: Schemas.NullSchema.create,
