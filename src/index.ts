@@ -3,7 +3,7 @@ import * as Schemas from "./schemas"
 export default {
   // NOTE primitive
   string: Schemas.StringSchema.create,
-  // email: Schemas.EmailSchema.create, // <: string
+  email: Schemas.EmailSchema.create, // <: string
   // uri: Schemas.UriSchema.create, // <: string
   number: Schemas.NumberSchema.create,
   int: Schemas.IntSchema.create, // <: number

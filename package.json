@@ -18,11 +18,12 @@
   },
   "devDependencies": {
     "@types/deep-diff": "^1.0.1",
-    "@types/node": "^16.4.13",
+    "@types/node": "^16.6.0",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@exodus/schemasafe": "*",
     "@xieyuheng/test-runner": "^0.1.23",
     "chalk": "^4.1.2",
     "change-case": "^4.1.2",
