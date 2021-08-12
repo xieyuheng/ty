@@ -53,7 +53,7 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 
 **primitive:**
 - [ty.string()](src/tests/string.test.ts)
-- [ty.format(<foramt-name>)](src/tests/format.test.ts)
+- [ty.format(foramtName)](src/tests/format.test.ts)
 - [ty.number()](src/tests/number.test.ts)
 - [ty.int()](src/tests/int.test.ts)
 - [ty.boolean()](src/tests/boolean.test.ts)
@@ -62,17 +62,17 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 - [ty.any()](src/tests/any.test.ts)
 
 **compound:**
-- [ty.object({ ...<property-schema> })](src/tests/object.test.ts)
-- [ty.array(<item-type>)](src/tests/array.test.ts)
-- [ty.dict(<item-type>)](src/tests/dict.test.ts)
+- [ty.object({ ...schemas })](src/tests/object.test.ts)
+- [ty.array(itemSchema)](src/tests/array.test.ts)
+- [ty.dict(itemSchema)](src/tests/dict.test.ts)
 
 **set theory:**
-- [ty.dict(<data>)](src/tests/same.test.ts)
-- [ty.union(<left-schema>, <rigth-schema>)](src/tests/union.ts)
-- [ty.intersection(<left-schema>, <rigth-schema>)](src/tests/intersection.test.ts)
+- [ty.same(literalData)](src/tests/same.test.ts)
+- [ty.union(leftSchema, rigthSchema)](src/tests/union.ts)
+- [ty.intersection(leftSchema, rigthSchema)](src/tests/intersection.test.ts)
 
 **structural:**
-- [ty.intersection(<schema>, <key>)](src/tests/omit.ts)
+- [ty.intersection(schema, key)](src/tests/omit.ts)
 
 ## Contributions
 
