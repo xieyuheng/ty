@@ -10,3 +10,5 @@ export * from "./any"
 export * from "./object"
 export * from "./array"
 export * from "./dict"
+
+export * from "./const"
