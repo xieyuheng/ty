@@ -17,20 +17,20 @@ export class ObjectSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     for (const key in this.properties) {
-      if (data.hasOwnProperty(key)) {
-        try {
-          this.properties[key].validate(data[key])
-        } catch (error) {
-          if (error instanceof Errors.InvalidData) {
-            error.keys.push(key)
-          }
-          throw error
-        }
-      } else {
+      if (!data.hasOwnProperty(key)) {
         throw new Errors.InvalidData(data, {
           msg: `I found a missing required property: ${key}`,
           keys: [key],
         })
+      }
+
+      try {
+        this.properties[key].validate(data[key])
+      } catch (error) {
+        if (error instanceof Errors.InvalidData) {
+          error.keys.push(key)
+        }
+        throw error
       }
     }
 

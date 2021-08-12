@@ -1,5 +1,3 @@
-- `schemas/dict`
-
 - `schemas/union`
 - `schemas/intersection`
 
