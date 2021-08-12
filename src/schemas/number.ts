@@ -1,7 +1,7 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-interface Constraints {
+export interface NumberConstraints {
   gt?: number
   lt?: number
   gte?: number
@@ -9,14 +9,14 @@ interface Constraints {
 }
 
 export class NumberSchema extends Schema<number> {
-  constraints: Constraints
+  constraints: NumberConstraints
 
-  constructor(constraints: Constraints) {
+  constructor(constraints: NumberConstraints) {
     super()
     this.constraints = constraints
   }
 
-  static create(constraints: Constraints = {}): NumberSchema {
+  static create(constraints: NumberConstraints = {}): NumberSchema {
     return new NumberSchema(constraints)
   }
 

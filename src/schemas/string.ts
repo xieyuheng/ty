@@ -1,21 +1,21 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-interface Constraints {
+export interface StringConstraints {
   max?: number
   min?: number
   length?: number
 }
 
 export class StringSchema extends Schema<string> {
-  constraints: Constraints
+  constraints: StringConstraints
 
-  constructor(constraints: Constraints) {
-    super()    
+  constructor(constraints: StringConstraints) {
+    super()
     this.constraints = constraints
   }
 
-  static create(constraints: Constraints = {}): StringSchema {
+  static create(constraints: StringConstraints = {}): StringSchema {
     return new StringSchema(constraints)
   }
 

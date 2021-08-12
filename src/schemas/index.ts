@@ -1,5 +1,6 @@
 export * from "./string"
 export * from "./number"
+export * from "./int"
 export * from "./null"
 export * from "./undefined"
 export * from "./boolean"
