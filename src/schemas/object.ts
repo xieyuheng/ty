@@ -1,17 +1,17 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-type SchemaProperties<T> = { [P in keyof T]: Schema<T[P]> }
+type SchemaObject<T> = { [P in keyof T]: Schema<T[P]> }
 
 export class ObjectSchema<T> extends Schema<T> {
-  properties: SchemaProperties<T>
+  properties: SchemaObject<T>
 
-  constructor(opts: { properties: SchemaProperties<T> }) {
+  constructor(opts: { properties: SchemaObject<T> }) {
     super()
     this.properties = opts.properties
   }
 
-  static create<T>(properties: SchemaProperties<T>): ObjectSchema<T> {
+  static create<T>(properties: SchemaObject<T>): ObjectSchema<T> {
     return new ObjectSchema<T>({ properties })
   }
 

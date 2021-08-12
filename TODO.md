@@ -1,4 +1,4 @@
-- `schemas/tuple`
+- `schemas/any`
 - `schemas/dict`
 
 - `schemas/union`
