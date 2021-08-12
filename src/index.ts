@@ -8,4 +8,5 @@ export default {
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
   array: Schemas.ArraySchema.create,
+  any: Schemas.AnySchema.create,
 }
