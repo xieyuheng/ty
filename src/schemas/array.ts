@@ -20,9 +20,9 @@ export class ArraySchema<T> extends Schema<Array<T>> {
       })
     }
 
-    for (const i in data) {
+    for (const [i, item] of data.entries()) {
       try {
-        this.item.validate(data[i])
+        this.item.validate(item)
       } catch (error) {
         if (error instanceof Errors.InvalidData) {
           error.keys.push(i)
