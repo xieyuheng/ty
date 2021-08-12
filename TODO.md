@@ -1,4 +1,3 @@
-- `schemas/null`
 - `schemas/boolean`
 - `schemas/undefined`
 

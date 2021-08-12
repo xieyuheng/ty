@@ -1,2 +1,8 @@
-export * from "./schema"
-export * from "./schemas"
+import * as Schemas from "./schemas"
+
+export default {
+  string: Schemas.StringSchema.create,
+  object: Schemas.ObjectSchema.create,
+  number: Schemas.NumberSchema.create,
+  null: Schemas.NullSchema.create,
+}

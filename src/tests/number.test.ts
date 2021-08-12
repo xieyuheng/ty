@@ -1,4 +1,4 @@
-import ty from "../main"
+import ty from ".."
 
 {
   const schema = ty.string()
