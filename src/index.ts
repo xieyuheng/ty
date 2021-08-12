@@ -5,4 +5,5 @@ export default {
   object: Schemas.ObjectSchema.create,
   number: Schemas.NumberSchema.create,
   null: Schemas.NullSchema.create,
+  undefined: Schemas.UndefinedSchema.create,
 }

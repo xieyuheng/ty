@@ -9,7 +9,7 @@ export class NumberSchema extends Schema<number> {
   validate(data: any): number {
     if (typeof data !== "number") {
       throw new Errors.InvalidData(data, {
-        msg: "I am expecting the data to be a number.",
+        msg: "I am expecting the data to be number.",
       })
     }
 

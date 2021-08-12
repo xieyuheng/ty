@@ -1,5 +1,4 @@
 - `schemas/boolean`
-- `schemas/undefined`
 
 - `schemas/array`
 - `schemas/dict`

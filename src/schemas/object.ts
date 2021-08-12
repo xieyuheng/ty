@@ -29,7 +29,7 @@ export class ObjectSchema<T> extends Schema<T> {
         }
       } else {
         throw new Errors.InvalidData(data, {
-          msg: `Missing required property: ${key}`,
+          msg: `I found a missing required property: ${key}`,
           keys: [key],
         })
       }
