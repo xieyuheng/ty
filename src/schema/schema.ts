@@ -8,7 +8,7 @@ export abstract class Schema<T> {
       this.validate(data)
       throw new Error(
         [
-          `I am expecting the data to be invalid according to the schema.`,
+          `I expect the data to be invalid according to the schema.`,
           `  data: ${JSON.stringify(data)}`,
           `  schema: ${JSON.stringify(this)}`,
         ].join("\n")

@@ -9,7 +9,7 @@ export class StringSchema extends Schema<string> {
   validate(data: any): string {
     if (typeof data !== "string") {
       throw new Errors.InvalidData(data, {
-        msg: "I am expecting the data to be string.",
+        msg: "I expect the data to be string.",
       })
     }
 

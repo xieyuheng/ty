@@ -9,7 +9,7 @@ export class BooleanSchema extends Schema<boolean> {
   validate(data: any): boolean {
     if (typeof data !== "boolean") {
       throw new Errors.InvalidData(data, {
-        msg: "I am expecting the data to be boolean.",
+        msg: "I expect the data to be boolean.",
       })
     }
 

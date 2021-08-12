@@ -16,7 +16,7 @@ export class ArraySchema<T> extends Schema<Array<T>> {
   validate(data: any): Array<T> {
     if (!(data instanceof Array)) {
       throw new Errors.InvalidData(data, {
-        msg: "I am expecting the data to be array.",
+        msg: "I expect the data to be array.",
       })
     }
 
