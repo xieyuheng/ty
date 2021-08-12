@@ -12,3 +12,4 @@ export * from "./array"
 export * from "./dict"
 
 export * from "./same"
+export * from "./union"
