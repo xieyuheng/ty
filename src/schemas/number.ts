@@ -1,9 +1,22 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
+interface Constraints {
+  max?: number
+  min?: number
+  length?: number
+}
+
 export class NumberSchema extends Schema<number> {
-  static create(): NumberSchema {
-    return new NumberSchema()
+  constraints: Constraints
+
+  constructor(constraints: Constraints) {
+    super()
+    this.constraints = constraints
+  }
+
+  static create(constraints: Constraints = {}): NumberSchema {
+    return new NumberSchema(constraints)
   }
 
   validate(data: any): number {
