@@ -2,7 +2,7 @@ import { Schema } from "../schema"
 import * as Errors from "../errors"
 import * as ut from "../ut"
 
-export class ConstSchema<T> extends Schema<T> {
+export class SameSchema<T> extends Schema<T> {
   data: T
 
   constructor(data: T) {
@@ -10,8 +10,8 @@ export class ConstSchema<T> extends Schema<T> {
     this.data = data
   }
 
-  static create<T>(data: T): ConstSchema<T> {
-    return new ConstSchema(data)
+  static create<T>(data: T): SameSchema<T> {
+    return new SameSchema(data)
   }
 
   validate(data: any): T {

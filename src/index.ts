@@ -25,7 +25,7 @@ export default {
   dict: Schemas.DictSchema.create,
 
   // NOTE set theory
-  const: Schemas.ConstSchema.create,
+  same: Schemas.SameSchema.create,
   // enum: Schemas.EnumSchema.create,
   // union: Schemas.UnionSchema.create,
   // intersection: Schemas.IntersectionSchema.create,

@@ -11,4 +11,4 @@ export * from "./object"
 export * from "./array"
 export * from "./dict"
 
-export * from "./const"
+export * from "./same"
