@@ -1,5 +1,7 @@
 import ty from "../main"
 
 {
-  const data: string = ty.string().validate("123")
+  const schema = ty.number()
+  const data: number = schema.validate(123)
+  schema.assertInvalidate("123")
 }
