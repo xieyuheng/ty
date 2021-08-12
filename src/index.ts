@@ -4,6 +4,8 @@ export default {
   // NOTE primitive
   string: Schemas.StringSchema.create,
   number: Schemas.NumberSchema.create,
+  // float: Schemas.FloatSchema.create, // NOTE subtype of number
+  // int: Schemas.IntSchema.create, // NOTE subtype of number
   null: Schemas.NullSchema.create,
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
