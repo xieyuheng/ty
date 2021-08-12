@@ -1,5 +1,3 @@
-- `schemas/string` -- `{ min?, max?, length? }`
-
 - `schemas/float` -- subtype of `schemas/number`
 - `schemas/int` -- subtype of `schemas/number`
 
