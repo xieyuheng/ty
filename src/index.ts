@@ -27,5 +27,5 @@ export default {
   // NOTE set theory
   same: Schemas.SameSchema.create,
   union: Schemas.UnionSchema.create,
-  // intersection: Schemas.IntersectionSchema.create,
+  intersection: Schemas.IntersectionSchema.create,
 }
