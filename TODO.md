@@ -1,5 +1,4 @@
-- `schemas/union`
-- `schemas/intersection`
-
 - `schemas/const`
 - `schemas/enum`
+- `schemas/union`
+- `schemas/intersection`
