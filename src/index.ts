@@ -7,4 +7,5 @@ export default {
   null: Schemas.NullSchema.create,
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
+  array: Schemas.ArraySchema.create,
 }

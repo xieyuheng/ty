@@ -2,7 +2,6 @@ import { Schema } from "../schema"
 import * as Errors from "../errors"
 
 type SchemaProperties<T> = { [P in keyof T]: Schema<T[P]> }
-type Properties<T> = { [P in keyof T]: T[P] }
 
 export class ObjectSchema<T> extends Schema<T> {
   properties: SchemaProperties<T>
@@ -16,7 +15,7 @@ export class ObjectSchema<T> extends Schema<T> {
     return new ObjectSchema<T>({ properties })
   }
 
-  validate(data: any): Properties<T> {
+  validate(data: any): T {
     for (const key in this.properties) {
       if (data.hasOwnProperty(key)) {
         try {
