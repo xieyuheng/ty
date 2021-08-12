@@ -1,6 +1,8 @@
 # Ty
 
-A schema checker that returns well typed results.
+Here is a schema checker that returns well typed results,
+to be used in typescript,
+tell your friends!
 
 ## Install
 
