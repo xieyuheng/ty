@@ -1,6 +1,6 @@
 {
   "name": "@xieyuheng/ty",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "github:xieyuheng/ty",
   "main": "lib/main.js",
   "files": [
