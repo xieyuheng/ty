@@ -2,7 +2,7 @@
   "name": "@xieyuheng/ty",
   "version": "0.0.3",
   "repository": "github:xieyuheng/ty",
-  "main": "lib/index.js",
+  "main": "lib/main.js",
   "files": [
     "lib"
   ],
