@@ -9,6 +9,7 @@ export * from "./any"
 
 export * from "./object"
 export * from "./array"
+export * from "./tuple"
 export * from "./dict"
 
 export * from "./same"

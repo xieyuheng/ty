@@ -66,6 +66,7 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 **Compound:**
 - [ty.object({ ...schemas })](src/tests/object.test.ts)
 - [ty.array(itemSchema)](src/tests/array.test.ts)
+- [ty.tuple(...itemSchema)](src/tests/tuple.test.ts)
 - [ty.dict(itemSchema)](src/tests/dict.test.ts)
 
 **Set Theory:**

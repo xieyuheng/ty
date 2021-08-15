@@ -1,4 +1,5 @@
 import * as Schemas from "../schemas"
+import { Schema } from "../schema"
 
 export default {
   // NOTE primitive
@@ -22,6 +23,7 @@ export default {
   // NOTE compound
   object: Schemas.ObjectSchema.create,
   array: Schemas.ArraySchema.create,
+  tuple: Schemas.TupleSchema.create,
   dict: Schemas.DictSchema.create,
 
   // NOTE set theory
