@@ -39,6 +39,10 @@ const structural = {
   omit: Schemas.OmitSchema.create,
 }
 
+const recursion = {
+  lazy: Schemas.LazySchema.create,
+}
+
 const utilities = {
   optional: <T>(schema: Schema<T>) => sets.union(primitive.undefined(), schema),
 }
@@ -48,5 +52,6 @@ export default {
   ...collection,
   ...sets,
   ...structural,
+  ...recursion,
   ...utilities,
 }

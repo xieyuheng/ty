@@ -17,3 +17,5 @@ export * from "./union"
 export * from "./intersection"
 
 export * from "./omit"
+
+export * from "./lazy"
