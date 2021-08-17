@@ -75,7 +75,10 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 - [ty.intersection(leftSchema, rigthSchema)](src/tests/intersection.test.ts)
 
 **Structural:**
-- [ty.intersection(schema, key)](src/tests/omit.ts)
+- [ty.omit(schema, key)](src/tests/omit.ts)
+
+**Utilities:**
+- [ty.optional(schema)](src/tests/optional.ts)
 
 ## Contributions
 
