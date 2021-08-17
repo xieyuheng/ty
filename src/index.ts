@@ -1,3 +1,52 @@
-export { default } from "./api"
-
 export * from "./schema"
+
+import * as Schemas from "./schemas"
+import { Schema } from "./schema"
+
+const primitive = {
+  string: Schemas.StringSchema.create,
+  format: Schemas.FormatSchema.create, // <: string
+  email: (constraints: Schemas.StringConstraints = {}) =>
+    Schemas.FormatSchema.create("email", constraints),
+  uri: (constraints: Schemas.StringConstraints = {}) =>
+    Schemas.FormatSchema.create("uri", constraints),
+  date: (constraints: Schemas.StringConstraints = {}) =>
+    Schemas.FormatSchema.create("date", constraints),
+  time: (constraints: Schemas.StringConstraints = {}) =>
+    Schemas.FormatSchema.create("time", constraints),
+  number: Schemas.NumberSchema.create,
+  int: Schemas.IntSchema.create, // <: number
+  null: Schemas.NullSchema.create,
+  undefined: Schemas.UndefinedSchema.create,
+  boolean: Schemas.BooleanSchema.create,
+  any: Schemas.AnySchema.create,
+}
+
+const collection = {
+  object: Schemas.ObjectSchema.create,
+  array: Schemas.ArraySchema.create,
+  tuple: Schemas.TupleSchema.create,
+  dict: Schemas.DictSchema.create,
+}
+
+const sets = {
+  same: Schemas.SameSchema.create,
+  union: Schemas.UnionSchema.create,
+  intersection: Schemas.IntersectionSchema.create,
+}
+
+const structural = {
+  omit: Schemas.OmitSchema.create,
+}
+
+const utilities = {
+  optional: <T>(schema: Schema<T>) => sets.union(primitive.undefined(), schema),
+}
+
+export default {
+  ...primitive,
+  ...collection,
+  ...sets,
+  ...structural,
+  ...utilities,
+}

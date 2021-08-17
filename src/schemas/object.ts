@@ -1,5 +1,6 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
+import * as Schemas from "../schemas"
 
 type SchemaObject<T> = { [P in keyof T]: Schema<T[P]> }
 
@@ -17,13 +18,6 @@ export class ObjectSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     for (const key in this.properties) {
-      if (!data.hasOwnProperty(key)) {
-        throw new Errors.InvalidData(data, {
-          msg: `I found a missing required property: ${key}`,
-          keys: [key],
-        })
-      }
-
       try {
         this.properties[key].validate(data[key])
       } catch (error) {

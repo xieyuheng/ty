@@ -63,13 +63,13 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 - [ty.undefined()](src/tests/undefined.test.ts)
 - [ty.any()](src/tests/any.test.ts)
 
-**Compound:**
+**Collection:**
 - [ty.object({ ...schemas })](src/tests/object.test.ts)
 - [ty.array(itemSchema)](src/tests/array.test.ts)
 - [ty.tuple(...itemSchema)](src/tests/tuple.test.ts)
 - [ty.dict(itemSchema)](src/tests/dict.test.ts)
 
-**Set Theory:**
+**Set-Theoretic:**
 - [ty.same(literalData)](src/tests/same.test.ts)
 - [ty.union(leftSchema, rigthSchema)](src/tests/union.ts)
 - [ty.intersection(leftSchema, rigthSchema)](src/tests/intersection.test.ts)
