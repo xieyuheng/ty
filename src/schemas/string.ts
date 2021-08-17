@@ -5,6 +5,7 @@ export interface StringConstraints {
   max?: number
   min?: number
   length?: number
+  within?: Array<string>
 }
 
 export class StringSchema extends Schema<string> {
@@ -26,7 +27,7 @@ export class StringSchema extends Schema<string> {
       })
     }
 
-    const { max, min, length } = this.constraints
+    const { max, min, length, within } = this.constraints
 
     if (max !== undefined && !(data.length <= max)) {
       throw new Errors.InvalidData(data, {
@@ -43,6 +44,12 @@ export class StringSchema extends Schema<string> {
     if (length !== undefined && !(data.length === length)) {
       throw new Errors.InvalidData(data, {
         msg: `I expect the string length to be ${length}`,
+      })
+    }
+
+    if (within !== undefined && !within.includes(data)) {
+      throw new Errors.InvalidData(data, {
+        msg: `I expect the string to be within: ${within.join(", ")}`,
       })
     }
 
