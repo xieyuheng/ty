@@ -10,7 +10,7 @@ function succ(n: Nat): Nat {
 }
 
 function natSchema(): Schema<Nat> {
-  const zeroSchema = ty.same("zero" as const)
+  const zeroSchema = ty.const("zero" as const)
   const succSchema = ty.object({ prev: ty.lazy(natSchema) })
   return ty.union(zeroSchema, succSchema)
 }

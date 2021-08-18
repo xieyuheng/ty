@@ -70,7 +70,7 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 - [ty.dict(itemSchema)](src/tests/dict.test.ts)
 
 **Set-Theoretic:**
-- [ty.same(literalData)](src/tests/same.test.ts)
+- [ty.const(data as const)](src/tests/const.test.ts)
 - [ty.union(leftSchema, rigthSchema)](src/tests/union.ts)
 - [ty.intersection(leftSchema, rigthSchema)](src/tests/intersection.test.ts)
 

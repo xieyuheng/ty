@@ -30,7 +30,7 @@ const collection = {
 }
 
 const sets = {
-  same: Schemas.SameSchema.create,
+  const: Schemas.ConstSchema.create,
   union: Schemas.UnionSchema.create,
   intersection: Schemas.IntersectionSchema.create,
 }

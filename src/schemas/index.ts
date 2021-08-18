@@ -12,7 +12,7 @@ export * from "./array"
 export * from "./tuple"
 export * from "./dict"
 
-export * from "./same"
+export * from "./const"
 export * from "./union"
 export * from "./intersection"
 
