@@ -1,8 +1,11 @@
 # Ty
 
-Here is a schema checker that returns well typed results,
-to be used in typescript,
-tell your friends!
+Write schema to bring TypeScript's types to runtime.
+
+Which can be used to:
+- Validate untyped data and return well typed result.
+- Generate random data of a given schema, to do property-based testing.
+  - We also provide a library of logic theories, to be used as target of models.
 
 ## Install
 
@@ -10,7 +13,9 @@ tell your friends!
 npm i @xieyuheng/ty
 ```
 
-## Usage
+## Examples
+
+### Validation untyped data
 
 ``` typescript
 import ty from "@xieyuheng/ty"
@@ -49,6 +54,18 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
   first_name: "Yuheng",
   last_name: "Xie",
 })
+```
+
+### Generate random data of a given schema
+
+```
+TODO
+```
+
+### Property-based testing
+
+```
+TODO
 ```
 
 ## API Docs
