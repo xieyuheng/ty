@@ -20,7 +20,7 @@ const primitive = {
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
   any: Schemas.AnySchema.create,
-  guard: Schemas.GuardSchema.create,  
+  guard: Schemas.GuardSchema.create,
 }
 
 const collection = {
@@ -38,7 +38,6 @@ const sets = {
 
 const structural = {
   omit: Schemas.OmitSchema.create,
-  unionInto: Schemas.UnionIntoSchema.create,
 }
 
 const recursion = {
