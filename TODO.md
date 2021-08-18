@@ -1,4 +1,4 @@
-- `ty.apply(schemaFn, schema)` be able to map type over collections
+- `Schema.validate(data, opts)` -- use opts to bypass validation
 
 - property based testing
 
