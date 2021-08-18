@@ -1,4 +1,4 @@
-- `Schema.validate(data, opts)` -- use opts to bypass validation
+- `ty.guard((data: any) data is T)`
 
 - property based testing
 

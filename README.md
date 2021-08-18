@@ -76,12 +76,10 @@ const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate({
 
 **Structural:**
 - [ty.omit(schema, key)](src/tests/omit.ts)
+- [ty.optional(schema)](src/tests/optional.ts)
 
 **Recursion:**
 - [ty.lazy(() => schema)](src/tests/lazy.ts)
-
-**Utilities:**
-- [ty.optional(schema)](src/tests/optional.ts)
 
 ## Contributions
 

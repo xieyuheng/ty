@@ -37,6 +37,7 @@ const sets = {
 
 const structural = {
   omit: Schemas.OmitSchema.create,
+  unionInto: Schemas.UnionIntoSchema.create,
 }
 
 const recursion = {
