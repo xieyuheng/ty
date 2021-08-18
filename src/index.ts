@@ -20,6 +20,7 @@ const primitive = {
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
   any: Schemas.AnySchema.create,
+  guard: Schemas.GuardSchema.create,  
 }
 
 const collection = {
