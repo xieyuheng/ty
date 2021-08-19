@@ -1,5 +1,6 @@
 export * from "./schema"
 export * as Schemas from "./schemas"
+export * as Errors from "./errors"
 
 import * as Schemas from "./schemas"
 import { Schema } from "./schema"
