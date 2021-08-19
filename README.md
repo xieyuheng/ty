@@ -5,7 +5,7 @@ Write schema to bring TypeScript's types to runtime.
 Which can be used to:
 - Validate untyped data and return well typed result.
 - Generate random data of a given schema, to do property-based testing.
-  - We also provide a library of logic theories, to be used as target of models.
+  - It also provide a library of logic theories, to be used as target of models.
 
 ## Install
 
