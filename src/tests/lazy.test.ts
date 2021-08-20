@@ -20,11 +20,11 @@ function natSchema(): Schema<Nat> {
   const data0: Nat = schema.validate("zero")
   const data1: Nat = schema.validate(succ(zero))
   const data2: Nat = schema.validate(succ(succ(zero)))
-  schema.assertInvalidate({})
-  schema.assertInvalidate("")
-  schema.assertInvalidate("z")
-  schema.assertInvalidate({ prev: "z" })
-  schema.assertInvalidate({ prev: { prev: "z" } })
+  schema.assertInvalid({})
+  schema.assertInvalid("")
+  schema.assertInvalid("z")
+  schema.assertInvalid({ prev: "z" })
+  schema.assertInvalid({ prev: { prev: "z" } })
 }
 
 // generic `List<T>`
@@ -52,9 +52,9 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   const data3: List<string> = schema.validate(
     cons("a", cons("b", cons("c", null)))
   )
-  schema.assertInvalidate(cons(1, null))
-  schema.assertInvalidate(cons(1, cons(2, null)))
-  schema.assertInvalidate(cons(1, cons(2, cons(3, null))))
+  schema.assertInvalid(cons(1, null))
+  schema.assertInvalid(cons(1, cons(2, null)))
+  schema.assertInvalid(cons(1, cons(2, cons(3, null))))
 }
 
 {
@@ -63,7 +63,7 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   const data1: List<number> = schema.validate(cons(1, null))
   const data2: List<number> = schema.validate(cons(1, cons(2, null)))
   const data3: List<number> = schema.validate(cons(1, cons(2, cons(3, null))))
-  schema.assertInvalidate(cons("a", null))
-  schema.assertInvalidate(cons("a", cons("b", null)))
-  schema.assertInvalidate(cons("a", cons("b", cons("c", null))))
+  schema.assertInvalid(cons("a", null))
+  schema.assertInvalid(cons("a", cons("b", null)))
+  schema.assertInvalid(cons("a", cons("b", cons("c", null))))
 }

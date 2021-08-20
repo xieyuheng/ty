@@ -34,8 +34,8 @@ function logicalSchema<T>(schema: Schema<T>): Schema<Logical<T>> {
 //   const schema = logicalSchema(ty.number())
 //   const data0: Logical<number> = schema.validate(1)
 //   const data1: Logical<number> = schema.validate(v`1`)
-//   schema.assertInvalidate(true)
-//   schema.assertInvalidate("1")
+//   schema.assertInvalid(true)
+//   schema.assertInvalid("1")
 // }
 
 // {
@@ -50,8 +50,8 @@ function logicalSchema<T>(schema: Schema<T>): Schema<Logical<T>> {
 //   const data1: Logical<T> = schema.validate({ x: v`1`, y: 2 })
 //   const data2: Logical<T> = schema.validate({ x: v`1`, y: v`2` })
 //   const data3: Logical<T> = schema.validate(v`object`)
-//   // schema.assertInvalidate(["x"])
-//   // schema.assertInvalidate({ x: "x" })
+//   // schema.assertInvalid(["x"])
+//   // schema.assertInvalid({ x: "x" })
 // }
 
 // {
@@ -61,6 +61,6 @@ function logicalSchema<T>(schema: Schema<T>): Schema<Logical<T>> {
 //   const data1: Logical<T> = schema.validate([v`1`, 2, 3])
 //   const data2: Logical<T> = schema.validate([v`1`, v`2`, 3])
 //   const data3: Logical<T> = schema.validate(v`array`)
-//   // schema.assertInvalidate(["x"])
-//   // schema.assertInvalidate({ x: "x" })
+//   // schema.assertInvalid(["x"])
+//   // schema.assertInvalid({ x: "x" })
 // }

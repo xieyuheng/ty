@@ -10,6 +10,6 @@ import ty from ".."
     name: "xie",
   })
   const data1: { id: number; name?: string } = schema.validate({ id: 2 })
-  schema.assertInvalidate({ name: "xie" })
-  schema.assertInvalidate({})
+  schema.assertInvalid({ name: "xie" })
+  schema.assertInvalid({})
 }

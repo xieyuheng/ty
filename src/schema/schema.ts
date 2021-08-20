@@ -3,7 +3,20 @@ import * as Errors from "../errors"
 export abstract class Schema<T> {
   abstract validate(data: any): T
 
-  assertInvalidate(data: any): void {
+  isValid(data: any): data is T {
+    try {
+      this.validate(data)
+      return true
+    } catch (error) {
+      if (error instanceof Errors.InvalidData) {
+        return false
+      } else {
+        throw error
+      }
+    }
+  }
+
+  assertInvalid(data: any): void {
     try {
       this.validate(data)
       throw new Error(

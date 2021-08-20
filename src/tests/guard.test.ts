@@ -24,6 +24,6 @@ export function v(strs: TemplateStringsArray): Var {
 {
   const schema = ty.guard(Var.guard)
   const data0: Var = schema.validate(v`0`)
-  schema.assertInvalidate(0)
-  schema.assertInvalidate({ id: 0, name: "x" })
+  schema.assertInvalid(0)
+  schema.assertInvalid({ id: 0, name: "x" })
 }

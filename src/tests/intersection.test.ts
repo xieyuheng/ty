@@ -19,11 +19,11 @@ import ty from ".."
   )
   type Data = { x: string; y: string; z: string }
   const data: Data = schema.validate({ x: "x", y: "y", z: "z" })
-  schema.assertInvalidate({ y: "y", z: "z" })
-  schema.assertInvalidate({ x: "x", z: "z" })
-  schema.assertInvalidate({ x: "x", y: "y" })
-  schema.assertInvalidate({ x: "x" })
-  schema.assertInvalidate({ y: "y" })
-  schema.assertInvalidate({ z: "z" })
-  schema.assertInvalidate({})
+  schema.assertInvalid({ y: "y", z: "z" })
+  schema.assertInvalid({ x: "x", z: "z" })
+  schema.assertInvalid({ x: "x", y: "y" })
+  schema.assertInvalid({ x: "x" })
+  schema.assertInvalid({ y: "y" })
+  schema.assertInvalid({ z: "z" })
+  schema.assertInvalid({})
 }

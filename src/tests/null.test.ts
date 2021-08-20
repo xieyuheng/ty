@@ -3,11 +3,11 @@ import ty from ".."
 {
   const schema = ty.null()
   const data: null = schema.validate(null)
-  schema.assertInvalidate("null")
-  schema.assertInvalidate("")
-  schema.assertInvalidate(0)
-  schema.assertInvalidate(false)
-  schema.assertInvalidate([])
-  schema.assertInvalidate({})
-  schema.assertInvalidate(undefined)
+  schema.assertInvalid("null")
+  schema.assertInvalid("")
+  schema.assertInvalid(0)
+  schema.assertInvalid(false)
+  schema.assertInvalid([])
+  schema.assertInvalid({})
+  schema.assertInvalid(undefined)
 }

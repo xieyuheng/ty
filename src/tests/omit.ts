@@ -11,6 +11,6 @@ import ty from ".."
   type Data = { id: string; name: string }
   const data0: Omit<Data, "id"> = schema.validate({ name: "xieyuheng" })
   const data1: Omit<Data, "id"> = schema.validate({ id: "abc", name: "xyh" })
-  schema.assertInvalidate({})
-  schema.assertInvalidate({ id: "abc" })
+  schema.assertInvalid({})
+  schema.assertInvalid({ id: "abc" })
 }
