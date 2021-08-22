@@ -1,13 +1,18 @@
-const schemasafe = require("@exodus/schemasafe")
+import Ajv, { ErrorObject } from "ajv"
 
 // NOTE
 // - detect returns `null | Errors`
 // - validation returns `boolean`
 
-type Errors = Array<any>
+const ajv = new Ajv({ allErrors: true })
+require("ajv-formats")(ajv)
+require("ajv-formats-draft2019")(ajv)
 
-export function jsonSchemaDetect(jsonSchema: any, data: any): null | Errors {
-  const validator = schemasafe.validator(jsonSchema, { includeErrors: true })
+export function jsonSchemaDetect(
+  jsonSchema: Record<string, any>,
+  data: any
+): null | undefined | Array<ErrorObject> {
+  const validator = ajv.compile(jsonSchema)
   if (validator(data)) {
     return null
   } else {
