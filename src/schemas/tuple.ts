@@ -26,7 +26,7 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
       try {
         this.items[i].validate(data[i])
       } catch (error) {
-        if (error instanceof Errors.InvalidData) {
+        if (Errors.InvalidData.guard(error)) {
           error.keys.push(i)
         }
         throw error

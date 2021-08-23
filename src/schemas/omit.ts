@@ -23,7 +23,7 @@ export class OmitSchema<T, Key extends string> extends Schema<Omit<T, Key>> {
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (error instanceof Errors.InvalidData) {
+      if (Errors.InvalidData.guard(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey === this.key) {
           return data

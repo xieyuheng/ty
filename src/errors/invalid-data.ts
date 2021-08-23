@@ -1,4 +1,6 @@
 export class InvalidData extends Error {
+  private instanceofInvalidData = "ty"
+
   data: any
   msg: string
   keys: Array<string | number> = []
@@ -14,6 +16,10 @@ export class InvalidData extends Error {
     this.data = data
     this.msg = opts.msg
     this.keys = opts.keys || []
+  }
+
+  static guard(error: any): error is InvalidData {
+    return error["instanceofInvalidData"] === "ty"
   }
 
   get path(): string {

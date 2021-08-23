@@ -21,7 +21,7 @@ export class ObjectSchema<T> extends Schema<T> {
       try {
         this.properties[key].validate(data[key])
       } catch (error) {
-        if (error instanceof Errors.InvalidData) {
+        if (Errors.InvalidData.guard(error)) {
           error.keys.push(key)
         }
         throw error

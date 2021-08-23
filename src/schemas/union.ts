@@ -20,7 +20,7 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       this.left.validate(data)
       return data
     } catch (leftError) {
-      if (leftError instanceof Errors.InvalidData) {
+      if (Errors.InvalidData.guard(leftError)) {
         try {
           this.right.validate(data)
           return data

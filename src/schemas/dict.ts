@@ -24,7 +24,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
       try {
         this.item.validate(item)
       } catch (error) {
-        if (error instanceof Errors.InvalidData) {
+        if (Errors.InvalidData.guard(error)) {
           error.keys.push(key)
         }
         throw error
