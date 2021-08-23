@@ -1,3 +1,3 @@
-- property based testing
+- `Schema.prune` -- be able to prune data according to schema -- omit extra fields
 
-  - generate example data from schema
+- `Schema.generate` -- generate example data from schema -- for property based testing
