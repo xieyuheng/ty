@@ -1,4 +1,4 @@
-- `ty.omit` -- handle multiple keys
+- `ty.omit` -- handle multiple keys -- `ty.object` need to report all missing keys
 
 - `ty.pick`
 
