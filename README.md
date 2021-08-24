@@ -109,6 +109,9 @@ TODO
 
 **Structural:**
 - [ty.omit(schema, key)](src/tests/omit.ts)
+- [ty.omitMany(schema, keys)](src/tests/omit-many.ts)
+- [ty.pick(schema, key)](src/tests/pick.ts)
+- [ty.pickMany(schema, keys)](src/tests/pick-many.ts)
 - [ty.optional(schema)](src/tests/optional.ts)
 
 **Recursion:**
