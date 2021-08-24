@@ -18,5 +18,6 @@ export * from "./union"
 export * from "./intersection"
 
 export * from "./omit"
+export * from "./omit-many"
 
 export * from "./lazy"

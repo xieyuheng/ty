@@ -40,6 +40,7 @@ const sets = {
 
 const structural = {
   omit: Schemas.OmitSchema.create,
+  omitMany: Schemas.OmitManySchema.create,
 }
 
 const recursion = {

@@ -1,9 +1,11 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-export class OmitSchema<T, Key extends string> extends Schema<Omit<T, Key>> {
+export class OmitSchema<T, Key extends string | number | symbol> extends Schema<
+  Omit<T, Key>
+> {
   schema: Schema<T>
-  key: string
+  key: Key
 
   constructor(schema: Schema<T>, key: Key) {
     super()
@@ -11,11 +13,15 @@ export class OmitSchema<T, Key extends string> extends Schema<Omit<T, Key>> {
     this.key = key
   }
 
-  static create<T, Key extends string>(
+  static create<T, Key extends string | number | symbol>(
     schema: Schema<T>,
-    key: Key
+    keys: Key | Array<Key>
   ): OmitSchema<T, Key> {
-    return new OmitSchema(schema, key)
+    if (keys instanceof Array) {
+      throw new Error()
+    } else {
+      return new OmitSchema(schema, keys)
+    }
   }
 
   validate(data: any): Omit<T, Key> {
