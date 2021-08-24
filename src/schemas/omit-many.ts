@@ -3,7 +3,7 @@ import * as Errors from "../errors"
 
 export class OmitManySchema<
   T,
-  Keys extends Readonly<Array<string | number | symbol>>
+  Keys extends Readonly<Array<keyof T>>
 > extends Schema<Omit<T, Keys[number]>> {
   schema: Schema<T>
   keys: Keys
@@ -14,14 +14,14 @@ export class OmitManySchema<
     this.keys = keys
   }
 
-  static create<T, Keys extends Readonly<Array<string | number | symbol>>>(
+  static create<T, Keys extends Readonly<Array<keyof T>>>(
     schema: Schema<T>,
     keys: Keys
   ): OmitManySchema<T, Keys> {
     return new OmitManySchema(schema, keys)
   }
 
-  json(): { $omitMany: [any, Readonly<Array<string | number | symbol>>] } {
+  json(): { $omitMany: [any, Readonly<Array<keyof T>>] } {
     return { $omitMany: [this.schema.json(), this.keys] }
   }
 
@@ -35,12 +35,12 @@ export class OmitManySchema<
         // TODO This is not enough,
         //   `ty.object` need to report all missing keys
         if (lastKey instanceof Array) {
-          if (lastKey.every((key) => this.keys.includes(key))) {
+          if (lastKey.every((key) => this.keys.includes(key as keyof T))) {
             return data
           } else {
             throw error
           }
-        } else if (this.keys.includes(lastKey)) {
+        } else if (this.keys.includes(lastKey as keyof T)) {
           return data
         } else {
           throw error

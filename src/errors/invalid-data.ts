@@ -3,13 +3,13 @@
 export class InvalidData extends Error {
   data: any
   msg: string
-  keys: Array<string | number | Array<string>> = []
+  keys: Array<string | number | symbol | Array<string | number | symbol>> = []
 
   constructor(
     data: any,
     opts: {
       msg: string
-      keys?: Array<string | number | Array<string>>
+      keys?: Array<string | number | symbol | Array<string | number | symbol>>
     }
   ) {
     super()
@@ -34,12 +34,14 @@ export class InvalidData extends Error {
   get path(): string {
     return this.keys
       .map((key) => {
-        if (typeof key === "number") {
-          return `[${key}]`
-        } else if (typeof key === "string") {
-          return `.${key}`
+        if (
+          typeof key === "number" ||
+          typeof key === "string" ||
+          typeof key === "symbol"
+        ) {
+          return `.${key.toString()}`
         } else {
-          return `.${key.join("&")}`
+          return `.${key.map((key) => key.toString()).join("&")}`
         }
       })
       .join("")

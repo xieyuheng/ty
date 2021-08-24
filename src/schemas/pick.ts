@@ -1,7 +1,7 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
+export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
   schema: Schema<T>
   key: Key
 
@@ -14,22 +14,28 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
   static create<T, Key extends keyof T>(
     schema: Schema<T>,
     keys: Key
-  ): OmitSchema<T, Key> {
-    return new OmitSchema(schema, keys)
+  ): PickSchema<T, Key> {
+    return new PickSchema(schema, keys)
   }
 
-  json(): { $omit: [any, Key] } {
-    return { $omit: [this.schema.json(), this.key] }
+  json(): { $pick: [any, Key] } {
+    return { $pick: [this.schema.json(), this.key] }
   }
 
-  validate(data: any): Omit<T, Key> {
+  validate(data: any): Pick<T, Key> {
     try {
       this.schema.validate(data)
       return data
     } catch (error) {
       if (Errors.InvalidData.guard(error)) {
         const lastKey = error.keys[error.keys.length - 1]
-        if (lastKey === this.key) {
+        if (lastKey instanceof Array) {
+          if (lastKey.includes(this.key)) {
+            throw error
+          } else {
+            return data
+          }
+        } else if (lastKey !== this.key) {
           return data
         } else {
           throw error
