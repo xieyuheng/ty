@@ -26,17 +26,31 @@ export class ObjectSchema<T> extends Schema<T> {
   }
 
   validate(data: any): T {
+    const keys: Array<string> = []
+    const errors: Array<Errors.InvalidData> = []
     for (const key in this.properties) {
       try {
         this.properties[key].validate(data[key])
       } catch (error) {
         if (Errors.InvalidData.guard(error)) {
-          error.keys.push(key)
+          keys.push(key)
+          errors.push(error)
+        } else {
+          throw error
         }
-        throw error
       }
     }
 
-    return data
+    const firstError = errors[0]
+
+    if (firstError === undefined) {
+      return data
+    } else if (errors.length === 1) {
+      firstError.keys.push(keys[0])
+      throw firstError
+    } else {
+      firstError.keys.push(keys)
+      throw firstError
+    }
   }
 }

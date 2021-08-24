@@ -34,7 +34,13 @@ export class OmitManySchema<
         const lastKey = error.keys[error.keys.length - 1]
         // TODO This is not enough,
         //   `ty.object` need to report all missing keys
-        if (this.keys.includes(lastKey)) {
+        if (lastKey instanceof Array) {
+          if (lastKey.every((key) => this.keys.includes(key))) {
+            return data
+          } else {
+            throw error
+          }
+        } else if (this.keys.includes(lastKey)) {
           return data
         } else {
           throw error

@@ -1,13 +1,15 @@
+// TODO the structure of `InvalidData` not well designed and is overloaded
+
 export class InvalidData extends Error {
   data: any
   msg: string
-  keys: Array<string | number> = []
+  keys: Array<string | number | Array<string>> = []
 
   constructor(
     data: any,
     opts: {
       msg: string
-      keys?: Array<string | number>
+      keys?: Array<string | number | Array<string>>
     }
   ) {
     super()
@@ -31,7 +33,15 @@ export class InvalidData extends Error {
 
   get path(): string {
     return this.keys
-      .map((key) => (typeof key === "number" ? `[${key}]` : `.${key}`))
+      .map((key) => {
+        if (typeof key === "number") {
+          return `[${key}]`
+        } else if (typeof key === "string") {
+          return `.${key}`
+        } else {
+          return `.${key.join("&")}`
+        }
+      })
       .join("")
   }
 
