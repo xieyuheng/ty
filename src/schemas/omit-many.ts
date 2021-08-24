@@ -47,4 +47,13 @@ export class OmitManySchema<
       throw error
     }
   }
+
+  prune(data: any): Omit<T, Keys[number]> {
+    const typedData = { ...this.validate(data) }
+    for (const key of this.keys) {
+      delete (typedData as T)[key]
+    }
+
+    return typedData
+  }
 }

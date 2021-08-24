@@ -59,4 +59,8 @@ export class StringSchema extends Schema<string> {
 
     return data
   }
+
+  prune(data: any): string {
+    return this.validate(data)
+  }
 }

@@ -53,4 +53,16 @@ export class ObjectSchema<T> extends Schema<T> {
       throw firstError
     }
   }
+
+  prune(data: any): T {
+    const typedData = { ...this.validate(data) }
+    const keys = Object.keys(this.properties)
+    for (const key in typedData) {
+      if (!keys.includes(key)) {
+        delete typedData[key]
+      }
+    }
+
+    return typedData
+  }
 }

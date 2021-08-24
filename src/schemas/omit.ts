@@ -38,4 +38,10 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
       throw error
     }
   }
+
+  prune(data: any): Omit<T, Key> {
+    const typedData = { ...this.validate(data) }
+    delete (typedData as T)[this.key]
+    return typedData
+  }
 }

@@ -2,6 +2,7 @@ import * as Errors from "../errors"
 
 export abstract class Schema<T> {
   abstract validate(data: any): T
+  abstract prune(data: any): T
   abstract json(): any
 
   isValid(data: any): data is T {

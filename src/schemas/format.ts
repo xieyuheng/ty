@@ -35,4 +35,8 @@ export class FormatSchema extends StringSchema {
 
     return data
   }
+
+  prune(data: any): string {
+    return this.validate(data)
+  }
 }

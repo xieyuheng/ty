@@ -47,4 +47,16 @@ export class PickManySchema<
       throw error
     }
   }
+
+  prune(data: any): Pick<T, Keys[number]> {
+    const typedData = this.validate(data)
+    const results: any = {}
+    for (const key in typedData) {
+      if (this.keys.includes(key as keyof T)) {
+        results[key] = typedData[key as keyof T]
+      }
+    }
+
+    return results
+  }
 }

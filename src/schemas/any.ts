@@ -13,4 +13,8 @@ export class AnySchema extends Schema<any> {
   validate(data: any): any {
     return data
   }
+
+  prune(data: any): any {
+    return data
+  }
 }

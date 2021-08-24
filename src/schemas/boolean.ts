@@ -19,4 +19,8 @@ export class BooleanSchema extends Schema<boolean> {
 
     return data
   }
+
+  prune(data: any): boolean {
+    return this.validate(data)
+  }
 }

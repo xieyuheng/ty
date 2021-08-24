@@ -13,4 +13,7 @@ import ty from ".."
   const data1: Omit<Data, "id"> = schema.validate({ id: "abc", name: "xyh" })
   schema.assertInvalid({})
   schema.assertInvalid({ id: "abc" })
+
+  const prunedData: Omit<Data, "id"> = schema.prune({ id: "abc", name: "xyh" })
+  ty.undefined().validate((prunedData as any)["id"])
 }

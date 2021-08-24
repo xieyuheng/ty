@@ -27,4 +27,8 @@ export class GuardSchema<T> extends Schema<T> {
 
     return data
   }
+
+  prune(data: any): T {
+    return this.validate(data)
+  }
 }

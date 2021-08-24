@@ -37,4 +37,14 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
 
     return data
   }
+
+  prune(data: any): Record<string, T> {
+    const typedData = this.validate(data)
+    const record: Record<string, T> = {}
+    for (const key in typedData) {
+      record[key] = this.item.prune(typedData[key])
+    }
+
+    return record
+  }
 }

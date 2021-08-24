@@ -19,4 +19,8 @@ export class NullSchema extends Schema<null> {
 
     return data
   }
+
+  prune(data: any): null {
+    return this.validate(data)
+  }
 }

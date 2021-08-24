@@ -59,4 +59,8 @@ export class NumberSchema extends Schema<number> {
 
     return data
   }
+
+  prune(data: any): number {
+    return this.validate(data)
+  }
 }

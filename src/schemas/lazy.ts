@@ -21,4 +21,9 @@ export class LazySchema<T> extends Schema<T> {
     const schema = this.thunk()
     return schema.validate(data)
   }
+
+  prune(data: any): T {
+    const schema = this.thunk()
+    return schema.prune(data)
+  }
 }

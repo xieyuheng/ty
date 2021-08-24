@@ -19,4 +19,8 @@ export class UndefinedSchema extends Schema<undefined> {
 
     return data
   }
+
+  prune(data: any): undefined {
+    return this.validate(data)
+  }
 }

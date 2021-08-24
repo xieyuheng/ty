@@ -37,4 +37,8 @@ export class ArraySchema<T> extends Schema<Array<T>> {
 
     return data
   }
+
+  prune(data: any): Array<T> {
+    return this.validate(data).map((e) => this.item.prune(e))
+  }
 }

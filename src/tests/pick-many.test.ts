@@ -17,4 +17,7 @@ import ty from ".."
   schema.assertInvalid({ z: 0 })
   schema.assertInvalid({ x: 0, z: 0 })
   schema.assertInvalid({ y: 0, z: 0 })
+
+  const prunedData: Pick<Data, "x" | "y"> = schema.prune({ z: 0, x: 0, y: 0 })
+  ty.undefined().validate((prunedData as any)["z"])
 }

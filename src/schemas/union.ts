@@ -1,5 +1,6 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
+import * as ut from "../ut"
 
 export class UnionSchema<T, U> extends Schema<T | U> {
   left: Schema<T>
@@ -42,6 +43,19 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       } else {
         throw leftError
       }
+    }
+  }
+
+  prune(data: any): T | U {
+    const typedData = this.validate(data)
+
+    if (ut.isObject(typedData)) {
+      return {
+        ...this.left.prune(typedData),
+        ...this.right.prune(typedData),
+      }
+    } else {
+      return typedData
     }
   }
 }
