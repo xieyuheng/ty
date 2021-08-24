@@ -24,6 +24,10 @@ export class OmitSchema<T, Key extends string | number | symbol> extends Schema<
     }
   }
 
+  json(): { $omit: [any, string | number | symbol] } {
+    return { $omit: [this.schema.json(), this.key] }
+  }
+
   validate(data: any): Omit<T, Key> {
     try {
       this.schema.validate(data)

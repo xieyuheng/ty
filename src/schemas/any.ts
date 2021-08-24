@@ -6,6 +6,10 @@ export class AnySchema extends Schema<any> {
     return new AnySchema()
   }
 
+  json(): "any" {
+    return "any"
+  }
+
   validate(data: any): any {
     return data
   }

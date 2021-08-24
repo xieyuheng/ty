@@ -20,6 +20,10 @@ export class NumberSchema extends Schema<number> {
     return new NumberSchema(constraints)
   }
 
+  json(): any {
+    return "number"
+  }
+
   validate(data: any): number {
     if (typeof data !== "number") {
       throw new Errors.InvalidData(data, {

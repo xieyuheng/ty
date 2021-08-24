@@ -18,6 +18,10 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
     return new IntersectionSchema(left, right)
   }
 
+  json(): { $intersection: [any, any] } {
+    return { $intersection: [this.left.json(), this.right.json()] }
+  }
+
   validate(data: any): T & U {
     try {
       this.left.validate(data)

@@ -13,6 +13,10 @@ export class ArraySchema<T> extends Schema<Array<T>> {
     return new ArraySchema({ item })
   }
 
+  json(): { $array: any } {
+    return { $array: this.item.json() }
+  }
+
   validate(data: any): Array<T> {
     if (!(data instanceof Array)) {
       throw new Errors.InvalidData(data, {

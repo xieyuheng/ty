@@ -14,6 +14,10 @@ export class GuardSchema<T> extends Schema<T> {
     return new GuardSchema(guard)
   }
 
+  json(): { $guard: any } {
+    return { $guard: this.guard }
+  }
+
   validate(data: any): T {
     if (!this.guard(data)) {
       throw new Errors.InvalidData(data, {

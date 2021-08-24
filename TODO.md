@@ -1,11 +1,8 @@
-- `ty.omitMany` -- `ty.object` need to report all missing keys
+- `Schema.prune` -- be able to prune data according to schema -- delete extra fields
 
-- `Schema.repr` for error report
+- `ty.omitMany` -- `ty.object` need to report all missing keys
 
 - `ty.pick`
 - `ty.pickMany`
-
-
-- `Schema.prune` -- be able to prune data according to schema -- omit extra fields
 
 - `Schema.generate` -- generate example data from schema -- for property based testing

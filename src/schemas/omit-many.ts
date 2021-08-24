@@ -21,6 +21,10 @@ export class OmitManySchema<
     return new OmitManySchema(schema, keys)
   }
 
+  json(): { $omitMany: [any, Readonly<Array<string | number | symbol>>] } {
+    return { $omitMany: [this.schema.json(), this.keys] }
+  }
+
   validate(data: any): Omit<T, Keys[number]> {
     try {
       this.schema.validate(data)

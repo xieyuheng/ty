@@ -14,6 +14,10 @@ export class IntSchema extends NumberSchema {
     return new IntSchema(constraints)
   }
 
+  json(): "int" {
+    return "int"
+  }
+
   validate(data: any): number {
     super.validate(data)
 

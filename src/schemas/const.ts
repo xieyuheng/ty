@@ -14,6 +14,10 @@ export class ConstSchema<T> extends Schema<T> {
     return new ConstSchema(data)
   }
 
+  json(): { $const: any } {
+    return { $const: this.data }
+  }
+
   validate(data: any): T {
     if (!ut.equal(this.data, data)) {
       const repr = JSON.stringify(data)

@@ -20,6 +20,10 @@ export class FormatSchema extends StringSchema {
     return new FormatSchema(format, constraints)
   }
 
+  json(): { $format: string } {
+    return { $format: this.format }
+  }
+
   validate(data: any): string {
     super.validate(data)
 

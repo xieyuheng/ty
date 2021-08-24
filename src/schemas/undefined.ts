@@ -6,6 +6,10 @@ export class UndefinedSchema extends Schema<undefined> {
     return new UndefinedSchema()
   }
 
+  json(): "undefined" {
+    return "undefined"
+  }
+
   validate(data: any): undefined {
     if (data !== undefined) {
       throw new Errors.InvalidData(data, {

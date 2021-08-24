@@ -13,6 +13,10 @@ export class LazySchema<T> extends Schema<T> {
     return new LazySchema(thunk)
   }
 
+  json(): { $lazy: any } {
+    return { $lazy: this.thunk }
+  }
+
   validate(data: any): T {
     const schema = this.thunk()
     return schema.validate(data)
