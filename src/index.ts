@@ -42,7 +42,7 @@ const structural = {
   omit: Schemas.OmitSchema.create,
   omitMany: Schemas.OmitManySchema.create,
   pick: Schemas.PickSchema.create,
-  // pickMany: Schemas.PickManySchema.create,
+  pickMany: Schemas.PickManySchema.create,
 }
 
 const recursion = {

@@ -1,10 +1,10 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-export class OmitManySchema<
+export class PickManySchema<
   T,
   Keys extends Readonly<Array<keyof T>>
-> extends Schema<Omit<T, Keys[number]>> {
+> extends Schema<Pick<T, Keys[number]>> {
   schema: Schema<T>
   keys: Keys
 
@@ -17,15 +17,15 @@ export class OmitManySchema<
   static create<T, Keys extends Readonly<Array<keyof T>>>(
     schema: Schema<T>,
     keys: Keys
-  ): OmitManySchema<T, Keys> {
-    return new OmitManySchema(schema, keys)
+  ): PickManySchema<T, Keys> {
+    return new PickManySchema(schema, keys)
   }
 
-  json(): { $omitMany: [any, Readonly<Array<keyof T>>] } {
-    return { $omitMany: [this.schema.json(), this.keys] }
+  json(): { $pickMany: [any, Readonly<Array<keyof T>>] } {
+    return { $pickMany: [this.schema.json(), this.keys] }
   }
 
-  validate(data: any): Omit<T, Keys[number]> {
+  validate(data: any): Pick<T, Keys[number]> {
     try {
       this.schema.validate(data)
       return data
@@ -33,12 +33,12 @@ export class OmitManySchema<
       if (Errors.InvalidData.guard(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey instanceof Array) {
-          if (lastKey.every((key) => this.keys.includes(key as keyof T))) {
+          if (lastKey.every((key) => !this.keys.includes(key as keyof T))) {
             return data
           } else {
             throw error
           }
-        } else if (this.keys.includes(lastKey as keyof T)) {
+        } else if (!this.keys.includes(lastKey as keyof T)) {
           return data
         } else {
           throw error

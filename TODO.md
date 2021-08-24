@@ -1,4 +1,4 @@
-- `ty.pickMany`
+- update API docs
 
 - `Schema.prune` -- be able to prune data according to schema -- delete extra fields
 

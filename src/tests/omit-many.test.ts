@@ -13,7 +13,6 @@ import ty from ".."
   const data0: Omit<Data, "x" | "y"> = schema.validate({ z: 0 })
   const data1: Omit<Data, "x" | "y"> = schema.validate({ z: 0, x: 0 })
   const data2: Omit<Data, "x" | "y"> = schema.validate({ z: 0, x: 0, y: 0 })
-  // TODO
   schema.assertInvalid({ x: 0 })
   schema.assertInvalid({ x: 0, y: 0 })
 }

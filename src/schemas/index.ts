@@ -20,6 +20,6 @@ export * from "./intersection"
 export * from "./omit"
 export * from "./omit-many"
 export * from "./pick"
-// export * from "./pick-many"
+export * from "./pick-many"
 
 export * from "./lazy"
