@@ -1,5 +1,3 @@
-- any -- `generate` -- use `ty.union`
-
 - `Schema.generate` -- should be abstract
 
 # later

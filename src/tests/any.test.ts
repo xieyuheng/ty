@@ -14,3 +14,8 @@ import ty from ".."
   schema.validate({})
   schema.validate(undefined)
 }
+
+{
+  const schema = ty.any()
+  schema.testGeneration()
+}

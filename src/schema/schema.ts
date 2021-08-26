@@ -9,9 +9,15 @@ export abstract class Schema<T> {
     throw new Error("METHOD NOT IMPLEMENTED")
   }
 
-  testGeneration(n: number = 100): void {
+  testGeneration(opts: { n?: number; echo?: boolean } = {}): void {
+    const n = opts.n || 100
+
     for (let i = 0; i < n; i++) {
       const data = this.generate()
+      if (opts?.echo) {
+        console.log(`generated data #${i}:`, data)
+      }
+
       this.validate(data)
     }
   }

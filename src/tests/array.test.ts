@@ -33,8 +33,6 @@ import ty from ".."
 {
   const schema = ty.array(ty.number())
   schema.testGeneration()
-  schema.testGeneration()
-  schema.testGeneration()
 }
 
 {
