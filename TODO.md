@@ -1,5 +1,3 @@
-- lazy -- `generate` -- to test this, we need `union.generate()`
-
 - any -- `generate` -- use `ty.union`
 
 - omit -- `generate`
@@ -13,6 +11,8 @@
 - `Schema.generate` -- should be abstract
 
 # later
+
+- minimalist homepage for docs
 
 - string -- `generate` -- use context free grammar to generate sentences
 

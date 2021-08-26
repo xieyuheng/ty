@@ -74,3 +74,16 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   schema.assertInvalid(cons("a", cons("b", null)))
   schema.assertInvalid(cons("a", cons("b", cons("c", null))))
 }
+
+// generate
+
+{
+  const schema = listSchema(ty.string())
+  schema.testGeneration()
+
+}
+
+{
+  const schema = listSchema(ty.number())
+  schema.testGeneration()
+}
