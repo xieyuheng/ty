@@ -19,7 +19,5 @@ import ty from ".."
 
 {
   const schema = ty.boolean()
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

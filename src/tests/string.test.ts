@@ -57,23 +57,23 @@ import ty from ".."
 
 {
   const schema = ty.string()
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
+  schema.testGeneration()
+  schema.testGeneration()
 }
 
 {
   const schema = ty.string({ length: 3 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
+  schema.testGeneration()
+  schema.testGeneration()
 }
 
 {
   const schema = ty.string({ min: 1, max: 3 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
+  schema.testGeneration()
+  schema.testGeneration()
 }
 
 {
@@ -100,7 +100,5 @@ import ty from ".."
     ],
   })
 
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

@@ -21,9 +21,7 @@ import ty from ".."
 
 {
   const schema = ty.tuple(ty.number(), ty.number(), ty.number())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
@@ -38,7 +36,6 @@ import ty from ".."
     ty.tuple(ty.int(), ty.int(), ty.int()),
     ty.tuple(ty.int(), ty.int(), ty.int())
   )
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+
+  schema.testGeneration()
 }

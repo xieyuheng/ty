@@ -16,7 +16,5 @@ import ty from ".."
 
 {
   const schema = ty.null()
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

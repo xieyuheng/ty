@@ -13,7 +13,5 @@ import ty from ".."
 
 {
   const schema = ty.const({ x: 1, y: "a" })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

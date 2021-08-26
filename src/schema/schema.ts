@@ -1,12 +1,20 @@
 import * as Errors from "../errors"
 
 export abstract class Schema<T> {
+  abstract json(): any
   abstract validate(data: any): T
   abstract prune(data: any): T
+
   generate(): T {
     throw new Error("METHOD NOT IMPLEMENTED")
   }
-  abstract json(): any
+
+  testGeneration(n: number = 100): void {
+    for (let i = 0; i < n; i++) {
+      const data = this.generate()
+      this.validate(data)
+    }
+  }
 
   isValid(data: any): data is T {
     try {

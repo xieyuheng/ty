@@ -32,21 +32,17 @@ import ty from ".."
 
 {
   const schema = ty.array(ty.number())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
+  schema.testGeneration()
+  schema.testGeneration()
 }
 
 {
   const schema = ty.array(ty.number(), { max: 3 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.array(ty.number(), { min: 0, max: 3 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

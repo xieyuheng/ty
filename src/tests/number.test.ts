@@ -27,42 +27,30 @@ import ty from ".."
 
 {
   const schema = ty.number({ min: 0, max: 100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.number({ min: -100, max: 100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.number({ max: 100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.number({ min: 100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.number({ min: -100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.number()
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

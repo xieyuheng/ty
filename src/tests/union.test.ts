@@ -13,7 +13,5 @@ import ty from ".."
 
 {
   const schema = ty.union(ty.string(), ty.union(ty.number(), ty.null()))
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

@@ -24,10 +24,5 @@ import ty from ".."
 
 {
   const schema = ty.dict(ty.number())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

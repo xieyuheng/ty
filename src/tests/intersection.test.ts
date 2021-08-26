@@ -28,6 +28,8 @@ import ty from ".."
   schema.assertInvalid({})
 }
 
+// generate
+
 {
   const schema = ty.intersection(
     ty.object({
@@ -46,7 +48,5 @@ import ty from ".."
     )
   )
 
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

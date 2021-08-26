@@ -16,7 +16,5 @@ import ty from ".."
 
 {
   const schema = ty.undefined()
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

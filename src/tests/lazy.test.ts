@@ -27,6 +27,13 @@ function natSchema(): Schema<Nat> {
   schema.assertInvalid({ prev: { prev: "z" } })
 }
 
+// generate
+
+{
+  const schema = natSchema()
+  schema.testGeneration()
+}
+
 // generic `List<T>`
 
 type List<T> = null | { head: T; tail: List<T> }

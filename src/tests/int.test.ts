@@ -28,21 +28,15 @@ import ty from ".."
 
 {
   const schema = ty.int()
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.int({ max: 100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
   const schema = ty.int({ min: 0, max: 100 })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

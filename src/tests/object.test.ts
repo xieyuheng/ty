@@ -24,9 +24,7 @@ import ty from ".."
 
 {
   const schema = ty.object({ x: ty.number(), y: ty.number(), z: ty.number() })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }
 
 {
@@ -35,7 +33,5 @@ import ty from ".."
     b: ty.object({ x: ty.number(), y: ty.number(), z: ty.number() }),
     c: ty.object({ x: ty.number(), y: ty.number(), z: ty.number() }),
   })
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
-  schema.validate(schema.generate())
+  schema.testGeneration()
 }

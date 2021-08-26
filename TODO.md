@@ -1,6 +1,6 @@
-- any -- `generate` -- use `ty.union`
-
 - lazy -- `generate` -- to test this, we need `union.generate()`
+
+- any -- `generate` -- use `ty.union`
 
 - omit -- `generate`
 - omit-many -- `generate`
