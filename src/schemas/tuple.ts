@@ -11,7 +11,9 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
     this.items = opts.items
   }
 
-  static create<T extends Array<any>>(...items: SchemaTuple<T>): TupleSchema<T> {
+  static create<T extends Array<any>>(
+    ...items: SchemaTuple<T>
+  ): TupleSchema<T> {
     return new TupleSchema({ items })
   }
 
@@ -42,5 +44,9 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
 
   prune(data: any): T {
     return this.validate(data).map((e, i) => this.items[i].prune(e)) as T
+  }
+
+  generate(): T {
+    return this.items.map((item) => item.generate()) as T
   }
 }

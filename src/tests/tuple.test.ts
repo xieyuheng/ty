@@ -16,3 +16,23 @@ import ty from ".."
   schema.assertInvalid(0)
   schema.assertInvalid(false)
 }
+
+// generate
+
+{
+  const schema = ty.tuple(ty.number(), ty.number(), ty.number())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.tuple(
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int())
+  )
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
