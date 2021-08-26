@@ -1,7 +1,5 @@
 - `Schema.generate` -- generate example data from schema -- for property based testing
 
-- array -- generate
-
 - int -- generate
 
 - string -- generate

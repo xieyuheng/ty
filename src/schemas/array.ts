@@ -1,5 +1,6 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
+import ty from ".."
 
 export class ArraySchema<T> extends Schema<Array<T>> {
   item: Schema<T>
@@ -40,5 +41,15 @@ export class ArraySchema<T> extends Schema<Array<T>> {
 
   prune(data: any): Array<T> {
     return this.validate(data).map((e) => this.item.prune(e))
+  }
+
+  generate(): Array<T> {
+    const length = ty.number({ gte: 0 }).generate()
+    const results: Array<T> = []
+    for (let i = 0; i < length; i++) {
+      results.push(this.item.generate())
+    }
+
+    return results
   }
 }

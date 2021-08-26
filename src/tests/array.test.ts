@@ -18,3 +18,12 @@ import ty from ".."
   schema.assertInvalid(0)
   schema.assertInvalid(false)
 }
+
+// generate
+
+{
+  const schema = ty.array(ty.number())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
