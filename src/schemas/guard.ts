@@ -4,14 +4,22 @@ import * as ut from "../ut"
 
 export class GuardSchema<T> extends Schema<T> {
   guard: (data: any) => data is T
+  private gen?: () => T
 
-  constructor(guard: (data: any) => data is T) {
+  constructor(
+    guard: (data: any) => data is T,
+    opts: { generate?: () => T } = {}
+  ) {
     super()
     this.guard = guard
+    this.gen = opts.generate
   }
 
-  static create<T>(guard: (data: any) => data is T): GuardSchema<T> {
-    return new GuardSchema(guard)
+  static create<T>(
+    guard: (data: any) => data is T,
+    opts: { generate?: () => T } = {}
+  ): GuardSchema<T> {
+    return new GuardSchema(guard, opts)
   }
 
   json(): { $guard: any } {
@@ -30,5 +38,13 @@ export class GuardSchema<T> extends Schema<T> {
 
   prune(data: any): T {
     return this.validate(data)
+  }
+
+  generate(): T {
+    if (this.gen) {
+      return this.gen()
+    } else {
+      throw new Error("The generate function of GuardSchema is not provided.")
+    }
   }
 }

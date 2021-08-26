@@ -1,7 +1,5 @@
 - any -- `generate` -- use `ty.union`
 
-- guard -- `generate` -- user provide optional `generate` function
-
 - `Schema.generate` -- should be abstract
 
 # later
