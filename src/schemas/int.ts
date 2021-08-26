@@ -29,4 +29,34 @@ export class IntSchema extends NumberSchema {
 
     return data
   }
+
+  generate(): number {
+    const { gt, lt, gte, lte } = this.constraints
+
+    let min = gte || gt
+    min = min ? Math.ceil(min) : undefined
+
+    let max = lte || lt
+    max = max ? Math.floor(max) : undefined
+
+    // TODO The maximum is exclusive and the minimum is inclusive
+
+    if (min !== undefined && max !== undefined) {
+      return Math.random() * (max - min) + min
+    } else if (min !== undefined) {
+      max = min + Math.abs(1 / Math.random()) + 1
+      max = Math.floor(max)
+      return Math.floor(Math.random() * (max - min) + min)
+    } else if (max !== undefined) {
+      min = max - Math.abs(1 / Math.random()) - 1
+      min = Math.ceil(min)
+      return Math.floor(Math.random() * (max - min) + min)
+    } else {
+      min = -Math.abs(1 / Math.random()) - 1
+      min = Math.ceil(min)
+      max = Math.abs(1 / Math.random()) + 1
+      max = Math.floor(max)
+      return Math.floor(Math.random() * (max - min) + min)
+    }
+  }
 }

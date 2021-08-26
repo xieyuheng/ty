@@ -25,3 +25,26 @@ import ty from ".."
   schema.assertInvalid(100)
   schema.assertInvalid(123)
 }
+
+// generate
+
+{
+  const schema = ty.int()
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.int({ lt: 100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.int({ gte: 0, lt: 100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
