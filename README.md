@@ -5,7 +5,7 @@ Write schema to bring TypeScript's types to runtime.
 Which can be used to:
 - Validate untyped data and return well typed result.
 - Generate random data of a given schema, to do property-based testing.
-  - It also provides a library of logic theories, to be used as target of models.
+  - We also provide a library of logic theories, to be used as target of models.
 
 ## Install
 
@@ -86,7 +86,58 @@ type User = {
 }
 ```
 
+### Recursive and generic schema
+
+``` typescript
+type List<T> = null | { head: T; tail: List<T> }
+
+function cons<T>(head: T, tail: List<T>): List<T> {
+  return { head, tail }
+}
+
+function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
+  const nullSchema = ty.null()
+  const consSchema = ty.object({
+    head: itemSchema,
+    tail: ty.lazy(() => listSchema(itemSchema)),
+  })
+  return ty.union(nullSchema, consSchema)
+}
+
+{
+  const schema = listSchema(ty.string())
+  const data0: List<string> = schema.validate(null)
+  const data1: List<string> = schema.validate(cons("a", null))
+  const data2: List<string> = schema.validate(cons("a", cons("b", null)))
+  const data3: List<string> = schema.validate(
+    cons("a", cons("b", cons("c", null)))
+  )
+  schema.assertInvalid(cons(1, null))
+  schema.assertInvalid(cons(1, cons(2, null)))
+  schema.assertInvalid(cons(1, cons(2, cons(3, null))))
+}
+
+{
+  const schema = listSchema(ty.number())
+  const data0: List<number> = schema.validate(null)
+  const data1: List<number> = schema.validate(cons(1, null))
+  const data2: List<number> = schema.validate(cons(1, cons(2, null)))
+  const data3: List<number> = schema.validate(cons(1, cons(2, cons(3, null))))
+  schema.assertInvalid(cons("a", null))
+  schema.assertInvalid(cons("a", cons("b", null)))
+  schema.assertInvalid(cons("a", cons("b", cons("c", null))))
+}
+```
+
 ### Property-based testing
+
+```
+TODO
+```
+
+### Logic theories (interface and typeclass of laws)
+
+To be used as target of models, for property-based testing.
 
 ```
 TODO
