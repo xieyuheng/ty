@@ -92,9 +92,9 @@ import ty from ".."
 
 {
   const schema = ty.format("uri")
-  console.log(schema.validate(schema.generate()))
-  console.log(schema.validate(schema.generate()))
-  console.log(schema.validate(schema.generate()))
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
 }
 
 {

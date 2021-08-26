@@ -67,7 +67,9 @@ export class FormatSchema extends StringSchema {
     if (this.format === "email") {
       const username = ty.string({ max: 32 }).generate()
       const sitename = ty.string({ max: 16 }).generate()
-      const domain = ty.string({ within: ["cn", "com", "org"] }).generate()
+      const domain = ty
+        .string({ within: ["cn", "pl", "io", "com", "org"] })
+        .generate()
       return `${username}@${sitename}.${domain}`
     }
 
@@ -76,7 +78,9 @@ export class FormatSchema extends StringSchema {
         .array(ty.string({ max: 10 }), { max: 3 })
         .generate()
         .join(".")
-      const domain = ty.string({ within: ["cn", "com", "org"] }).generate()
+      const domain = ty
+        .string({ within: ["cn", "pl", "io", "com", "org"] })
+        .generate()
       const address = `${subdomain}.${domain}`
       const path = ty.array(ty.string(), { max: 3 }).generate().join("/")
       return `https://${address}/${path}`
