@@ -1,6 +1,7 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 import * as ut from "../ut"
+import ty from ".."
 
 export class UnionSchema<T, U> extends Schema<T | U> {
   left: Schema<T>
@@ -56,6 +57,14 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       }
     } else {
       return typedData
+    }
+  }
+
+  generate(): T | U {
+    if (ty.boolean().generate()) {
+      return this.left.generate()
+    } else {
+      return this.right.generate()
     }
   }
 }
