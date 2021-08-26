@@ -20,3 +20,16 @@ import ty from ".."
   ty.undefined().validate((prunedData as any)["x"])
   ty.undefined().validate((prunedData as any)["y"])
 }
+
+{
+  const schema = ty.omitMany(
+    ty.object({
+      x: ty.number(),
+      y: ty.number(),
+      z: ty.number(),
+    }),
+    ["x", "y"] as const
+  )
+
+  schema.testGeneration()
+}
