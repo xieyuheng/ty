@@ -1,4 +1,3 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
 import { NumberSchema, NumberConstraints } from "./number"
 
@@ -31,10 +30,7 @@ export class IntSchema extends NumberSchema {
   }
 
   generate(): number {
-    const { gt, lt, gte, lte } = this.constraints
-
-    let min = gte || gt
-    let max = lte || lt
+    let { min, max } = this.constraints
 
     // TODO The maximum is exclusive and the minimum is inclusive,
     //   thus the edge cases are not covered.

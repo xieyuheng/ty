@@ -75,7 +75,7 @@ export class StringSchema extends Schema<string> {
     }
 
     const size =
-      length || Math.abs(ty.int({ gte: min, lte: max }).generate()) + 1
+      length || Math.abs(ty.int({ min: min, max: max }).generate()) + 1
     const nanoid = customAlphabet("1234567890abcdef", size)
     return nanoid()
   }

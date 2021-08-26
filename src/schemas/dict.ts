@@ -50,7 +50,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
   }
 
   generate(): Record<string, T> {
-    const length = ty.number({ gte: 0 }).generate()
+    const length = ty.number({ min: 0 }).generate()
     const results: Record<string, T> = {}
     for (let i = 0; i < length; i++) {
       const key = ty.string().generate()

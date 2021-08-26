@@ -44,7 +44,7 @@ export class ArraySchema<T> extends Schema<Array<T>> {
   }
 
   generate(): Array<T> {
-    const length = ty.number({ gte: 0, lte: 10 }).generate()
+    const length = ty.number({ min: 0, max: 10 }).generate()
     const results: Array<T> = []
     for (let i = 0; i < length; i++) {
       results.push(this.item.generate())

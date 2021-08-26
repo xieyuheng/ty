@@ -2,23 +2,13 @@ import { Schema } from "../schema"
 import * as Errors from "../errors"
 
 export interface NumberConstraints {
-  gt?: number
-  lt?: number
-  gte?: number
-  lte?: number
+  min?: number
+  max?: number
 }
 
-function validateNumberConstraints({
-  gt,
-  lt,
-  gte,
-  lte,
-}: NumberConstraints): boolean {
+function validateNumberConstraints({ min, max }: NumberConstraints): boolean {
   // NOTE comparing `undefined` with number, will always return `false`.
-  if ((gt as any) >= (lt as any)) return false
-  if ((gt as any) >= (lte as any)) return false
-  if ((gte as any) >= (lt as any)) return false
-  if ((gte as any) > (lte as any)) return false
+  if ((min as any) > (max as any)) return false
   else return true
 }
 
@@ -51,29 +41,17 @@ export class NumberSchema extends Schema<number> {
       })
     }
 
-    const { gt, lt, gte, lte } = this.constraints
+    const { min, max } = this.constraints
 
-    if (gt !== undefined && !(data > gt)) {
+    if (min !== undefined && !(data >= min)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the number to be greater than ${gt}`,
+        msg: `I expect the number to be greater than or equal to ${min}`,
       })
     }
 
-    if (lt !== undefined && !(data < lt)) {
+    if (max !== undefined && !(data <= max)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the number to be less than ${lt}`,
-      })
-    }
-
-    if (gte !== undefined && !(data >= gte)) {
-      throw new Errors.InvalidData(data, {
-        msg: `I expect the number to be greater than or equal to ${gte}`,
-      })
-    }
-
-    if (lte !== undefined && !(data <= lte)) {
-      throw new Errors.InvalidData(data, {
-        msg: `I expect the number to be less than or equal to ${lte}`,
+        msg: `I expect the number to be less than or equal to ${max}`,
       })
     }
 
@@ -85,10 +63,7 @@ export class NumberSchema extends Schema<number> {
   }
 
   generate(): number {
-    const { gt, lt, gte, lte } = this.constraints
-
-    let min = gt || gte
-    let max = lt || lte
+    let { min, max } = this.constraints
 
     if (min !== undefined && max !== undefined) {
       return Math.random() * (max - min) + min

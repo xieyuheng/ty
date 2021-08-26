@@ -1,6 +1,3 @@
-- `ty.number` use `min` and `max` -- instead of `lt` `gt` `lte` `gte`
-- `ty.int` use `min` and `max` -- instead of `lt` `gt` `lte` `gte`
-
 - `ty.array` support `min` and `max` options -- for generating not so big url
 
 - any -- `generate` -- how to?

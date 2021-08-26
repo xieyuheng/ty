@@ -44,7 +44,7 @@ export class FormatSchema extends StringSchema {
 
   private generateDate(): Date {
     const range = 10 * 12 * 30 * 24 * 60 * 60 * 1000
-    const v = ty.int({ gt: -range, lt: range }).generate()
+    const v = ty.int({ min: -range, max: range }).generate()
     return new Date(Date.now() + v)
   }
 
