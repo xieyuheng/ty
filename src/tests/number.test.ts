@@ -1,5 +1,7 @@
 import ty from ".."
 
+// validate
+
 {
   const schema = ty.number()
   const data: number = schema.validate(123)
@@ -23,4 +25,48 @@ import ty from ".."
   schema.assertInvalid(-1)
   schema.assertInvalid(100)
   schema.assertInvalid(123)
+}
+
+// generate
+
+{
+  const schema = ty.number({ gte: 0, lt: 100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.number({ gte: -100, lt: 100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.number({ lt: 100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.number({ gte: 100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.number({ gte: -100 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.number()
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
 }

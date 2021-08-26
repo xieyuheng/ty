@@ -8,12 +8,32 @@ export interface NumberConstraints {
   lte?: number
 }
 
+function validateNumberConstraints({
+  gt,
+  lt,
+  gte,
+  lte,
+}: NumberConstraints): boolean {
+  // NOTE comparing `undefined` with number, will always return `false`.
+  if ((gt as any) >= (lt as any)) return false
+  if ((gt as any) >= (lte as any)) return false
+  if ((gte as any) >= (lt as any)) return false
+  if ((gte as any) > (lte as any)) return false
+  else return true
+}
+
 export class NumberSchema extends Schema<number> {
   constraints: NumberConstraints
 
   constructor(constraints: NumberConstraints) {
     super()
-    this.constraints = constraints
+    if (validateNumberConstraints(constraints)) {
+      this.constraints = constraints
+    } else {
+      throw new Error(
+        `Invalid NumberConstraints: ${JSON.stringify(constraints)}`
+      )
+    }
   }
 
   static create(constraints: NumberConstraints = {}): NumberSchema {
@@ -62,5 +82,26 @@ export class NumberSchema extends Schema<number> {
 
   prune(data: any): number {
     return this.validate(data)
+  }
+
+  generate(): number {
+    const { gt, lt, gte, lte } = this.constraints
+
+    let min = gt || gte
+    let max = lt || lte
+
+    if (min !== undefined && max !== undefined) {
+      return Math.random() * (max - min) + min
+    } else if (min !== undefined) {
+      max = min + Math.abs(1 / Math.random())
+      return Math.random() * (max - min) + min
+    } else if (max !== undefined) {
+      min = max - Math.abs(1 / Math.random())
+      return Math.random() * (max - min) + min
+    } else {
+      min = -Math.abs(1 / Math.random())
+      max = Math.abs(1 / Math.random())
+      return Math.random() * (max - min) + min
+    }
   }
 }
