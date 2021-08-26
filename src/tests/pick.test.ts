@@ -17,3 +17,15 @@ import ty from ".."
   const prunedData: Pick<Data, "id"> = schema.prune({ id: "abc", name: "xyh" })
   ty.undefined().validate((prunedData as any)["name"])
 }
+
+{
+  const schema = ty.pick(
+    ty.object({
+      id: ty.string(),
+      name: ty.string(),
+    }),
+    "id"
+  )
+
+  schema.testGeneration()
+}

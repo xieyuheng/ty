@@ -59,4 +59,8 @@ export class PickManySchema<
 
     return results
   }
+
+  generate(): Pick<T, Keys[number]> {
+    return this.prune(this.schema.generate())
+  }
 }
