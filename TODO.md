@@ -1,5 +1,3 @@
-- `Schema.generate` -- should be abstract
-
 # later
 
 - minimalist homepage for docs

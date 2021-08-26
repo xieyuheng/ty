@@ -4,10 +4,7 @@ export abstract class Schema<T> {
   abstract json(): any
   abstract validate(data: any): T
   abstract prune(data: any): T
-
-  generate(): T {
-    throw new Error("METHOD NOT IMPLEMENTED")
-  }
+  abstract generate(): T
 
   testGeneration(opts: { n?: number; echo?: boolean } = {}): void {
     const n = opts.n || 100
