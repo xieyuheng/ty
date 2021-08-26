@@ -1,5 +1,3 @@
-- string -- `generate` -- use nanoid of given length as default
-
 - dict -- `generate` -- need `string.generate()`
 
 - format -- `generate` -- use third party library

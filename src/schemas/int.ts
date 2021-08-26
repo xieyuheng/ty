@@ -43,7 +43,7 @@ export class IntSchema extends NumberSchema {
     //   thus the edge cases are not covered.
 
     if (min !== undefined && max !== undefined) {
-      return Math.random() * (max - min) + min
+      return Math.floor(Math.random() * (max - min) + min)
     } else if (min !== undefined) {
       max = min + Math.abs(1 / Math.random()) + 1
       max = Math.floor(max)

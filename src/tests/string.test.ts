@@ -52,3 +52,55 @@ import ty from ".."
   schema.assertInvalid("")
   schema.assertInvalid("no a color")
 }
+
+// generate
+
+{
+  const schema = ty.string()
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.string({ length: 3 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.string({ min: 1, max: 3 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.string({
+    within: [
+      "gray",
+      "red",
+      "orange",
+      "amber",
+      "yellow",
+      "lime",
+      "green",
+      "emerald",
+      "teal",
+      "cyan",
+      "sky",
+      "blue",
+      "indigo",
+      "violet",
+      "purple",
+      "fuchsia",
+      "pink",
+      "rose",
+    ],
+  })
+
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}

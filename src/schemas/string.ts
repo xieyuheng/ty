@@ -1,5 +1,7 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
+import { customAlphabet } from "nanoid"
+import ty from ".."
 
 export interface StringConstraints {
   max?: number
@@ -62,5 +64,19 @@ export class StringSchema extends Schema<string> {
 
   prune(data: any): string {
     return this.validate(data)
+  }
+
+  generate(): string {
+    const { max, min, length, within } = this.constraints
+
+    if (within) {
+      const i = Math.floor(Math.random() * within.length)
+      return within[i]
+    }
+
+    const size =
+      length || Math.abs(ty.int({ gte: min, lte: max }).generate()) + 1
+    const nanoid = customAlphabet("1234567890abcdef", size)
+    return nanoid()
   }
 }
