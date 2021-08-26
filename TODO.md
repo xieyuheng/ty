@@ -1,12 +1,13 @@
 - `Schema.generate` -- generate example data from schema -- for property based testing
 
+- undefined -- generate
+- boolean -- generate
+
 - int -- generate
 
 - string -- generate
 - format -- generate
-- null -- generate
-- undefined -- generate
-- boolean -- generate
+
 - any -- generate
 - guard -- generate
 - object -- generate

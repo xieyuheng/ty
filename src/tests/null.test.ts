@@ -1,5 +1,7 @@
 import ty from ".."
 
+// validate
+
 {
   const schema = ty.null()
   const data: null = schema.validate(null)
@@ -10,4 +12,13 @@ import ty from ".."
   schema.assertInvalid([])
   schema.assertInvalid({})
   schema.assertInvalid(undefined)
+}
+
+// generate
+
+{
+  const schema = ty.null()
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
 }
