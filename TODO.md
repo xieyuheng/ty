@@ -1,8 +1,7 @@
-- object -- generate
-
 - lazy -- generate
 
-- string -- generate
+- string -- generate -- how to? -- optional sentences?
+
 - dict -- generate -- need `string.generate()`
 
 - format -- generate -- use third party library

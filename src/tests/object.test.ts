@@ -19,3 +19,23 @@ import ty from ".."
 
   ty.undefined().validate((data as any)["unknown_field"])
 }
+
+// generate
+
+{
+  const schema = ty.object({ x: ty.number(), y: ty.number(), z: ty.number() })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.object({
+    a: ty.object({ x: ty.number(), y: ty.number(), z: ty.number() }),
+    b: ty.object({ x: ty.number(), y: ty.number(), z: ty.number() }),
+    c: ty.object({ x: ty.number(), y: ty.number(), z: ty.number() }),
+  })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
