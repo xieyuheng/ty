@@ -2,13 +2,16 @@ import ty from ".."
 
 {
   const schema = ty.format("date")
-  const data: string = schema.validate("1893-12-26")
+  const data0: string = schema.validate("1893-12-26")
   schema.assertInvalid("1893-12")
 }
 
 {
   const schema = ty.format("date-time")
-  const data: string = schema.validate("2018-11-13T20:20:39+00:00")
+  const data0: string = schema.validate("2018-11-13 20:20:39")
+  const data1: string = schema.validate("2018-11-13T20:20:39+00:00")
+  const data2: string = schema.validate("2022-08-03T19:29:52.325Z")
+  const data3: string = schema.validate(new Date().toISOString())
   schema.assertInvalid("2018-11-13")
 }
 
@@ -62,4 +65,41 @@ import ty from ".."
   const data0: string = schema.validate("user@example.com")
   schema.assertInvalid("example.com")
   schema.assertInvalid("用户@例子.广告")
+}
+
+// generate
+
+{
+  const schema = ty.format("date")
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.format("date-time")
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.format("time")
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.format("uri")
+  console.log(schema.validate(schema.generate()))
+  console.log(schema.validate(schema.generate()))
+  console.log(schema.validate(schema.generate()))
+}
+
+{
+  const schema = ty.format("email")
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
 }
