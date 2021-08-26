@@ -11,6 +11,6 @@ export interface Group<G> {
 export const GroupLaws = <G>({ eq, mul, id, inv }: Group<G>) => ({
   mul_associative: (a: G, b: G, c: G) =>
     eq(mul(mul(a, b), c), mul(a, mul(b, c))),
-  identity_of_mul: (a: G) => eq(mul(id, a), a) && eq(mul(a, id), a),
-  inverse_of_mul: (a: G) => eq(mul(inv(a), a), a) && eq(mul(a, inv(a)), a),
+  id_respect_mul: (a: G) => eq(mul(id, a), a) && eq(mul(a, id), a),
+  inv_respect_mul: (a: G) => eq(mul(inv(a), a), a) && eq(mul(a, inv(a)), a),
 })
