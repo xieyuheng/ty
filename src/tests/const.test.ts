@@ -8,3 +8,12 @@ import ty from ".."
   schema.assertInvalid({ x: 2, y: "a" })
   schema.assertInvalid({ x: 1, y: "b" })
 }
+
+// generate
+
+{
+  const schema = ty.const({ x: 1, y: "a" })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
