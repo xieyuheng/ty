@@ -39,7 +39,8 @@ export class IntSchema extends NumberSchema {
     let max = lte || lt
     max = max ? Math.floor(max) : undefined
 
-    // TODO The maximum is exclusive and the minimum is inclusive
+    // TODO The maximum is exclusive and the minimum is inclusive,
+    //   thus the edge cases are not covered.
 
     if (min !== undefined && max !== undefined) {
       return Math.random() * (max - min) + min
