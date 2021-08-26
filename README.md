@@ -21,7 +21,7 @@ npm i @xieyuheng/ty
 import ty from "@xieyuheng/ty"
 
 const userSchema = ty.object({
-  id: ty.number(),
+  id: ty.int({ min: 0 }),
   first_name: ty.string(),
   last_name: ty.string(),
 })
@@ -74,8 +74,16 @@ type User = {
 
 ### Generate random data of a given schema
 
-```
-TODO
+``` typescript
+{
+  const user: User = userSchema.generate()
+
+  userSchema.validate(user)
+
+  console.log(user)
+  // Will print something like:
+  //   { id: 0, first_name: 'ada4a39ab0', last_name: '73be' }
+}
 ```
 
 ### Property-based testing

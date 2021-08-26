@@ -1,7 +1,7 @@
 import ty from ".."
 
 const userSchema = ty.object({
-  id: ty.number(),
+  id: ty.int({ min: 0 }),
   first_name: ty.string(),
   last_name: ty.string(),
 })
@@ -49,4 +49,12 @@ type User = {
   }
 
   const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate(data)
+}
+
+{
+  const user: User = userSchema.generate()
+
+  userSchema.validate(user)
+
+  // console.log(user)
 }

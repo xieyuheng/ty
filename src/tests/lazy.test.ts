@@ -80,7 +80,6 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
 {
   const schema = listSchema(ty.string())
   schema.testGeneration()
-
 }
 
 {
