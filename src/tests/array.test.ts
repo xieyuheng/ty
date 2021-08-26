@@ -19,10 +19,33 @@ import ty from ".."
   schema.assertInvalid(false)
 }
 
+{
+  const schema = ty.array(ty.number(), { max: 3 })
+  const data0: Array<number> = schema.validate([])
+  const data1: Array<number> = schema.validate([1])
+  const data2: Array<number> = schema.validate([1, 2])
+  const data3: Array<number> = schema.validate([1, 2, 3])
+  schema.assertInvalid([1, 2, 3, 4])
+}
+
 // generate
 
 {
   const schema = ty.array(ty.number())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.array(ty.number(), { max: 3 })
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}
+
+{
+  const schema = ty.array(ty.number(), { min: 0, max: 3 })
   schema.validate(schema.generate())
   schema.validate(schema.generate())
   schema.validate(schema.generate())

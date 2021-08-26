@@ -1,5 +1,3 @@
-- `ty.array` support `min` and `max` options -- for generating not so big url
-
 - any -- `generate` -- how to?
 - guard -- `generate` -- user provide optional `generate` function
 

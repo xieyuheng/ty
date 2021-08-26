@@ -32,25 +32,22 @@ export class IntSchema extends NumberSchema {
   generate(): number {
     let { min, max } = this.constraints
 
-    // TODO The maximum is exclusive and the minimum is inclusive,
-    //   thus the edge cases are not covered.
-
     if (min !== undefined && max !== undefined) {
-      return Math.floor(Math.random() * (max - min) + min)
+      return randomInt(min, max)
     } else if (min !== undefined) {
       max = min + Math.abs(1 / Math.random()) + 1
-      max = Math.floor(max)
-      return Math.floor(Math.random() * (max - min) + min)
+      return randomInt(min, max)
     } else if (max !== undefined) {
       min = max - Math.abs(1 / Math.random()) - 1
-      min = Math.ceil(min)
-      return Math.floor(Math.random() * (max - min) + min)
+      return randomInt(min, max)
     } else {
       min = -Math.abs(1 / Math.random()) - 1
-      min = Math.ceil(min)
       max = Math.abs(1 / Math.random()) + 1
-      max = Math.floor(max)
-      return Math.floor(Math.random() * (max - min) + min)
+      return randomInt(min, max)
     }
   }
+}
+
+function randomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }

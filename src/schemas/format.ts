@@ -73,12 +73,12 @@ export class FormatSchema extends StringSchema {
 
     if (this.format === "uri") {
       const subdomain = ty
-        .array(ty.string({ max: 10 }))
+        .array(ty.string({ max: 10 }), { max: 3 })
         .generate()
         .join(".")
       const domain = ty.string({ within: ["cn", "com", "org"] }).generate()
       const address = `${subdomain}.${domain}`
-      const path = ty.array(ty.string()).generate().join("/")
+      const path = ty.array(ty.string(), { max: 3 }).generate().join("/")
       return `https://${address}/${path}`
     }
 
