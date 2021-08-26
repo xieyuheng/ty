@@ -1,5 +1,6 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
+import ty from ".."
 
 export class DictSchema<T> extends Schema<Record<string, T>> {
   item: Schema<T>
@@ -46,5 +47,16 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
     }
 
     return record
+  }
+
+  generate(): Record<string, T> {
+    const length = ty.number({ gte: 0 }).generate()
+    const results: Record<string, T> = {}
+    for (let i = 0; i < length; i++) {
+      const key = ty.string().generate()
+      results[key] = this.item.generate()
+    }
+
+    return results
   }
 }

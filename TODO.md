@@ -1,5 +1,3 @@
-- dict -- `generate` -- need `string.generate()`
-
 - format -- `generate` -- use third party library
 
 - any -- `generate` -- how to?
