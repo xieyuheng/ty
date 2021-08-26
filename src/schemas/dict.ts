@@ -11,7 +11,7 @@ export interface DictConstraints {
 export class DictSchema<T> extends Schema<Record<string, T>> {
   item: Schema<T>
   constraints: DictConstraints
-  
+
   constructor(item: Schema<T>, constraints: DictConstraints) {
     super()
     this.item = item
@@ -38,21 +38,30 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
 
     const { max, min, length } = this.constraints
 
-    if (max !== undefined && !(data.length <= max)) {
+    if (max !== undefined && !(Object.keys(data).length <= max)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the max dict length to be ${max}`,
+        msg: [
+          `I expect the max dict length to be ${max}`,
+          `  length: ${Object.keys(data).length}`,
+        ].join("\n"),
       })
     }
 
-    if (min !== undefined && !(data.length >= min)) {
+    if (min !== undefined && !(Object.keys(data).length >= min)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the min dict length to be ${min}`,
+        msg: [
+          `I expect the min dict length to be ${min}`,
+          `  length: ${Object.keys(data).length}`,
+        ].join("\n"),
       })
     }
 
-    if (length !== undefined && !(data.length === length)) {
+    if (length !== undefined && !(Object.keys(data).length === length)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the dict length to be ${length}`,
+        msg: [
+          `I expect the dict length to be ${length}`,
+          `  length: ${Object.keys(data).length}`,
+        ].join("\n"),
       })
     }
 
@@ -81,10 +90,11 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
   }
 
   generate(): Record<string, T> {
-    const length = ty.number({ min: 0, max: 10 }).generate()
+    const { min, max } = this.constraints
+    const length = ty.number({ min: min || 0, max: max || 10 }).generate()
     const results: Record<string, T> = {}
     for (let i = 0; i < length; i++) {
-      const key = ty.string({ max: 32 }).generate()
+      const key = ty.string({ min: 6, max: 32 }).generate()
       results[key] = this.item.generate()
     }
 

@@ -18,7 +18,10 @@ export class ArraySchema<T> extends Schema<Array<T>> {
     this.constraints = constraints
   }
 
-  static create<T>(item: Schema<T>, constraints: ArrayConstraints = {}): ArraySchema<T> {
+  static create<T>(
+    item: Schema<T>,
+    constraints: ArrayConstraints = {}
+  ): ArraySchema<T> {
     return new ArraySchema(item, constraints)
   }
 
@@ -37,19 +40,19 @@ export class ArraySchema<T> extends Schema<Array<T>> {
 
     if (max !== undefined && !(data.length <= max)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the max array length to be ${max}`,
+        msg: `I expect the max array length to be ${max}, length: ${data.length}`,
       })
     }
 
     if (min !== undefined && !(data.length >= min)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the min array length to be ${min}`,
+        msg: `I expect the min array length to be ${min}, length: ${data.length}`,
       })
     }
 
     if (length !== undefined && !(data.length === length)) {
       throw new Errors.InvalidData(data, {
-        msg: `I expect the array length to be ${length}`,
+        msg: `I expect the array length to be ${length}, length: ${data.length}`,
       })
     }
 

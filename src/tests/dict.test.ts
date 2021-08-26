@@ -26,3 +26,13 @@ import ty from ".."
   const schema = ty.dict(ty.number())
   schema.testGeneration()
 }
+
+{
+  const schema = ty.dict(ty.number(), { max: 100 })
+  schema.testGeneration()
+}
+
+{
+  const schema = ty.dict(ty.number(), { min: 0, max: 10 })
+  schema.testGeneration()
+}
