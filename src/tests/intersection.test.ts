@@ -27,3 +27,26 @@ import ty from ".."
   schema.assertInvalid({ z: "z" })
   schema.assertInvalid({})
 }
+
+{
+  const schema = ty.intersection(
+    ty.object({
+      x: ty.string(),
+      y: ty.string(),
+    }),
+    ty.intersection(
+      ty.object({
+        x: ty.string(),
+        z: ty.string(),
+      }),
+      ty.object({
+        x: ty.string(),
+        y: ty.string(),
+      })
+    )
+  )
+
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}

@@ -1,5 +1,3 @@
-- intersection -- `generate`
-
 - union -- `generate`
 
 - any -- `generate` -- use `ty.union`
