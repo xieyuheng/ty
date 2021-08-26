@@ -14,3 +14,12 @@ import ty from ".."
   schema.assertInvalid({})
   schema.assertInvalid(undefined)
 }
+
+// generate
+
+{
+  const schema = ty.boolean()
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+  schema.validate(schema.generate())
+}

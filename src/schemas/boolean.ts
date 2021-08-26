@@ -23,4 +23,8 @@ export class BooleanSchema extends Schema<boolean> {
   prune(data: any): boolean {
     return this.validate(data)
   }
+
+  generate(): boolean {
+    return Math.random() > 0.5
+  }
 }
