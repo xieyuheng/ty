@@ -1,25 +1,29 @@
-- string -- generate -- how to? -- optional sentences?
+- string -- `generate` -- how to? -- optional sentences?
 
-- dict -- generate -- need `string.generate()`
+- dict -- `generate` -- need `string.generate()`
 
-- format -- generate -- use third party library
+- format -- `generate` -- use third party library
 
-- any -- generate -- how to?
-- guard -- generate -- user provide optional `generate` function
+- any -- `generate` -- how to?
+- guard -- `generate` -- user provide optional `generate` function
 
-- union -- generate
+- union -- `generate`
 
-- lazy -- generate -- to test this, we need `union.generate()`
+- lazy -- `generate` -- to test this, we need `union.generate()`
 
-- intersection -- generate
+- intersection -- `generate`
 
-- omit -- generate
-- omit-many -- generate
+- omit -- `generate`
+- omit-many -- `generate`
 
-- pick -- generate
-- pick-many -- generate
+- pick -- `generate`
+- pick-many -- `generate`
 
 - `Schema.generate` -- should be abstract
+
+# later
+
+- int -- `generate` -- cover all the edge cases
 
 # refactor
 
