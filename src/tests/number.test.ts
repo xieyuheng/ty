@@ -1,7 +1,5 @@
 import ty from ".."
 
-// validate
-
 {
   const schema = ty.number()
   const data: number = schema.validate(123)

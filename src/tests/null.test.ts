@@ -1,7 +1,5 @@
 import ty from ".."
 
-// validate
-
 {
   const schema = ty.null()
   const data: null = schema.validate(null)
