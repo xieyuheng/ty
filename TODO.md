@@ -1,4 +1,4 @@
-- string -- `generate` -- how to? -- optional sentences?
+- string -- `generate` -- use nanoid of given length as default
 
 - dict -- `generate` -- need `string.generate()`
 
@@ -24,6 +24,8 @@
 # later
 
 - int -- `generate` -- cover all the edge cases
+
+- string -- `generate` -- use context free grammar to generate sentences
 
 # refactor
 
