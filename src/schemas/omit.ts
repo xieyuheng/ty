@@ -44,4 +44,8 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
     delete (typedData as T)[this.key]
     return typedData
   }
+
+  generate(): Omit<T, Key> {
+    return this.prune(this.schema.generate())
+  }
 }

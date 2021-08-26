@@ -17,3 +17,15 @@ import ty from ".."
   const prunedData: Omit<Data, "id"> = schema.prune({ id: "abc", name: "xyh" })
   ty.undefined().validate((prunedData as any)["id"])
 }
+
+{
+  const schema = ty.omit(
+    ty.object({
+      id: ty.string(),
+      name: ty.string(),
+    }),
+    "id"
+  )
+
+  schema.testGeneration()
+}

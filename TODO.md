@@ -1,6 +1,5 @@
 - any -- `generate` -- use `ty.union`
 
-- omit -- `generate`
 - omit-many -- `generate`
 
 - pick -- `generate`
