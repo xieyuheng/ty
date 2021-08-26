@@ -30,6 +30,12 @@ import ty from ".."
   const schema = ty.tuple(
     ty.tuple(ty.int(), ty.int(), ty.int()),
     ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
+    ty.tuple(ty.int(), ty.int(), ty.int()),
     ty.tuple(ty.int(), ty.int(), ty.int())
   )
   schema.validate(schema.generate())

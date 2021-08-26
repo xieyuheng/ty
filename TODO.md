@@ -1,12 +1,14 @@
 - object -- generate
 
+- lazy -- generate
+
 - string -- generate
-- dict -- generate
+- dict -- generate -- need `string.generate()`
 
-- format -- generate
+- format -- generate -- use third party library
 
-- any -- generate
-- guard -- generate
+- any -- generate -- how to?
+- guard -- generate -- user provide optional `generate` function
 
 - union -- generate
 - intersection -- generate
@@ -16,8 +18,6 @@
 
 - pick -- generate
 - pick-many -- generate
-
-- lazy -- generate
 
 - `Schema.generate` -- should be abstract
 
