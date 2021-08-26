@@ -1,10 +1,11 @@
 - `Schema.generate` -- generate example data from schema -- for property based testing
 
-- dict -- generate
 - object -- generate
 - tuple -- generate
 
 - string -- generate
+- dict -- generate
+
 - format -- generate
 
 - any -- generate

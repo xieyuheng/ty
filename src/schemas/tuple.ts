@@ -1,17 +1,17 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 
-type ShemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
+type SchemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
 
 export class TupleSchema<T extends Array<any>> extends Schema<T> {
-  readonly items: ShemaTuple<T>
+  readonly items: SchemaTuple<T>
 
-  constructor(opts: { items: ShemaTuple<T> }) {
+  constructor(opts: { items: SchemaTuple<T> }) {
     super()
     this.items = opts.items
   }
 
-  static create<T extends Array<any>>(...items: ShemaTuple<T>): TupleSchema<T> {
+  static create<T extends Array<any>>(...items: SchemaTuple<T>): TupleSchema<T> {
     return new TupleSchema({ items })
   }
 
