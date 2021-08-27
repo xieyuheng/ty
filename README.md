@@ -40,34 +40,6 @@ type User = {
   }
 
   const user: User = userSchema.validate(data)
-}
-
-{
-  const data: any = {
-    id: 2,
-    first_name: "Yuxie",
-    last_name: "Heng",
-  }
-
-  const user: User = userSchema.validate(data)
-}
-
-{
-  const data: any = {
-    id: 3,
-    first_name: "Xieheng",
-    last_name: "Yu",
-  }
-
-  const user: User = userSchema.validate(data)
-}
-
-{
-  const data: any = {
-    first_name: "Yuheng",
-    last_name: "Xie",
-  }
-
   const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate(data)
 }
 ```
