@@ -1,8 +1,6 @@
 import { imply, iff } from "./boolean"
 
-export interface Equivalence<T> {
-  (a: T, b: T): boolean
-}
+export type Equivalence<T> = (a: T, b: T) => boolean
 
 export function EquivalenceLaws<T>(eq: Equivalence<T>) {
   return {
