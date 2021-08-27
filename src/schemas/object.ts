@@ -1,6 +1,7 @@
 import { Schema } from "../schema"
 import * as Errors from "../errors"
 import * as Schemas from "../schemas"
+import * as ut from "../ut"
 
 type SchemaObject<T> = { [P in keyof T]: Schema<T[P]> }
 
@@ -26,6 +27,12 @@ export class ObjectSchema<T> extends Schema<T> {
   }
 
   validate(data: any): T {
+    if (!ut.isObject(data)) {
+      throw new Errors.InvalidData(data, {
+        msg: "I expect the data to be object.",
+      })
+    }
+
     const keys: Array<string> = []
     const errors: Array<Errors.InvalidData> = []
     for (const key in this.properties) {

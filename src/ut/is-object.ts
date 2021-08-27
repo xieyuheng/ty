@@ -1,3 +1,3 @@
-export function isObject(x: any): x is { [key: string]: any } {
+export function isObject(x: any): boolean {
   return typeof x === "object" && x !== null && !(x instanceof Array)
 }

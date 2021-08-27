@@ -21,7 +21,7 @@
     "@types/deep-diff": "^1.0.1",
     "@types/node": "^16.7.2",
     "prettier": "^2.3.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.2"
   },
   "dependencies": {
     "@xieyuheng/test-runner": "^0.1.23",

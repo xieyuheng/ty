@@ -31,15 +31,19 @@ export class UnionSchema<T, U> extends Schema<T | U> {
           this.right.validate(data)
           return data
         } catch (rightError) {
-          throw new Errors.InvalidData(data, {
-            msg: [
-              `I expect the data to be the union of left and right type.`,
-              `  left msg: ${leftError.msg}`,
-              `  left path: ${leftError.path}`,
-              `  right msg: ${rightError.msg}`,
-              `  right path: ${rightError.path}`,
-            ].join("\n"),
-          })
+          if (Errors.InvalidData.guard(rightError)) {
+            throw new Errors.InvalidData(data, {
+              msg: [
+                `I expect the data to be the union of left and right type.`,
+                `  left msg: ${leftError.msg}`,
+                `  left path: ${leftError.path}`,
+                `  right msg: ${rightError.msg}`,
+                `  right path: ${rightError.path}`,
+              ].join("\n"),
+            })
+          } else {
+            throw rightError
+          }
         }
       } else {
         throw leftError
