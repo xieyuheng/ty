@@ -148,6 +148,16 @@ TODO
 **Recursion:**
 - [ty.lazy(() => schema)](src/tests/lazy.ts)
 
+## Similar projects
+
+**Runtime typing:**
+- https://github.com/gcanti/io-ts
+- https://github.com/pelotom/runtypes
+
+**Property-based testing and data generation:**
+- https://github.com/dubzzz/fast-check
+- https://github.com/Marak/Faker.js
+
 ## Contributions
 
 > Be polite, do not bring negative emotion to others.
