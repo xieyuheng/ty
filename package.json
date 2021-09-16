@@ -20,6 +20,7 @@
     "@types/assert": "^1.5.6",
     "@types/deep-diff": "^1.0.1",
     "@types/node": "^16.9.1",
+    "@types/semver": "^7.3.8",
     "prettier": "^2.4.1",
     "typescript": "^4.4.3"
   },
@@ -32,7 +33,8 @@
     "change-case": "^4.1.2",
     "deep-diff": "^1.0.2",
     "fast-deep-equal": "^3.1.3",
-    "nanoid": "^3.1.25"
+    "nanoid": "^3.1.25",
+    "semver": "^7.3.5"
   },
   "license": "GPL-3.0-or-later"
 }

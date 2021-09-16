@@ -26,10 +26,14 @@ export class FormatSchema extends StringSchema {
     return { $format: this.format }
   }
 
+  protected checkFormat(data: any): boolean {
+    return jsonSchemaFormatValidation(this.format, data)
+  }
+
   validate(data: any): string {
     super.validate(data)
 
-    if (!jsonSchemaFormatValidation(this.format, data)) {
+    if (!this.checkFormat(data)) {
       throw new Errors.InvalidData(data, {
         msg: `I expect the data to be of format: ${this.format}`,
       })

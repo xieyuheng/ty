@@ -1,5 +1,6 @@
 export * from "./string"
 export * from "./format"
+export * from "./semver"
 export * from "./number"
 export * from "./int"
 export * from "./null"

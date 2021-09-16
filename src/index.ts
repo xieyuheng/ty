@@ -8,6 +8,7 @@ import { Schema } from "./schema"
 const primitive = {
   string: Schemas.StringSchema.create,
   format: Schemas.FormatSchema.create, // <: string
+  semver: Schemas.SemverSchema.create, // <: format
   email: (constraints: Schemas.StringConstraints = {}) =>
     Schemas.FormatSchema.create("email", constraints),
   uri: (constraints: Schemas.StringConstraints = {}) =>
