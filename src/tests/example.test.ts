@@ -1,4 +1,4 @@
-import ty, { Extract } from ".."
+import ty, { Obtain } from ".."
 
 const userSchema = ty.object({
   id: ty.int({ min: 0 }),
@@ -6,7 +6,7 @@ const userSchema = ty.object({
   last_name: ty.string(),
 })
 
-type User = Extract<typeof userSchema>
+type User = Obtain<typeof userSchema>
 
 // NOTE We can extract a `User` type from the type of `userSchema`,
 //   which will be the same as the following type definition:

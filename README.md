@@ -18,7 +18,7 @@ npm i @xieyuheng/ty
 ### Validation untyped data
 
 ``` typescript
-import ty, { Extract } from "@xieyuheng/ty"
+import ty, { Obtain } from "@xieyuheng/ty"
 
 const userSchema = ty.object({
   id: ty.int({ min: 0 }),
@@ -27,7 +27,7 @@ const userSchema = ty.object({
 })
 
 
-type User = Extract<typeof userSchema>
+type User = Obtain<typeof userSchema>
 
 // NOTE We can extract a `User` type from the type of `userSchema`,
 //   which will be the same as the following type definition:

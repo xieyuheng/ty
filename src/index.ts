@@ -5,7 +5,7 @@ export * as Errors from "./errors"
 import * as Schemas from "./schemas"
 import { Schema } from "./schema"
 
-export type Extract<S extends Schema<any>> = ReturnType<S["validate"]>
+export type Obtain<S extends Schema<any>> = ReturnType<S["validate"]>
 
 const primitive = {
   string: Schemas.StringSchema.create,
