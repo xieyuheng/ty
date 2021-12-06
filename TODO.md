@@ -1,4 +1,5 @@
-- `ty.instanceof()`
+- [refactor] prettier organize imports
+
 - [api] api about property-based testing
 - [theories] more theories and example about property-based testing
 - [docs] minimalist homepage for docs

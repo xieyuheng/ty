@@ -8,6 +8,7 @@ export * from "./undefined"
 export * from "./boolean"
 export * from "./any"
 export * from "./guard"
+export * from "./instanceof"
 
 export * from "./object"
 export * from "./array"

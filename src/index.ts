@@ -26,6 +26,7 @@ const primitive = {
   boolean: Schemas.BooleanSchema.create,
   any: Schemas.AnySchema.create,
   guard: Schemas.GuardSchema.create,
+  instanceof: Schemas.InstanceofSchema.create,
 }
 
 const collection = {
