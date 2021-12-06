@@ -1,6 +1,5 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
-import * as Schemas from "../schemas"
+import { Schema } from "../schema"
 import * as ut from "../ut"
 
 type SchemaObject<T> = { [P in keyof T]: Schema<T[P]> }

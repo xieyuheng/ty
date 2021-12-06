@@ -1,4 +1,4 @@
-import { imply, iff } from "./boolean"
+import { iff, imply } from "./boolean"
 
 export type Equivalence<T> = (a: T, b: T) => boolean
 

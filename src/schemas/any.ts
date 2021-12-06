@@ -1,6 +1,5 @@
-import { Schema } from "../schema"
-import * as Errors from "../errors"
 import ty from ".."
+import { Schema } from "../schema"
 
 type GenerationConfig = {
   depth: number

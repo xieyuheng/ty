@@ -1,4 +1,4 @@
-import ty, { Schema } from ".."
+import { Schema } from ".."
 
 export class Var {
   id: number

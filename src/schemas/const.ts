@@ -1,5 +1,5 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
+import { Schema } from "../schema"
 import * as ut from "../ut"
 
 export class ConstSchema<T> extends Schema<T> {

@@ -1,6 +1,5 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
-import * as ut from "../ut"
+import { Schema } from "../schema"
 
 export class GuardSchema<T> extends Schema<T> {
   guard: (data: any) => data is T

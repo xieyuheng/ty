@@ -1,5 +1,5 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
+import { Schema } from "../schema"
 
 export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
   schema: Schema<T>

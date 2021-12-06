@@ -1,5 +1,5 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
+import { Schema } from "../schema"
 
 type SchemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
 

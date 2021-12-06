@@ -1,5 +1,4 @@
-import ty from ".."
-import { Schema } from ".."
+import ty, { Schema } from ".."
 
 type Nat = "zero" | { prev: Nat }
 

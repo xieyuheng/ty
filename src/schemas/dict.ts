@@ -1,6 +1,6 @@
-import { Schema } from "../schema"
-import * as Errors from "../errors"
 import ty from ".."
+import * as Errors from "../errors"
+import { Schema } from "../schema"
 
 export interface DictConstraints {
   max?: number

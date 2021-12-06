@@ -1,9 +1,8 @@
-import { Schema } from "../schema"
-import * as Errors from "../errors"
-import { StringSchema, StringConstraints } from "./string"
-import { jsonSchemaFormatValidation } from "../json-schema"
 import ty from ".."
+import * as Errors from "../errors"
+import { jsonSchemaFormatValidation } from "../json-schema"
 import * as ut from "../ut"
+import { StringConstraints, StringSchema } from "./string"
 
 export class FormatSchema extends StringSchema {
   format: string

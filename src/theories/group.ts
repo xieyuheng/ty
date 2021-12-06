@@ -1,4 +1,3 @@
-import { imply, iff } from "./boolean"
 import { Equivalence } from "./equivalence"
 
 export interface Group<G> {

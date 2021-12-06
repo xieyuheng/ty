@@ -1,5 +1,4 @@
 import { Schema } from "../schema"
-import * as Errors from "../errors"
 
 export class LazySchema<T> extends Schema<T> {
   thunk: () => Schema<T>

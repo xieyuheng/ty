@@ -1,5 +1,5 @@
-import { Schema } from "../schema"
 import * as Errors from "../errors"
+import { Schema } from "../schema"
 
 export class IntersectionSchema<T, U> extends Schema<T & U> {
   left: Schema<T>

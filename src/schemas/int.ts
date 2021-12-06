@@ -1,5 +1,5 @@
 import * as Errors from "../errors"
-import { NumberSchema, NumberConstraints } from "./number"
+import { NumberConstraints, NumberSchema } from "./number"
 
 export class IntSchema extends NumberSchema {
   constraints: NumberConstraints

@@ -1,8 +1,8 @@
-import { StringConstraints } from "./string"
-import { FormatSchema } from "./format"
-import ty from ".."
-import semver from "semver"
 import { customAlphabet } from "nanoid"
+import semver from "semver"
+import ty from ".."
+import { FormatSchema } from "./format"
+import { StringConstraints } from "./string"
 
 export class SemverSchema extends FormatSchema {
   format = "semver"

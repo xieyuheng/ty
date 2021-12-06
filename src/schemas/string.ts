@@ -1,7 +1,7 @@
-import { Schema } from "../schema"
-import * as Errors from "../errors"
 import { customAlphabet } from "nanoid"
 import ty from ".."
+import * as Errors from "../errors"
+import { Schema } from "../schema"
 
 export interface StringConstraints {
   max?: number
