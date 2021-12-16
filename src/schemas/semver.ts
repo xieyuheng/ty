@@ -29,8 +29,11 @@ export class SemverSchema extends FormatSchema {
     const flag = ty.boolean().generate()
 
     if (flag) {
-      const nanoid = customAlphabet("1234567890abcdef", 6)
-      const preReleaseId = nanoid()
+      // NOTE `preReleaseId` can not be a numebr starts with 0
+      // - '0123' is invalid
+      const head = customAlphabet("123456789abcdef", 1)
+      const tail = customAlphabet("1234567890abcdef", 6)
+      const preReleaseId = head() + tail()
       return `${major}.${minor}.${patch}-${preReleaseId}`
     } else {
       return `${major}.${minor}.${patch}`
