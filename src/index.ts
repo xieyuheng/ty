@@ -57,6 +57,7 @@ const recursion = {
 
 const utilities = {
   optional: <T>(schema: Schema<T>) => sets.union(primitive.undefined(), schema),
+  maybe: <T>(schema: Schema<T>) => sets.union(primitive.null(), schema),
 }
 
 export default {
