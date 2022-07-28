@@ -1,3 +1,3 @@
 export * from "./api"
-import ty from "./api"
 export { ty, ty as default }
+import ty from "./api"

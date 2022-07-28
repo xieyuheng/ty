@@ -2,6 +2,20 @@ import * as Errors from "../errors"
 import { Schema } from "../schema"
 import * as ut from "../ut"
 
+type PickUndefined<T> = {
+  [P in keyof T as undefined extends T[P] ? P : never]: T[P]
+}
+
+type PickNotUndefined<T> = {
+  [P in keyof T as undefined extends T[P] ? never : P]: T[P]
+}
+
+type OptionalUndefined<T> = {
+  [K in keyof PickUndefined<T>]?: T[K]
+} & {
+  [K in keyof PickNotUndefined<T>]: T[K]
+}
+
 type SchemaObject<T> = { [P in keyof T]: Schema<T[P]> }
 
 export class ObjectSchema<T> extends Schema<T> {
@@ -12,7 +26,9 @@ export class ObjectSchema<T> extends Schema<T> {
     this.properties = opts.properties
   }
 
-  static create<T>(properties: SchemaObject<T>): ObjectSchema<T> {
+  static create<T>(
+    properties: SchemaObject<T>
+  ): ObjectSchema<OptionalUndefined<T>> {
     return new ObjectSchema<T>({ properties })
   }
 

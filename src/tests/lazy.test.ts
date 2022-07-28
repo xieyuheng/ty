@@ -47,7 +47,8 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
     head: itemSchema,
     tail: ty.lazy(() => listSchema(itemSchema)),
   })
-  return ty.union(nullSchema, consSchema)
+  // TODO avoid using the following type cast
+  return ty.union(nullSchema, consSchema) as Schema<List<T>>
 }
 
 {
