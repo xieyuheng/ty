@@ -60,6 +60,15 @@ const utilities = {
   maybe: <T>(schema: Schema<T>) => sets.union(primitive.null(), schema),
 }
 
+export const ty = {
+  ...primitive,
+  ...collection,
+  ...sets,
+  ...structural,
+  ...recursion,
+  ...utilities,
+}
+
 export default {
   ...primitive,
   ...collection,
