@@ -39,12 +39,12 @@ export class InvalidData extends Error {
           typeof key === "string" ||
           typeof key === "symbol"
         ) {
-          return `.${key.toString()}`
+          return `${key.toString()}`
         } else {
-          return `.${key.map((key) => key.toString()).join("&")}`
+          return `${key.map((key) => key.toString()).join("&")}`
         }
       })
-      .join("")
+      .join(".")
   }
 
   get message(): string {

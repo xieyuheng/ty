@@ -1,6 +1,6 @@
-import { customAlphabet } from "nanoid"
 import semver from "semver"
 import ty from ".."
+import { randomHexString } from "../ut/randomHexString"
 import { FormatSchema } from "./format"
 import { StringConstraints } from "./string"
 
@@ -31,9 +31,9 @@ export class SemverSchema extends FormatSchema {
     if (flag) {
       // NOTE `preReleaseId` can not be a numebr starts with 0
       // - '0123' is invalid
-      const head = customAlphabet("123456789abcdef", 1)
-      const tail = customAlphabet("1234567890abcdef", 6)
-      const preReleaseId = head() + tail()
+      const head = String(Math.floor(Math.random() * 10) + 1)
+      const tail = randomHexString(3)
+      const preReleaseId = head + tail
       return `${major}.${minor}.${patch}-${preReleaseId}`
     } else {
       return `${major}.${minor}.${patch}`

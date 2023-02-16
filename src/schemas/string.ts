@@ -1,7 +1,7 @@
-import { customAlphabet } from "nanoid"
 import ty from ".."
 import * as Errors from "../errors"
 import { Schema } from "../schema"
+import { randomHexString } from "../ut/randomHexString"
 
 export interface StringConstraints {
   max?: number
@@ -78,7 +78,6 @@ export class StringSchema extends Schema<string> {
 
     if (size === 0) return ""
 
-    const nanoid = customAlphabet("1234567890abcdef", size)
-    return nanoid()
+    return randomHexString(Math.ceil(size / 2)).slice(0, size)
   }
 }
