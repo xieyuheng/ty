@@ -1,7 +1,7 @@
 import ty from ".."
 import * as Errors from "../errors"
 import { Schema } from "../schema"
-import * as ut from "../utils"
+import { isObject } from "../utils/isObject"
 
 export class UnionSchema<T, U> extends Schema<T | U> {
   left: Schema<T>
@@ -54,7 +54,7 @@ export class UnionSchema<T, U> extends Schema<T | U> {
   prune(data: any): T | U {
     const typedData = this.validate(data)
 
-    if (ut.isObject(typedData)) {
+    if (isObject(typedData)) {
       return {
         ...this.left.prune(typedData),
         ...this.right.prune(typedData),

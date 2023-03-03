@@ -1,6 +1,6 @@
 import * as Errors from "../errors"
 import { Schema } from "../schema"
-import * as ut from "../utils"
+import { isObject } from "../utils/isObject"
 
 type PickUndefined<T> = {
   [P in keyof T as undefined extends T[P] ? P : never]: T[P]
@@ -42,7 +42,7 @@ export class ObjectSchema<T> extends Schema<T> {
   }
 
   validate(data: any): T {
-    if (!ut.isObject(data)) {
+    if (!isObject(data)) {
       throw new Errors.InvalidData(data, {
         msg: "I expect the data to be object.",
       })

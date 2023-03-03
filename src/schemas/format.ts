@@ -1,7 +1,8 @@
 import ty from ".."
 import * as Errors from "../errors"
 import { jsonSchemaFormatValidation } from "../json-schema"
-import * as ut from "../utils"
+import { formatDate } from "../utils/formatDate"
+import { formatTime } from "../utils/formatTime"
 import { StringConstraints, StringSchema } from "./string"
 
 export class FormatSchema extends StringSchema {
@@ -54,17 +55,17 @@ export class FormatSchema extends StringSchema {
   generate(): string {
     if (this.format === "date") {
       const t = this.generateDate()
-      return ut.formatDate(t)
+      return formatDate(t)
     }
 
     if (this.format === "date-time") {
       const t = this.generateDate()
-      return `${ut.formatDate(t)} ${ut.formatTime(t)}`
+      return `${formatDate(t)} ${formatTime(t)}`
     }
 
     if (this.format === "time") {
       const t = this.generateDate()
-      return ut.formatTime(t)
+      return formatTime(t)
     }
 
     if (this.format === "email") {
