@@ -1,7 +1,7 @@
 import ty from ".."
 import * as Errors from "../errors"
 import { Schema } from "../schema"
-import * as ut from "../ut"
+import * as ut from "../utils"
 
 export class UnionSchema<T, U> extends Schema<T | U> {
   left: Schema<T>

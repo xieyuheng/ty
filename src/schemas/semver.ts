@@ -1,6 +1,6 @@
 import semver from "semver"
 import ty from ".."
-import { randomHexString } from "../ut/randomHexString"
+import { randomHexString } from "../utils/randomHexString"
 import { FormatSchema } from "./format"
 import { StringConstraints } from "./string"
 

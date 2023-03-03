@@ -7,8 +7,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "build": "rm -rf lib; tsc",
+    "build:watch": "rm -rf lib; tsc --watch",
     "format": "prettier src --write",
     "test:js": "test-runner test node 'lib/**/*.test.js'",
     "test:snapshot": "test-runner snapshot node 'lib/**/*.snapshot.js' --extern snapshot",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/assert": "^1.5.6",
     "@types/deep-diff": "^1.0.2",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.4",
     "@types/semver": "^7.3.13",
     "@xieyuheng/test-runner": "^0.2.7",
     "npm-run-all": "^4.1.5",

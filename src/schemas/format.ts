@@ -1,7 +1,7 @@
 import ty from ".."
 import * as Errors from "../errors"
 import { jsonSchemaFormatValidation } from "../json-schema"
-import * as ut from "../ut"
+import * as ut from "../utils"
 import { StringConstraints, StringSchema } from "./string"
 
 export class FormatSchema extends StringSchema {

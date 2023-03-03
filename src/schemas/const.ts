@@ -1,6 +1,6 @@
 import * as Errors from "../errors"
 import { Schema } from "../schema"
-import * as ut from "../ut"
+import * as ut from "../utils"
 
 export class ConstSchema<T> extends Schema<T> {
   data: T

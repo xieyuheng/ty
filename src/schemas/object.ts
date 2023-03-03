@@ -1,6 +1,6 @@
 import * as Errors from "../errors"
 import { Schema } from "../schema"
-import * as ut from "../ut"
+import * as ut from "../utils"
 
 type PickUndefined<T> = {
   [P in keyof T as undefined extends T[P] ? P : never]: T[P]
