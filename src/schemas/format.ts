@@ -16,7 +16,7 @@ export class FormatSchema extends StringSchema {
 
   static create(
     format: string,
-    constraints: StringConstraints = {}
+    constraints: StringConstraints = {},
   ): FormatSchema {
     return new FormatSchema(format, constraints)
   }

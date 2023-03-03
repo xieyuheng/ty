@@ -57,7 +57,7 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   const data1: List<string> = schema.validate(cons("a", null))
   const data2: List<string> = schema.validate(cons("a", cons("b", null)))
   const data3: List<string> = schema.validate(
-    cons("a", cons("b", cons("c", null)))
+    cons("a", cons("b", cons("c", null))),
   )
   schema.assertInvalid(cons(1, null))
   schema.assertInvalid(cons(1, cons(2, null)))

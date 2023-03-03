@@ -34,7 +34,7 @@ import ty from ".."
     ty.tuple(ty.int(), ty.int(), ty.int()),
     ty.tuple(ty.int(), ty.int(), ty.int()),
     ty.tuple(ty.int(), ty.int(), ty.int()),
-    ty.tuple(ty.int(), ty.int(), ty.int())
+    ty.tuple(ty.int(), ty.int(), ty.int()),
   )
 
   schema.testGeneration()

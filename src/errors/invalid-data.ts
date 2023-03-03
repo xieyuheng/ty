@@ -10,7 +10,7 @@ export class InvalidData extends Error {
     opts: {
       msg: string
       keys?: Array<string | number | symbol | Array<string | number | symbol>>
-    }
+    },
   ) {
     super()
     this.data = data

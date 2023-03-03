@@ -17,7 +17,7 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
 
   static create<T extends Constructor>(
     givenClass: T,
-    opts: { generate?: () => InstanceType<T> } = {}
+    opts: { generate?: () => InstanceType<T> } = {},
   ): InstanceofSchema<T> {
     return new InstanceofSchema(givenClass, opts)
   }
@@ -49,7 +49,7 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
       return this.gen()
     } else {
       throw new Error(
-        "The generate function of InstanceofSchema is not provided."
+        "The generate function of InstanceofSchema is not provided.",
       )
     }
   }

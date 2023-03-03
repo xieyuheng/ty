@@ -20,7 +20,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
 
   static create<T>(
     item: Schema<T>,
-    constraints: DictConstraints = {}
+    constraints: DictConstraints = {},
   ): DictSchema<T> {
     return new DictSchema(item, constraints)
   }

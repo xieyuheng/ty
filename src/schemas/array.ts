@@ -20,7 +20,7 @@ export class ArraySchema<T> extends Schema<Array<T>> {
 
   static create<T>(
     item: Schema<T>,
-    constraints: ArrayConstraints = {}
+    constraints: ArrayConstraints = {},
   ): ArraySchema<T> {
     return new ArraySchema(item, constraints)
   }

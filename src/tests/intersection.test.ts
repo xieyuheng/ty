@@ -14,8 +14,8 @@ import ty from ".."
       ty.object({
         x: ty.string(),
         y: ty.string(),
-      })
-    )
+      }),
+    ),
   )
   type Data = { x: string; y: string; z: string }
   const data: Data = schema.validate({ x: "x", y: "y", z: "z" })
@@ -44,8 +44,8 @@ import ty from ".."
       ty.object({
         x: ty.string(),
         y: ty.string(),
-      })
-    )
+      }),
+    ),
   )
 
   schema.testGeneration()

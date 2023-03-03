@@ -3,7 +3,7 @@ import { Schema } from "../schema"
 
 export class OmitManySchema<
   T,
-  Keys extends Readonly<Array<keyof T>>
+  Keys extends Readonly<Array<keyof T>>,
 > extends Schema<Omit<T, Keys[number]>> {
   schema: Schema<T>
   keys: Keys
@@ -16,7 +16,7 @@ export class OmitManySchema<
 
   static create<T, Keys extends Readonly<Array<keyof T>>>(
     schema: Schema<T>,
-    keys: Keys
+    keys: Keys,
   ): OmitManySchema<T, Keys> {
     return new OmitManySchema(schema, keys)
   }

@@ -7,7 +7,7 @@ import ty from ".."
       y: ty.number(),
       z: ty.number(),
     }),
-    ["x", "y"] as const
+    ["x", "y"] as const,
   )
   type Data = { x: number; y: number; z: number }
   const data0: Omit<Data, "x" | "y"> = schema.validate({ z: 0 })
@@ -28,7 +28,7 @@ import ty from ".."
       y: ty.number(),
       z: ty.number(),
     }),
-    ["x", "y"] as const
+    ["x", "y"] as const,
   )
 
   schema.testGeneration()

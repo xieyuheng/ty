@@ -6,7 +6,7 @@ import ty from ".."
       id: ty.string(),
       name: ty.string(),
     }),
-    "id"
+    "id",
   )
   type Data = { id: string; name: string }
   const data0: Pick<Data, "id"> = schema.validate({ id: "abc" })
@@ -24,7 +24,7 @@ import ty from ".."
       id: ty.string(),
       name: ty.string(),
     }),
-    "id"
+    "id",
   )
 
   schema.testGeneration()

@@ -21,7 +21,7 @@ export class NumberSchema extends Schema<number> {
       this.constraints = constraints
     } else {
       throw new Error(
-        `Invalid NumberConstraints: ${JSON.stringify(constraints)}`
+        `Invalid NumberConstraints: ${JSON.stringify(constraints)}`,
       )
     }
   }

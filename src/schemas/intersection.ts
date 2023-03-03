@@ -13,7 +13,7 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
 
   static create<T, U>(
     left: Schema<T>,
-    right: Schema<U>
+    right: Schema<U>,
   ): IntersectionSchema<T, U> {
     return new IntersectionSchema(left, right)
   }

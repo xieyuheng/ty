@@ -6,7 +6,7 @@ import ty from ".."
       id: ty.string(),
       name: ty.string(),
     }),
-    "id"
+    "id",
   )
   type Data = { id: string; name: string }
   const data0: Omit<Data, "id"> = schema.validate({ name: "xieyuheng" })
@@ -24,7 +24,7 @@ import ty from ".."
       id: ty.string(),
       name: ty.string(),
     }),
-    "id"
+    "id",
   )
 
   schema.testGeneration()

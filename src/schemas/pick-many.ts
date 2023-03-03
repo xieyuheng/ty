@@ -3,7 +3,7 @@ import { Schema } from "../schema"
 
 export class PickManySchema<
   T,
-  Keys extends Readonly<Array<keyof T>>
+  Keys extends Readonly<Array<keyof T>>,
 > extends Schema<Pick<T, Keys[number]>> {
   schema: Schema<T>
   keys: Keys
@@ -16,7 +16,7 @@ export class PickManySchema<
 
   static create<T, Keys extends Readonly<Array<keyof T>>>(
     schema: Schema<T>,
-    keys: Keys
+    keys: Keys,
   ): PickManySchema<T, Keys> {
     return new PickManySchema(schema, keys)
   }

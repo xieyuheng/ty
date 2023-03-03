@@ -14,7 +14,7 @@ export class AnySchema extends Schema<any> {
   }
 
   static create(
-    opts: { generation: GenerationConfig } = { generation: { depth: 3 } }
+    opts: { generation: GenerationConfig } = { generation: { depth: 3 } },
   ): AnySchema {
     return new AnySchema(opts)
   }
@@ -34,19 +34,19 @@ export class AnySchema extends Schema<any> {
   generate(): any {
     const primitive = ty.union(
       ty.union(ty.null(), ty.undefined()),
-      ty.union(ty.boolean(), ty.union(ty.number(), ty.string()))
+      ty.union(ty.boolean(), ty.union(ty.number(), ty.string())),
     )
     const compound = ty.union(
       ty.dict(
         ty.lazy(() =>
-          ty.any({ generation: { depth: this.generation.depth - 1 } })
-        )
+          ty.any({ generation: { depth: this.generation.depth - 1 } }),
+        ),
       ),
       ty.array(
         ty.lazy(() =>
-          ty.any({ generation: { depth: this.generation.depth - 1 } })
-        )
-      )
+          ty.any({ generation: { depth: this.generation.depth - 1 } }),
+        ),
+      ),
     )
 
     if (this.generation.depth === 0) {

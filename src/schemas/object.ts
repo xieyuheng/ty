@@ -27,7 +27,7 @@ export class ObjectSchema<T> extends Schema<T> {
   }
 
   static create<T>(
-    properties: SchemaObject<T>
+    properties: SchemaObject<T>,
   ): ObjectSchema<OptionalUndefined<T>> {
     return new ObjectSchema<T>({ properties })
   }

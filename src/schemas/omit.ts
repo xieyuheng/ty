@@ -13,7 +13,7 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
 
   static create<T, Key extends keyof T>(
     schema: Schema<T>,
-    keys: Key
+    keys: Key,
   ): OmitSchema<T, Key> {
     return new OmitSchema(schema, keys)
   }

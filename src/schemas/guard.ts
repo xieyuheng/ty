@@ -7,7 +7,7 @@ export class GuardSchema<T> extends Schema<T> {
 
   constructor(
     guard: (data: any) => data is T,
-    opts: { generate?: () => T } = {}
+    opts: { generate?: () => T } = {},
   ) {
     super()
     this.guard = guard
@@ -16,7 +16,7 @@ export class GuardSchema<T> extends Schema<T> {
 
   static create<T>(
     guard: (data: any) => data is T,
-    opts: { generate?: () => T } = {}
+    opts: { generate?: () => T } = {},
   ): GuardSchema<T> {
     return new GuardSchema(guard, opts)
   }

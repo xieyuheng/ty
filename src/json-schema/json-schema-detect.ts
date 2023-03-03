@@ -10,7 +10,7 @@ require("ajv-formats-draft2019")(ajv)
 
 export function jsonSchemaDetect(
   jsonSchema: Record<string, any>,
-  data: any
+  data: any,
 ): null | undefined | Array<ErrorObject> {
   const validator = ajv.compile(jsonSchema)
   if (validator(data)) {

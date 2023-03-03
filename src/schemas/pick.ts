@@ -13,7 +13,7 @@ export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
 
   static create<T, Key extends keyof T>(
     schema: Schema<T>,
-    keys: Key
+    keys: Key,
   ): PickSchema<T, Key> {
     return new PickSchema(schema, keys)
   }

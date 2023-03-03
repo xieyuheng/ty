@@ -7,7 +7,7 @@ import ty from ".."
       y: ty.number(),
       z: ty.number(),
     }),
-    ["x", "y"] as const
+    ["x", "y"] as const,
   )
   type Data = { x: number; y: number; z: number }
   const data0: Pick<Data, "x" | "y"> = schema.validate({ x: 0, y: 0 })
@@ -29,7 +29,7 @@ import ty from ".."
       y: ty.number(),
       z: ty.number(),
     }),
-    ["x", "y"] as const
+    ["x", "y"] as const,
   )
 
   schema.testGeneration()

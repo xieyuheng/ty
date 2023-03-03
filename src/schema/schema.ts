@@ -40,7 +40,7 @@ export abstract class Schema<T> {
           `I expect the data to be invalid according to the schema.`,
           `  data: ${JSON.stringify(data)}`,
           `  schema: ${JSON.stringify(this.json())}`,
-        ].join("\n")
+        ].join("\n"),
       )
     } catch (error) {
       if (Errors.InvalidData.guard(error)) {
