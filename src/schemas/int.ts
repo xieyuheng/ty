@@ -28,26 +28,4 @@ export class IntSchema extends NumberSchema {
 
     return data
   }
-
-  generate(): number {
-    let { min, max } = this.constraints
-
-    if (min !== undefined && max !== undefined) {
-      return randomInt(min, max)
-    } else if (min !== undefined) {
-      max = min + Math.abs(1 / Math.random()) + 1
-      return randomInt(min, max)
-    } else if (max !== undefined) {
-      min = max - Math.abs(1 / Math.random()) - 1
-      return randomInt(min, max)
-    } else {
-      min = -Math.abs(1 / Math.random()) - 1
-      max = Math.abs(1 / Math.random()) + 1
-      return randomInt(min, max)
-    }
-  }
-}
-
-function randomInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1) + min)
 }

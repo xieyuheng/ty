@@ -32,8 +32,4 @@ export class ConstSchema<T> extends Schema<T> {
   prune(data: any): T {
     return this.validate(data)
   }
-
-  generate(): T {
-    return this.data
-  }
 }

@@ -3,22 +3,14 @@ import { Schema } from "../schema"
 
 export class GuardSchema<T> extends Schema<T> {
   guard: (data: any) => data is T
-  private gen?: () => T
 
-  constructor(
-    guard: (data: any) => data is T,
-    opts: { generate?: () => T } = {},
-  ) {
+  constructor(guard: (data: any) => data is T) {
     super()
     this.guard = guard
-    this.gen = opts.generate
   }
 
-  static create<T>(
-    guard: (data: any) => data is T,
-    opts: { generate?: () => T } = {},
-  ): GuardSchema<T> {
-    return new GuardSchema(guard, opts)
+  static create<T>(guard: (data: any) => data is T): GuardSchema<T> {
+    return new GuardSchema(guard)
   }
 
   json(): { $guard: any } {
@@ -37,13 +29,5 @@ export class GuardSchema<T> extends Schema<T> {
 
   prune(data: any): T {
     return this.validate(data)
-  }
-
-  generate(): T {
-    if (this.gen) {
-      return this.gen()
-    } else {
-      throw new Error("The generate function of GuardSchema is not provided.")
-    }
   }
 }

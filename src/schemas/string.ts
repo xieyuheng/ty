@@ -65,19 +65,4 @@ export class StringSchema extends Schema<string> {
   prune(data: any): string {
     return this.validate(data)
   }
-
-  generate(): string {
-    const { max, min, length, within } = this.constraints
-
-    if (within) {
-      const i = Math.floor(Math.random() * within.length)
-      return within[i]
-    }
-
-    const size = length || ty.int({ min: min || 1, max: max || 10 }).generate()
-
-    if (size === 0) return ""
-
-    return randomHexString(Math.ceil(size / 2)).slice(0, size)
-  }
 }

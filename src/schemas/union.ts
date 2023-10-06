@@ -1,4 +1,3 @@
-import ty from ".."
 import * as Errors from "../errors"
 import { Schema } from "../schema"
 import { isObject } from "../utils/isObject"

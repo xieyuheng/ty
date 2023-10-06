@@ -61,22 +61,4 @@ export class NumberSchema extends Schema<number> {
   prune(data: any): number {
     return this.validate(data)
   }
-
-  generate(): number {
-    let { min, max } = this.constraints
-
-    if (min !== undefined && max !== undefined) {
-      return Math.random() * (max - min) + min
-    } else if (min !== undefined) {
-      max = min + Math.abs(1 / Math.random())
-      return Math.random() * (max - min) + min
-    } else if (max !== undefined) {
-      min = max - Math.abs(1 / Math.random())
-      return Math.random() * (max - min) + min
-    } else {
-      min = -Math.abs(1 / Math.random())
-      max = Math.abs(1 / Math.random())
-      return Math.random() * (max - min) + min
-    }
-  }
 }

@@ -7,19 +7,14 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
   InstanceType<T>
 > {
   givenClass: T
-  private gen?: () => InstanceType<T>
 
-  constructor(givenClass: T, opts: { generate?: () => InstanceType<T> } = {}) {
+  constructor(givenClass: T) {
     super()
     this.givenClass = givenClass
-    this.gen = opts.generate
   }
 
-  static create<T extends Constructor>(
-    givenClass: T,
-    opts: { generate?: () => InstanceType<T> } = {},
-  ): InstanceofSchema<T> {
-    return new InstanceofSchema(givenClass, opts)
+  static create<T extends Constructor>(givenClass: T): InstanceofSchema<T> {
+    return new InstanceofSchema(givenClass)
   }
 
   json(): { $instanceof: string } {
@@ -42,15 +37,5 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
 
   prune(data: any): InstanceType<T> {
     return this.validate(data)
-  }
-
-  generate(): InstanceType<T> {
-    if (this.gen) {
-      return this.gen()
-    } else {
-      throw new Error(
-        "The generate function of InstanceofSchema is not provided.",
-      )
-    }
   }
 }
