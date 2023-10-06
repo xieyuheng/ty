@@ -1,7 +1,5 @@
-import ty from ".."
 import * as Errors from "../errors"
 import { Schema } from "../schema"
-import { randomHexString } from "../utils/randomHexString"
 
 export interface StringConstraints {
   max?: number
