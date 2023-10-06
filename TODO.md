@@ -1,7 +1,5 @@
 improve error message
 
-quit using `deep-diff`
-
 # refactor
 
 [refactor] the structure of `InvalidData` not well designed and is overloaded
