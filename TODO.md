@@ -1,5 +1,3 @@
-remove theories/
-
 improve error message
 
 quit using `deep-diff`
