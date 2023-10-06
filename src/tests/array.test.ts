@@ -27,20 +27,3 @@ import ty from ".."
   const data3: Array<number> = schema.validate([1, 2, 3])
   schema.assertInvalid([1, 2, 3, 4])
 }
-
-// generate
-
-{
-  const schema = ty.array(ty.number())
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.array(ty.number(), { max: 3 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.array(ty.number(), { min: 0, max: 3 })
-  schema.testGeneration()
-}

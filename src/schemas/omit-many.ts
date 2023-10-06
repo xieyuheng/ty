@@ -56,8 +56,4 @@ export class OmitManySchema<
 
     return typedData
   }
-
-  generate(): Omit<T, Keys[number]> {
-    return this.prune(this.schema.generate())
-  }
 }

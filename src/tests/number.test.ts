@@ -22,35 +22,3 @@ import ty from ".."
   schema.assertInvalid(-1)
   schema.assertInvalid(123)
 }
-
-// generate
-
-{
-  const schema = ty.number({ min: 0, max: 100 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.number({ min: -100, max: 100 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.number({ max: 100 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.number({ min: 100 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.number({ min: -100 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.number()
-  schema.testGeneration()
-}

@@ -1,4 +1,3 @@
-remove property-based testing
 remove theories/
 
 improve error message

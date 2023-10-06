@@ -23,10 +23,3 @@ export function v(strs: TemplateStringsArray): Var {
   schema.assertInvalid(0)
   schema.assertInvalid({ id: 0, name: "x" })
 }
-
-{
-  const schema = ty.instanceof(Var, {
-    generate: () => new Var(ty.string().generate()),
-  })
-  schema.testGeneration()
-}

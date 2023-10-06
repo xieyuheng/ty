@@ -63,12 +63,4 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       return typedData
     }
   }
-
-  generate(): T | U {
-    if (ty.boolean().generate()) {
-      return this.left.generate()
-    } else {
-      return this.right.generate()
-    }
-  }
 }

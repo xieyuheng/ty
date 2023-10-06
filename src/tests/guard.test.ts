@@ -27,10 +27,3 @@ export function v(strs: TemplateStringsArray): Var {
   schema.assertInvalid(0)
   schema.assertInvalid({ id: 0, name: "x" })
 }
-
-{
-  const schema = ty.guard(Var.guard, {
-    generate: () => new Var(ty.string().generate()),
-  })
-  schema.testGeneration()
-}

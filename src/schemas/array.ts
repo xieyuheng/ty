@@ -73,15 +73,4 @@ export class ArraySchema<T> extends Schema<Array<T>> {
   prune(data: any): Array<T> {
     return this.validate(data).map((e) => this.item.prune(e))
   }
-
-  generate(): Array<T> {
-    const { min, max } = this.constraints
-    const length = ty.number({ min: min || 0, max: max || 10 }).generate()
-    const results: Array<T> = []
-    for (let i = 0; i < length; i++) {
-      results.push(this.item.generate())
-    }
-
-    return results
-  }
 }

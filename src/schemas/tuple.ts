@@ -45,8 +45,4 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
   prune(data: any): T {
     return this.validate(data).map((e, i) => this.items[i].prune(e)) as T
   }
-
-  generate(): T {
-    return this.items.map((item) => item.generate()) as T
-  }
 }

@@ -17,21 +17,11 @@ type User = Obtain<typeof userSchema>
 //   last_name: string
 // }
 
-{
-  const data: any = {
-    id: 1,
-    first_name: "Yuheng",
-    last_name: "Xie",
-  }
-
-  const user: User = userSchema.validate(data)
-  const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate(data)
+const data: any = {
+  id: 1,
+  first_name: "Yuheng",
+  last_name: "Xie",
 }
 
-{
-  const user: User = userSchema.generate()
-
-  userSchema.validate(user)
-
-  // console.log(user)
-}
+const user: User = userSchema.validate(data)
+const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate(data)

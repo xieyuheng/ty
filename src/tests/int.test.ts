@@ -23,20 +23,3 @@ import ty from ".."
   schema.assertInvalid(-1)
   schema.assertInvalid(123)
 }
-
-// generate
-
-{
-  const schema = ty.int()
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.int({ max: 100 })
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.int({ min: 0, max: 100 })
-  schema.testGeneration()
-}

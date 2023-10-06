@@ -61,11 +61,4 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
   prune(data: any): T & U {
     return this.left.prune(this.right.prune(this.validate(data))) as T & U
   }
-
-  generate(): T & U {
-    return {
-      ...this.left.generate(),
-      ...this.right.generate(),
-    }
-  }
 }

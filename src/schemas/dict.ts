@@ -1,4 +1,3 @@
-import ty from ".."
 import * as Errors from "../errors"
 import { Schema } from "../schema"
 
@@ -87,17 +86,5 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
     }
 
     return record
-  }
-
-  generate(): Record<string, T> {
-    const { min, max } = this.constraints
-    const length = ty.number({ min: min || 0, max: max || 10 }).generate()
-    const results: Record<string, T> = {}
-    for (let i = 0; i < length; i++) {
-      const key = ty.string({ min: 6, max: 32 }).generate()
-      results[key] = this.item.generate()
-    }
-
-    return results
   }
 }

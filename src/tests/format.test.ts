@@ -66,30 +66,3 @@ import ty from ".."
   schema.assertInvalid("example.com")
   schema.assertInvalid("用户@例子.广告")
 }
-
-// generate
-
-{
-  const schema = ty.format("date")
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.format("date-time")
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.format("time")
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.format("uri")
-  schema.testGeneration()
-}
-
-{
-  const schema = ty.format("email")
-  schema.testGeneration()
-}

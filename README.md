@@ -1,15 +1,10 @@
 # Ty
 
-Write schema to bring TypeScript's types to runtime.
-
-Which can be used to:
-- Validate untyped data and return well typed result.
-- Generate random data of a given schema, to do property-based testing.
-  - We also provide a library of logic theories, to be used as target of models.
+Validate untyped data and return well typed result.
 
 ## Install
 
-``` bash
+```bash
 npm i @xieyuheng/ty
 ```
 
@@ -17,7 +12,7 @@ npm i @xieyuheng/ty
 
 ### Validation untyped data
 
-``` typescript
+```typescript
 import ty, { Obtain } from "@xieyuheng/ty"
 
 const userSchema = ty.object({
@@ -25,7 +20,6 @@ const userSchema = ty.object({
   first_name: ty.string(),
   last_name: ty.string(),
 })
-
 
 type User = Obtain<typeof userSchema>
 
@@ -50,23 +44,9 @@ type User = Obtain<typeof userSchema>
 }
 ```
 
-### Generate random data of a given schema
-
-``` typescript
-{
-  const user: User = userSchema.generate()
-
-  userSchema.validate(user)
-
-  console.log(user)
-  // Will print something like:
-  //   { id: 0, first_name: 'ada4a39ab0', last_name: '73be' }
-}
-```
-
 ### Recursive and generic schema
 
-``` typescript
+```typescript
 type List<T> = null | { head: T; tail: List<T> }
 
 function cons<T>(head: T, tail: List<T>): List<T> {
@@ -88,7 +68,7 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   const data1: List<string> = schema.validate(cons("a", null))
   const data2: List<string> = schema.validate(cons("a", cons("b", null)))
   const data3: List<string> = schema.validate(
-    cons("a", cons("b", cons("c", null)))
+    cons("a", cons("b", cons("c", null))),
   )
   schema.assertInvalid(cons(1, null))
   schema.assertInvalid(cons(1, cons(2, null)))
@@ -107,23 +87,10 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
 }
 ```
 
-### Property-based testing
-
-```
-TODO
-```
-
-### Logic theories (interface and typeclass of laws)
-
-To be used as target of models, for property-based testing.
-
-```
-TODO
-```
-
 ## API Docs
 
 **Primitive:**
+
 - [ty.string()](src/tests/string.test.ts)
 - [ty.format(foramtName)](src/tests/format.test.ts)
 - [ty.number()](src/tests/number.test.ts)
@@ -134,17 +101,20 @@ TODO
 - [ty.any()](src/tests/any.test.ts)
 
 **Collection:**
+
 - [ty.object({ ...schemas })](src/tests/object.test.ts)
 - [ty.array(itemSchema)](src/tests/array.test.ts)
 - [ty.tuple(...itemSchema)](src/tests/tuple.test.ts)
 - [ty.dict(itemSchema)](src/tests/dict.test.ts)
 
 **Set-Theoretic:**
+
 - [ty.const(data as const)](src/tests/const.test.ts)
 - [ty.union(leftSchema, rigthSchema)](src/tests/union.ts)
 - [ty.intersection(leftSchema, rigthSchema)](src/tests/intersection.test.ts)
 
 **Structural:**
+
 - [ty.omit(schema, key)](src/tests/omit.ts)
 - [ty.omitMany(schema, keys)](src/tests/omit-many.ts)
 - [ty.pick(schema, key)](src/tests/pick.ts)
@@ -152,17 +122,8 @@ TODO
 - [ty.optional(schema)](src/tests/optional.ts)
 
 **Recursion:**
+
 - [ty.lazy(() => schema)](src/tests/lazy.ts)
-
-## Similar projects
-
-**Runtime typing:**
-- https://github.com/gcanti/io-ts
-- https://github.com/pelotom/runtypes
-
-**Property-based testing and data generation:**
-- https://github.com/dubzzz/fast-check
-- https://github.com/Marak/Faker.js
 
 ## Contributions
 

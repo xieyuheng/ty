@@ -49,8 +49,4 @@ export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
     const typedData = this.validate(data)
     return { [this.key]: typedData[this.key] } as Pick<T, Key>
   }
-
-  generate(): Pick<T, Key> {
-    return this.prune(this.schema.generate())
-  }
 }

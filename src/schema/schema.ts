@@ -4,20 +4,6 @@ export abstract class Schema<T> {
   abstract json(): any
   abstract validate(data: any): T
   abstract prune(data: any): T
-  abstract generate(): T
-
-  testGeneration(opts: { n?: number; echo?: boolean } = {}): void {
-    const n = opts.n || 100
-
-    for (let i = 0; i < n; i++) {
-      const data = this.generate()
-      if (opts?.echo) {
-        console.log(`generated data #${i}:`, data)
-      }
-
-      this.validate(data)
-    }
-  }
 
   isValid(data: any): data is T {
     try {

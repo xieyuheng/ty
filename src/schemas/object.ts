@@ -87,13 +87,4 @@ export class ObjectSchema<T> extends Schema<T> {
 
     return typedData
   }
-
-  generate(): T {
-    const data: any = {}
-    for (const key in this.properties) {
-      data[key] = this.properties[key].generate()
-    }
-
-    return data
-  }
 }
