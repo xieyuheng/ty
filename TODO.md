@@ -1,14 +1,9 @@
-[api] api about property-based testing
-[theories] more theories and example about property-based testing
-[docs] minimalist homepage for docs
+remove property-based testing
+remove theories/
 
-# property-based testing
+improve error message
 
-be able to shrink conterexample
-
-# later
-
-string -- `generate` -- use context free grammar to generate sentences
+quit using `deep-diff`
 
 # refactor
 
