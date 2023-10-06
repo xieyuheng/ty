@@ -110,20 +110,20 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
 **Set-Theoretic:**
 
 - [ty.const(data as const)](src/tests/const.test.ts)
-- [ty.union(leftSchema, rigthSchema)](src/tests/union.ts)
+- [ty.union(leftSchema, rigthSchema)](src/tests/union.test.ts)
 - [ty.intersection(leftSchema, rigthSchema)](src/tests/intersection.test.ts)
 
 **Structural:**
 
-- [ty.omit(schema, key)](src/tests/omit.ts)
-- [ty.omitMany(schema, keys)](src/tests/omit-many.ts)
-- [ty.pick(schema, key)](src/tests/pick.ts)
-- [ty.pickMany(schema, keys)](src/tests/pick-many.ts)
-- [ty.optional(schema)](src/tests/optional.ts)
+- [ty.omit(schema, key)](src/tests/omit.test.ts)
+- [ty.omitMany(schema, keys)](src/tests/omit-many.test.ts)
+- [ty.pick(schema, key)](src/tests/pick.test.ts)
+- [ty.pickMany(schema, keys)](src/tests/pick-many.test.ts)
+- [ty.optional(schema)](src/tests/optional.test.ts)
 
 **Recursion:**
 
-- [ty.lazy(() => schema)](src/tests/lazy.ts)
+- [ty.lazy(() => schema)](src/tests/lazy.test.ts)
 
 ## Contributions
 
