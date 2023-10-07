@@ -1,3 +1,5 @@
+isValidationReport -- instead of ValidationReport.guard
+
 ty.url
 ty.date
 

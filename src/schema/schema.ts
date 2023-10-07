@@ -9,7 +9,7 @@ export abstract class Schema<T> {
       this.validate(data)
       return true
     } catch (error) {
-      if (Errors.InvalidData.guard(error)) {
+      if (Errors.ValidationReport.guard(error)) {
         return false
       } else {
         throw error
@@ -28,7 +28,7 @@ export abstract class Schema<T> {
         ].join("\n"),
       )
     } catch (error) {
-      if (Errors.InvalidData.guard(error)) {
+      if (Errors.ValidationReport.guard(error)) {
         return
       } else {
         throw error

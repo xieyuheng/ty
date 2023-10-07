@@ -23,7 +23,7 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (Errors.InvalidData.guard(error)) {
+      if (Errors.ValidationReport.guard(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey === this.key) {
           return data

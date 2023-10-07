@@ -26,7 +26,7 @@ export class ArraySchema<T> extends Schema<Array<T>> {
 
   validate(data: any): Array<T> {
     if (!(data instanceof Array)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be array.",
       })
     }
@@ -34,19 +34,19 @@ export class ArraySchema<T> extends Schema<Array<T>> {
     const { max, min, length } = this.constraints
 
     if (max !== undefined && !(data.length <= max)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the max array length to be ${max}, length: ${data.length}`,
       })
     }
 
     if (min !== undefined && !(data.length >= min)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the min array length to be ${min}, length: ${data.length}`,
       })
     }
 
     if (length !== undefined && !(data.length === length)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the array length to be ${length}, length: ${data.length}`,
       })
     }
@@ -55,7 +55,7 @@ export class ArraySchema<T> extends Schema<Array<T>> {
       try {
         this.item.validate(item)
       } catch (error) {
-        if (Errors.InvalidData.guard(error)) {
+        if (Errors.ValidationReport.guard(error)) {
           error.keys.push(i)
         }
         throw error

@@ -22,7 +22,7 @@ export class ConstSchema<T> extends Schema<T> {
   validate(data: any): T {
     if (!jsonEqual(this.data as Json, data)) {
       const repr = JSON.stringify(data)
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the data to be a const data: ${repr}`,
       })
     }

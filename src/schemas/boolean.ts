@@ -12,7 +12,7 @@ export class BooleanSchema extends Schema<boolean> {
 
   validate(data: any): boolean {
     if (typeof data !== "boolean") {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be boolean.",
       })
     }

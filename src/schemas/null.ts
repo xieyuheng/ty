@@ -12,7 +12,7 @@ export class NullSchema extends Schema<null> {
 
   validate(data: any): null {
     if (data !== null) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be null.",
       })
     }

@@ -25,8 +25,8 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
         this.right.validate(data)
         return data
       } catch (rightError) {
-        if (Errors.InvalidData.guard(rightError)) {
-          throw new Errors.InvalidData(data, {
+        if (Errors.ValidationReport.guard(rightError)) {
+          throw new Errors.ValidationReport(data, {
             msg: [
               `I expect the data to be the interseciton of left and right type.`,
               `but it is not of right type:`,
@@ -39,8 +39,8 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
         }
       }
     } catch (leftError) {
-      if (Errors.InvalidData.guard(leftError)) {
-        throw new Errors.InvalidData(data, {
+      if (Errors.ValidationReport.guard(leftError)) {
+        throw new Errors.ValidationReport(data, {
           msg: [
             `I expect the data to be the interseciton of left and right type.`,
             `but it is not of left type:`,

@@ -26,7 +26,7 @@ export class OmitManySchema<
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (Errors.InvalidData.guard(error)) {
+      if (Errors.ValidationReport.guard(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey instanceof Array) {
           if (lastKey.every((key) => this.keys.includes(key as keyof T))) {

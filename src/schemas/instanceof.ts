@@ -23,7 +23,7 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
 
   validate(data: any): InstanceType<T> {
     if (!(data instanceof this.givenClass)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: [
           `I expect the data to be instance of given class`,
           `  given class name: ${this.givenClass.name}`,

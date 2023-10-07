@@ -36,7 +36,7 @@ export class NumberSchema extends Schema<number> {
 
   validate(data: any): number {
     if (typeof data !== "number") {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be number.",
       })
     }
@@ -44,13 +44,13 @@ export class NumberSchema extends Schema<number> {
     const { min, max } = this.constraints
 
     if (min !== undefined && !(data >= min)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the number to be greater than or equal to ${min}`,
       })
     }
 
     if (max !== undefined && !(data <= max)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the number to be less than or equal to ${max}`,
       })
     }

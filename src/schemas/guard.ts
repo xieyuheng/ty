@@ -19,7 +19,7 @@ export class GuardSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     if (!this.guard(data)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: `I expect the data to be a guarded by: ${this.guard}`,
       })
     }

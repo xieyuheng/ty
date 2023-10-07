@@ -34,18 +34,18 @@ export class ObjectSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     if (!isObject(data)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be object.",
       })
     }
 
     const keys: Array<string> = []
-    const errors: Array<Errors.InvalidData> = []
+    const errors: Array<Errors.ValidationReport> = []
     for (const key in this.properties) {
       try {
         this.properties[key].validate(data[key])
       } catch (error) {
-        if (Errors.InvalidData.guard(error)) {
+        if (Errors.ValidationReport.guard(error)) {
           keys.push(key)
           errors.push(error)
         } else {

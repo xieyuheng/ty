@@ -21,7 +21,7 @@ export class IntSchema extends NumberSchema {
     super.validate(data)
 
     if (!Number.isInteger(data)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be integer.",
       })
     }

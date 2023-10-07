@@ -19,7 +19,7 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
 
   validate(data: any): T {
     if (!(data instanceof Array)) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be tuple.",
       })
     }
@@ -28,7 +28,7 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
       try {
         this.items[i].validate(data[i])
       } catch (error) {
-        if (Errors.InvalidData.guard(error)) {
+        if (Errors.ValidationReport.guard(error)) {
           error.keys.push(i)
         }
         throw error

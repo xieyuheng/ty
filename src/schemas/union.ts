@@ -21,13 +21,13 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       this.left.validate(data)
       return data
     } catch (leftError) {
-      if (Errors.InvalidData.guard(leftError)) {
+      if (Errors.ValidationReport.guard(leftError)) {
         try {
           this.right.validate(data)
           return data
         } catch (rightError) {
-          if (Errors.InvalidData.guard(rightError)) {
-            throw new Errors.InvalidData(data, {
+          if (Errors.ValidationReport.guard(rightError)) {
+            throw new Errors.ValidationReport(data, {
               msg: [
                 `I expect the data to be the union of left and right type.`,
                 ``,

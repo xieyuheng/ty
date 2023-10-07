@@ -12,7 +12,7 @@ export class UndefinedSchema extends Schema<undefined> {
 
   validate(data: any): undefined {
     if (data !== undefined) {
-      throw new Errors.InvalidData(data, {
+      throw new Errors.ValidationReport(data, {
         msg: "I expect the data to be undefined.",
       })
     }
