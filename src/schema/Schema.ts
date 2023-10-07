@@ -1,4 +1,5 @@
 import { isReport } from "../errors"
+import { indent } from "../utils/indent"
 
 export abstract class Schema<T> {
   abstract validate(data: any): T
@@ -22,16 +23,19 @@ export abstract class Schema<T> {
       this.validate(data)
       throw new Error(
         [
-          `I expect the data to be invalid according to the schema.`,
+          `[assertInvalid] I expect the data to be invalid according to the schema.`,
           ``,
-          `  data: ${JSON.stringify(data)}`,
+          `  data:`,
+          indent(JSON.stringify(data, null, 2), "    "),
         ].join("\n"),
       )
     } catch (error) {
-      if (isReport(error)) {
-        return
+      if (error instanceof Error) {
+        console.log(error.message)
+        console.log()
       } else {
-        throw error
+        console.log(String(error))
+        console.log()
       }
     }
   }

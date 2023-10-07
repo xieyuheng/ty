@@ -1,5 +1,3 @@
-assertInvalid -- print error messages
-
 ty.predicate -- take message
 
 ty.number -- take message -- for error report with constraint

@@ -22,7 +22,8 @@ export class ConstSchema<T> extends Schema<T> {
         message: [
           `[ConstSchema] I expect the data to be a const.`,
           ``,
-          `  const data: ${indent(JSON.stringify(data, null, 2))}`,
+          `  const data:`,
+          indent(JSON.stringify(data, null, 4), "    "),
         ].join("\n"),
         data,
       })

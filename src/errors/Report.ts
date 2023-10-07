@@ -17,13 +17,17 @@ export class Report extends Error {
 }
 
 function formatReportEntry(entry: ReportEntry): string {
-  if (entry.data === undefined) {
+  if (!entry.hasOwnProperty("data")) {
     return entry.message
+  } else if (entry.data === undefined) {
+    return [entry.message, "", `  data: undefined`].join("\n")
   } else {
-    return [
-      entry.message,
-      "",
-      `  data: ${indent(JSON.stringify(entry.data, null, 2))}`,
-    ].join("\n")
+    const text = JSON.stringify(entry.data, null, 2)
+    const lines = text.split("\n")
+    if (lines.length > 1) {
+      return [entry.message, "", `  data:`, indent(text, "    ")].join("\n")
+    } else {
+      return [entry.message, "", `  data: ${text}`].join("\n")
+    }
   }
 }
