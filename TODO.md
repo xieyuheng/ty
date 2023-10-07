@@ -1,7 +1,8 @@
 ty.url
 ty.date
 
-unused schemas
+rename guard to predicate
+quit using min and max -- use guard
 
 Report recursively report error
 

@@ -3,7 +3,7 @@
 export * from "./schema"
 export * from "./json"
 export * as Schemas from "./schemas"
-export * as Errors from "./errors"
+export * from "./errors"
 
 import * as Schemas from "./schemas"
 import { Schema } from "./schema"

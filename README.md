@@ -2,6 +2,8 @@
 
 Validate untyped data and return well typed result.
 
+- This package has NO runtime dependencies.
+
 ## Install
 
 ```bash
@@ -92,7 +94,6 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
 **Primitive:**
 
 - [ty.string()](src/tests/string.test.ts)
-- [ty.format(foramtName)](src/tests/format.test.ts)
 - [ty.number()](src/tests/number.test.ts)
 - [ty.int()](src/tests/int.test.ts)
 - [ty.boolean()](src/tests/boolean.test.ts)
