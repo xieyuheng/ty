@@ -1,7 +1,3 @@
-json/jsonEqual
-
-objectEqual -- instead of "fast-deep-equal"
-
 remove unused schemas
 
 improve error message

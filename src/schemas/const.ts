@@ -1,6 +1,7 @@
 import * as Errors from "../errors"
+import { Json } from "../json"
+import { jsonEqual } from "../json/jsonEqual"
 import { Schema } from "../schema"
-import { equal } from "../utils/equal"
 
 export class ConstSchema<T> extends Schema<T> {
   data: T
@@ -19,7 +20,7 @@ export class ConstSchema<T> extends Schema<T> {
   }
 
   validate(data: any): T {
-    if (!equal(this.data, data)) {
+    if (!jsonEqual(this.data as Json, data)) {
       const repr = JSON.stringify(data)
       throw new Errors.InvalidData(data, {
         msg: `I expect the data to be a const data: ${repr}`,
