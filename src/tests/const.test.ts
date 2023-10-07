@@ -1,4 +1,4 @@
-import ty from ".."
+import { ty } from ".."
 
 const schema = ty.const({ x: 1, y: "a" })
 const data: { x: number; y: string } = schema.validate({ x: 1, y: "a" })

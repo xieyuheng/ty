@@ -1,4 +1,4 @@
-import ty from ".."
+import { ty } from ".."
 
 const schema = ty.null()
 const data: null = schema.validate(null)

@@ -1,4 +1,4 @@
-import ty from ".."
+import { ty } from ".."
 
 const schema = ty.tuple(ty.number(), ty.string(), ty.number())
 const data0: [number, string, number] = schema.validate([1, "a", 1])

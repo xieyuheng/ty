@@ -1,4 +1,4 @@
-import ty from ".."
+import { ty } from ".."
 
 {
   const schema = ty.int()

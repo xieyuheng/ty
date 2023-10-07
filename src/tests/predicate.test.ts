@@ -1,4 +1,4 @@
-import ty from ".."
+import { ty } from ".."
 
 export class Var {
   id: number

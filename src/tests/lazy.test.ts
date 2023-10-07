@@ -1,4 +1,4 @@
-import ty, { Schema } from ".."
+import { Schema, ty } from ".."
 
 type Nat = "zero" | { prev: Nat }
 

@@ -1,4 +1,4 @@
-import ty from ".."
+import { ty } from ".."
 
 {
   const schema = ty.object({ first_name: ty.string(), last_name: ty.string() })
