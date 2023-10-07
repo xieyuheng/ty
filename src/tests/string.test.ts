@@ -7,7 +7,11 @@ import ty from ".."
 }
 
 {
-  const schema = ty.string({ constraint: (x) => x.length === 3 })
+  const schema = ty.string({
+    constraint: (x) => x.length === 3,
+    description: "Lenght must be 3.",
+  })
+
   const data: string = schema.validate("123")
   schema.expectInvalid("12")
   schema.expectInvalid("1234")
