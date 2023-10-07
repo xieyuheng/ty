@@ -1,14 +1,14 @@
-export class ValidationReport extends Error {
+export class Report extends Error {
   data: any
 
   keys: Array<string | number | symbol | Array<string | number | symbol>> = []
 
-  // NOTE We can not use `instanceof` to check whether an error is `ValidationReport`,
+  // NOTE We can not use `instanceof` to check whether an error is `Report`,
   //   because `ty` might be imported by different clients,
   //   and the schema written by them might be composed together.
-  // When this happened, different references to the `ValidationReport` class,
+  // When this happened, different references to the `Report` class,
   //   will not be viewed as the same by `instanceof`.
-  private instanceofValidationReport = true
+  private instanceofReport = true
 
   constructor(
     data: any,

@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { Report } from "../errors"
 import { Json } from "../json"
 import { jsonEqual } from "../json/jsonEqual"
 import { Schema } from "../schema"
@@ -18,7 +18,7 @@ export class ConstSchema<T> extends Schema<T> {
   validate(data: any): T {
     if (!jsonEqual(this.data as Json, data)) {
       const repr = JSON.stringify(data)
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: `I expect the data to be a const data: ${repr}`,
       })
     }

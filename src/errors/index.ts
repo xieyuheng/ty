@@ -1,2 +1,2 @@
-export * from "./ValidationReport"
-export * from "./isValidationReport"
+export * from "./Report"
+export * from "./isReport"

@@ -1,10 +1,7 @@
+Report recursively report error
+
 ty.url
 ty.date
-
-ty.validate -- Report recursively report error
-ty.isValid
-ty.prune
-ty.assertInvalid -- for testing
 
 # refactor
 

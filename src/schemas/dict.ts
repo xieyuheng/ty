@@ -1,4 +1,4 @@
-import { ValidationReport, isValidationReport } from "../errors"
+import { Report, isReport } from "../errors"
 import { Schema } from "../schema"
 
 export interface DictConstraints {
@@ -26,7 +26,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
 
   validate(data: any): Record<string, T> {
     if (typeof data !== "object" || data === null || Array.isArray(data)) {
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: "I expect the data to be dict.",
       })
     }
@@ -34,7 +34,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
     const { max, min, length } = this.constraints
 
     if (max !== undefined && !(Object.keys(data).length <= max)) {
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: [
           `I expect the max dict length to be ${max}`,
           `  length: ${Object.keys(data).length}`,
@@ -43,7 +43,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
     }
 
     if (min !== undefined && !(Object.keys(data).length >= min)) {
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: [
           `I expect the min dict length to be ${min}`,
           `  length: ${Object.keys(data).length}`,
@@ -52,7 +52,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
     }
 
     if (length !== undefined && !(Object.keys(data).length === length)) {
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: [
           `I expect the dict length to be ${length}`,
           `  length: ${Object.keys(data).length}`,
@@ -64,7 +64,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
       try {
         this.item.validate(item)
       } catch (error) {
-        if (isValidationReport(error)) {
+        if (isReport(error)) {
           error.keys.push(key)
         }
         throw error

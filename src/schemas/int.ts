@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { Report } from "../errors"
 import { NumberConstraint, NumberSchema } from "./number"
 
 export class IntSchema extends NumberSchema {
@@ -18,7 +18,7 @@ export class IntSchema extends NumberSchema {
     super.validate(data)
 
     if (!Number.isInteger(data)) {
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: "I expect the data to be integer.",
       })
     }

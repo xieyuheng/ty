@@ -1,4 +1,4 @@
-import { isValidationReport } from "../errors"
+import { isReport } from "../errors"
 import { Schema } from "../schema"
 
 export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
@@ -23,7 +23,7 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (isValidationReport(error)) {
+      if (isReport(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey === this.key) {
           return data

@@ -1,4 +1,4 @@
-import { isValidationReport } from "../errors"
+import { isReport } from "../errors"
 import { Schema } from "../schema"
 
 export class PickManySchema<
@@ -26,7 +26,7 @@ export class PickManySchema<
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (isValidationReport(error)) {
+      if (isReport(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey instanceof Array) {
           if (lastKey.every((key) => !this.keys.includes(key as keyof T))) {

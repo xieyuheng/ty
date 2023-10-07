@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { Report } from "../errors"
 import { Schema } from "../schema"
 
 export class UndefinedSchema extends Schema<undefined> {
@@ -8,7 +8,7 @@ export class UndefinedSchema extends Schema<undefined> {
 
   validate(data: any): undefined {
     if (data !== undefined) {
-      throw new ValidationReport(data, {
+      throw new Report(data, {
         message: "I expect the data to be undefined.",
       })
     }
