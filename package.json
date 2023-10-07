@@ -13,21 +13,21 @@
     "test:js": "test-runner test node 'lib/**/*.test.js'",
     "test": "npm run test:js"
   },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "ajv-formats-draft2019": "^1.6.1",
+    "fast-deep-equal": "^3.1.3",
+    "semver": "^7.5.4"
+  },
   "devDependencies": {
     "@types/assert": "^1.5.7",
     "@types/node": "^20.8.2",
     "@types/semver": "^7.5.3",
     "@xieyuheng/test-runner": "^0.2.9",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
-    "ajv-formats-draft2019": "^1.6.1",
-    "fast-deep-equal": "^3.1.3",
     "prettier-plugin-organize-imports": "^3.2.3",
-    "semver": "^7.5.4"
+    "typescript": "^5.2.2"
   },
   "license": "GPL-3.0-or-later"
 }
