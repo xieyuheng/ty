@@ -6,24 +6,9 @@ export interface NumberConstraints {
   max?: number
 }
 
-function validateNumberConstraints({ min, max }: NumberConstraints): boolean {
-  // NOTE comparing `undefined` with number, will always return `false`.
-  if ((min as any) > (max as any)) return false
-  else return true
-}
-
 export class NumberSchema extends Schema<number> {
-  constraints: NumberConstraints
-
-  constructor(constraints: NumberConstraints) {
+  constructor(public constraints: NumberConstraints) {
     super()
-    if (validateNumberConstraints(constraints)) {
-      this.constraints = constraints
-    } else {
-      throw new Error(
-        `Invalid NumberConstraints: ${JSON.stringify(constraints)}`,
-      )
-    }
   }
 
   static create(constraints: NumberConstraints = {}): NumberSchema {

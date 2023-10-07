@@ -1,10 +1,12 @@
+`NumberSchema` -- take `constraint`
+`StringSchema` -- take `constraint`
+
 ty.url
 ty.date
 
-quit using min and max -- use guard
-
 ty.validate -- Report recursively report error
 ty.isValid
+ty.prune
 ty.assertInvalid -- for testing
 
 # refactor

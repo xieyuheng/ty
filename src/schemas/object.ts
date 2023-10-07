@@ -21,9 +21,9 @@ type SchemaObject<T> = { [P in keyof T]: Schema<T[P]> }
 export class ObjectSchema<T> extends Schema<T> {
   properties: SchemaObject<T>
 
-  constructor(opts: { properties: SchemaObject<T> }) {
+  constructor(options: { properties: SchemaObject<T> }) {
     super()
-    this.properties = opts.properties
+    this.properties = options.properties
   }
 
   static create<T>(

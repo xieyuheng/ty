@@ -12,15 +12,15 @@ export class ValidationReport extends Error {
 
   constructor(
     data: any,
-    opts: {
+    options: {
       msg: string
       keys?: Array<string | number | symbol | Array<string | number | symbol>>
     },
   ) {
     super()
     this.data = data
-    this.msg = opts.msg
-    this.keys = opts.keys || []
+    this.msg = options.msg
+    this.keys = options.keys || []
   }
 
   get message(): string {

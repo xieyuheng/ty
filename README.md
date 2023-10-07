@@ -2,7 +2,7 @@
 
 Validate untyped data and return well typed result.
 
-- This package has NO runtime dependencies.
+This package has NO dependencies.
 
 ## Install
 

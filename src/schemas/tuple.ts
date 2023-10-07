@@ -6,9 +6,9 @@ type SchemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
 export class TupleSchema<T extends Array<any>> extends Schema<T> {
   readonly items: SchemaTuple<T>
 
-  constructor(opts: { items: SchemaTuple<T> }) {
+  constructor(options: { items: SchemaTuple<T> }) {
     super()
-    this.items = opts.items
+    this.items = options.items
   }
 
   static create<T extends Array<any>>(
