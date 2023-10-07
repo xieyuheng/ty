@@ -6,7 +6,7 @@ export type NumberConstraint = (x: number) => boolean
 export class NumberSchema extends Schema<number> {
   constructor(
     public constraint?: NumberConstraint,
-    public message?: string,
+    public description?: string,
   ) {
     super()
   }
@@ -14,29 +14,49 @@ export class NumberSchema extends Schema<number> {
   static create(
     options: {
       constraint?: NumberConstraint
-      message?: string
+      description?: string
     } = {},
   ): NumberSchema {
-    return new NumberSchema(options?.constraint, options?.message)
+    return new NumberSchema(options?.constraint, options?.description)
   }
 
   validate(data: any): number {
     if (typeof data !== "number") {
-      throw createReport({
-        message: [
-          `[NumberSchema] I expect the data to be number.`,
-          ``,
-          `  constraint: ${this.message || this.constraint}`,
-        ].join("\n"),
-        data,
-      })
+      if (this.description) {
+        throw createReport({
+          message: [
+            `[NumberSchema] I expect the data to be number.`,
+            ``,
+            `  description: ${this.description}`,
+          ].join("\n"),
+          data,
+        })
+      } else {
+        throw createReport({
+          message: `[NumberSchema] I expect the data to be number.`,
+          data,
+        })
+      }
     }
 
     if (this.constraint && !this.constraint(data)) {
-      throw createReport({
-        message: `[NumberSchema] I expect the number to satisfy the constraint.`,
-        data,
-      })
+      if (this.description) {
+        throw createReport({
+          message: [
+            `[NumberSchema] I expect the number to satisfy the constraint.`,
+            ``,
+            `  description: ${this.description}`,
+          ].join("\n"),
+          data,
+        })
+      } else {
+        throw createReport({
+          message: [
+            `[NumberSchema] I expect the number to satisfy the constraint.`,
+          ].join("\n"),
+          data,
+        })
+      }
     }
 
     return data
