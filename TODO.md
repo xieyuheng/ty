@@ -1,2 +1,0 @@
-ty.date
-ty.url

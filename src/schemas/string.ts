@@ -3,6 +3,11 @@ import { Schema } from "../schema"
 
 export type StringConstraint = (x: string) => boolean
 
+export type StringOptions = {
+  constraint?: StringConstraint
+  description?: string
+}
+
 export class StringSchema extends Schema<string> {
   constructor(
     public constraint?: StringConstraint,
@@ -11,12 +16,7 @@ export class StringSchema extends Schema<string> {
     super()
   }
 
-  static create(
-    options: {
-      constraint?: StringConstraint
-      description?: string
-    } = {},
-  ): StringSchema {
+  static create(options: StringOptions = {}): StringSchema {
     return new StringSchema(options?.constraint, options?.description)
   }
 

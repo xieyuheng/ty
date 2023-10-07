@@ -3,10 +3,23 @@ import * as Schemas from "./schemas"
 
 const primitive = {
   string: Schemas.StringSchema.create,
-  // uri: (constraints: Schemas.StringConstraints = {}) =>
-  //   Schemas.FormatSchema.create("uri", constraints),
-  // date: (constraints: Schemas.StringConstraints = {}) =>
-  //   Schemas.FormatSchema.create("date", constraints),
+  url: () =>
+    Schemas.StringSchema.create({
+      description: "String should be valid URL.",
+      constraint: (url) => {
+        try {
+          new URL(url)
+          return true
+        } catch (error) {
+          return false
+        }
+      },
+    }),
+  date: () =>
+    Schemas.StringSchema.create({
+      description: "String should be valid date.",
+      constraint: (date) => !isNaN(new Date(date).getTime()),
+    }),
   number: Schemas.NumberSchema.create,
   int: Schemas.IntSchema.create, // <: number
   null: Schemas.NullSchema.create,
