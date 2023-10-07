@@ -1,5 +1,3 @@
-`StringSchema` -- take `constraint`
-
 ty.url
 ty.date
 

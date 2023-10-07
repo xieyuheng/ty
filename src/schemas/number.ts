@@ -25,7 +25,7 @@ export class NumberSchema extends Schema<number> {
 
     if (this.constraint && !this.constraint(data)) {
       throw new ValidationReport(data, {
-        message: `I expect the number to pass the constraint.`,
+        message: `I expect the number to satisfy the constraint.`,
       })
     }
 
