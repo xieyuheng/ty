@@ -13,12 +13,6 @@
     "test:js": "test-runner test node 'lib/**/*.test.js'",
     "test": "npm run test:js"
   },
-  "dependencies": {
-    "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
-    "ajv-formats-draft2019": "^1.6.1",
-    "semver": "^7.5.4"
-  },
   "devDependencies": {
     "@types/assert": "^1.5.7",
     "@types/node": "^20.8.2",

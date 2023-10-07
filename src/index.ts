@@ -12,16 +12,10 @@ export type Obtain<S extends Schema<any>> = ReturnType<S["validate"]>
 
 const primitive = {
   string: Schemas.StringSchema.create,
-  format: Schemas.FormatSchema.create, // <: string
-  semver: Schemas.SemverSchema.create, // <: format
-  email: (constraints: Schemas.StringConstraints = {}) =>
-    Schemas.FormatSchema.create("email", constraints),
-  uri: (constraints: Schemas.StringConstraints = {}) =>
-    Schemas.FormatSchema.create("uri", constraints),
-  date: (constraints: Schemas.StringConstraints = {}) =>
-    Schemas.FormatSchema.create("date", constraints),
-  time: (constraints: Schemas.StringConstraints = {}) =>
-    Schemas.FormatSchema.create("time", constraints),
+  // uri: (constraints: Schemas.StringConstraints = {}) =>
+  //   Schemas.FormatSchema.create("uri", constraints),
+  // date: (constraints: Schemas.StringConstraints = {}) =>
+  //   Schemas.FormatSchema.create("date", constraints),
   number: Schemas.NumberSchema.create,
   int: Schemas.IntSchema.create, // <: number
   null: Schemas.NullSchema.create,
