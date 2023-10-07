@@ -24,10 +24,6 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
     return new DictSchema(item, constraints)
   }
 
-  json(): { $dict: any } {
-    return { $dict: this.item.json() }
-  }
-
   validate(data: any): Record<string, T> {
     if (typeof data !== "object" || data === null || Array.isArray(data)) {
       throw new Errors.InvalidData(data, {

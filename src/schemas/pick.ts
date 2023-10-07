@@ -18,10 +18,6 @@ export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
     return new PickSchema(schema, keys)
   }
 
-  json(): { $pick: [any, Key] } {
-    return { $pick: [this.schema.json(), this.key] }
-  }
-
   validate(data: any): Pick<T, Key> {
     try {
       this.schema.validate(data)

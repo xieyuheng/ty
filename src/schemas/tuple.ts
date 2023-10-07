@@ -17,10 +17,6 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
     return new TupleSchema({ items })
   }
 
-  json(): { $tuple: Array<any> } {
-    return { $tuple: this.items.map((item) => item.json()) }
-  }
-
   validate(data: any): T {
     if (!(data instanceof Array)) {
       throw new Errors.InvalidData(data, {

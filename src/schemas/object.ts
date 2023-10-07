@@ -32,15 +32,6 @@ export class ObjectSchema<T> extends Schema<T> {
     return new ObjectSchema<T>({ properties })
   }
 
-  json(): Record<string, any> {
-    const record: Record<string, any> = {}
-    for (const key in this.properties) {
-      record[key] = this.properties[key].json()
-    }
-
-    return record
-  }
-
   validate(data: any): T {
     if (!isObject(data)) {
       throw new Errors.InvalidData(data, {

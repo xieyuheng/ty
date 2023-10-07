@@ -18,10 +18,6 @@ export class OmitSchema<T, Key extends keyof T> extends Schema<Omit<T, Key>> {
     return new OmitSchema(schema, keys)
   }
 
-  json(): { $omit: [any, Key] } {
-    return { $omit: [this.schema.json(), this.key] }
-  }
-
   validate(data: any): Omit<T, Key> {
     try {
       this.schema.validate(data)

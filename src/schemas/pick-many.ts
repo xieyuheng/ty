@@ -21,10 +21,6 @@ export class PickManySchema<
     return new PickManySchema(schema, keys)
   }
 
-  json(): { $pickMany: [any, Readonly<Array<keyof T>>] } {
-    return { $pickMany: [this.schema.json(), this.keys] }
-  }
-
   validate(data: any): Pick<T, Keys[number]> {
     try {
       this.schema.validate(data)

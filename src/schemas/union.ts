@@ -16,10 +16,6 @@ export class UnionSchema<T, U> extends Schema<T | U> {
     return new UnionSchema(left, right)
   }
 
-  json(): { $union: [any, any] } {
-    return { $union: [this.left.json(), this.right.json()] }
-  }
-
   validate(data: any): T | U {
     try {
       this.left.validate(data)

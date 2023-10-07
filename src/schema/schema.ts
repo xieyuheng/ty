@@ -1,7 +1,6 @@
 import * as Errors from "../errors"
 
 export abstract class Schema<T> {
-  abstract json(): any
   abstract validate(data: any): T
   abstract prune(data: any): T
 
@@ -24,8 +23,8 @@ export abstract class Schema<T> {
       throw new Error(
         [
           `I expect the data to be invalid according to the schema.`,
+          ``,
           `  data: ${JSON.stringify(data)}`,
-          `  schema: ${JSON.stringify(this.json())}`,
         ].join("\n"),
       )
     } catch (error) {
