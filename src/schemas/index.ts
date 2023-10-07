@@ -7,7 +7,7 @@ export * from "./null"
 export * from "./undefined"
 export * from "./boolean"
 export * from "./any"
-export * from "./guard"
+export * from "./predicate"
 export * from "./instanceof"
 
 export * from "./object"

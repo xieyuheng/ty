@@ -1,7 +1,7 @@
+remove all json() methods
+
 ty.url
 ty.date
-
-rename guard to predicate
 
 quit using min and max -- use guard
 

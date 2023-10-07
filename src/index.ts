@@ -21,7 +21,7 @@ const primitive = {
   undefined: Schemas.UndefinedSchema.create,
   boolean: Schemas.BooleanSchema.create,
   any: Schemas.AnySchema.create,
-  guard: Schemas.GuardSchema.create,
+  predicate: Schemas.PredicateSchema.create,
   instanceof: Schemas.InstanceofSchema.create,
 }
 

@@ -6,14 +6,14 @@ export class Var {
 
   static counter = 0
 
-  static guard(data: any): data is Var {
-    return data instanceof Var
-  }
-
   constructor(name: string) {
     this.id = Var.counter++
     this.name = name
   }
+}
+
+function isVar(data: any): data is Var {
+  return data instanceof Var
 }
 
 export function v(strs: TemplateStringsArray): Var {
@@ -25,7 +25,7 @@ export type Logical<T> = Var | { [P in keyof T]: Logical<T[P]> }
 
 function logicalSchema<T>(schema: Schema<T>): Schema<Logical<T>> {
   throw new Error("HOW TO?")
-  // ty.guard(Var.guard)
+  // ty.predicate(isVar)
   // schema
   // ty.lazy(() => logicalSchema(schema))
 }

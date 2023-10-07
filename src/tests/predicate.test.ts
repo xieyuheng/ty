@@ -6,14 +6,14 @@ export class Var {
 
   static counter = 0
 
-  static guard(data: any): data is Var {
-    return data instanceof Var
-  }
-
   constructor(name: string) {
     this.id = Var.counter++
     this.name = name
   }
+}
+
+function isVar(data: any): data is Var {
+  return data instanceof Var
 }
 
 export function v(strs: TemplateStringsArray): Var {
@@ -22,7 +22,7 @@ export function v(strs: TemplateStringsArray): Var {
 }
 
 {
-  const schema = ty.guard(Var.guard)
+  const schema = ty.predicate(isVar)
   const data0: Var = schema.validate(v`0`)
   schema.assertInvalid(0)
   schema.assertInvalid({ id: 0, name: "x" })
