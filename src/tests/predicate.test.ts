@@ -22,7 +22,10 @@ export function v(strs: TemplateStringsArray): Var {
 }
 
 {
-  const schema = ty.predicate(isVar)
+  const schema = ty.predicate(isVar, {
+    message: "The data is of class Var.",
+  })
+
   const data0: Var = schema.validate(v`0`)
   schema.expectInvalid(0)
   schema.expectInvalid({ id: 0, name: "x" })
