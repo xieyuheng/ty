@@ -7,7 +7,7 @@ import ty from ".."
 }
 
 {
-  const schema = ty.number({ max: 100 })
+  const schema = ty.number({ constraint: (x) => x < 100 })
   const data0: number = schema.validate(99)
   const data1: number = schema.validate(99.99)
   const data2: number = schema.validate(-1)
@@ -15,7 +15,7 @@ import ty from ".."
 }
 
 {
-  const schema = ty.number({ min: 0, max: 100 })
+  const schema = ty.number({ constraint: (x) => 0 <= x && x < 100 })
   const data0: number = schema.validate(0)
   const data1: number = schema.validate(1)
   const data2: number = schema.validate(99.99)

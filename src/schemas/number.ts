@@ -1,18 +1,19 @@
 import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 
-export interface NumberConstraints {
-  min?: number
-  max?: number
-}
+export type NumberConstraint = (x: number) => boolean
 
 export class NumberSchema extends Schema<number> {
-  constructor(public constraints: NumberConstraints) {
+  constructor(public constraint?: NumberConstraint) {
     super()
   }
 
-  static create(constraints: NumberConstraints = {}): NumberSchema {
-    return new NumberSchema(constraints)
+  static create(
+    options: {
+      constraint?: NumberConstraint
+    } = {},
+  ): NumberSchema {
+    return new NumberSchema(options?.constraint)
   }
 
   validate(data: any): number {
@@ -22,17 +23,9 @@ export class NumberSchema extends Schema<number> {
       })
     }
 
-    const { min, max } = this.constraints
-
-    if (min !== undefined && !(data >= min)) {
+    if (this.constraint && !this.constraint(data)) {
       throw new ValidationReport(data, {
-        message: `I expect the number to be greater than or equal to ${min}`,
-      })
-    }
-
-    if (max !== undefined && !(data <= max)) {
-      throw new ValidationReport(data, {
-        message: `I expect the number to be less than or equal to ${max}`,
+        message: `I expect the number to pass the constraint.`,
       })
     }
 

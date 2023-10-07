@@ -1,7 +1,7 @@
 import ty, { Obtain } from ".."
 
 const userSchema = ty.object({
-  id: ty.int({ min: 0 }),
+  id: ty.int({ constraint: (x) => x >= 0 }),
   first_name: ty.string(),
   last_name: ty.string(),
 })

@@ -1,16 +1,17 @@
 import { ValidationReport } from "../errors"
-import { NumberConstraints, NumberSchema } from "./number"
+import { NumberConstraint, NumberSchema } from "./number"
 
 export class IntSchema extends NumberSchema {
-  constraints: NumberConstraints
-
-  constructor(constraints: NumberConstraints) {
-    super(constraints)
-    this.constraints = constraints
+  constructor(public constraint?: NumberConstraint) {
+    super(constraint)
   }
 
-  static create(constraints: NumberConstraints = {}): IntSchema {
-    return new IntSchema(constraints)
+  static create(
+    options: {
+      constraint?: NumberConstraint
+    } = {},
+  ): IntSchema {
+    return new IntSchema(options?.constraint)
   }
 
   validate(data: any): number {

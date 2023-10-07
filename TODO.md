@@ -1,4 +1,3 @@
-`NumberSchema` -- take `constraint`
 `StringSchema` -- take `constraint`
 
 ty.url
