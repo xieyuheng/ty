@@ -1,6 +1,6 @@
 export class ValidationReport extends Error {
   data: any
-  message: string
+
   keys: Array<string | number | symbol | Array<string | number | symbol>> = []
 
   // NOTE We can not use `instanceof` to check whether an error is `ValidationReport`,
@@ -17,13 +17,8 @@ export class ValidationReport extends Error {
       keys?: Array<string | number | symbol | Array<string | number | symbol>>
     },
   ) {
-    super()
+    super(options.message)
     this.data = data
-    this.message = options.message
     this.keys = options.keys || []
-  }
-
-  get message(): string {
-    return this.message
   }
 }
