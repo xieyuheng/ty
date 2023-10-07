@@ -1,6 +1,6 @@
 remove unused schemas
 
-improve error message
+Report recursively report error
 
 # refactor
 

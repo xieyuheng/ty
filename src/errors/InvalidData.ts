@@ -1,5 +1,3 @@
-// TODO the structure of `InvalidData` not well designed and is overloaded
-
 export class InvalidData extends Error {
   data: any
   msg: string
@@ -31,27 +29,7 @@ export class InvalidData extends Error {
     return error["instanceofInvalidData"] === "ty"
   }
 
-  get path(): string {
-    return this.keys
-      .map((key) => {
-        if (
-          typeof key === "number" ||
-          typeof key === "string" ||
-          typeof key === "symbol"
-        ) {
-          return `${key.toString()}`
-        } else {
-          return `${key.map((key) => key.toString()).join("&")}`
-        }
-      })
-      .join(".")
-  }
-
   get message(): string {
-    return [
-      `${this.msg}`,
-      `  path: ${this.path}`,
-      `  data: ${JSON.stringify(this.data)}`,
-    ].join("\n")
+    return this.msg
   }
 }

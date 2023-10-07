@@ -30,10 +30,9 @@ export class UnionSchema<T, U> extends Schema<T | U> {
             throw new Errors.InvalidData(data, {
               msg: [
                 `I expect the data to be the union of left and right type.`,
+                ``,
                 `  left msg: ${leftError.msg}`,
-                `  left path: ${leftError.path}`,
                 `  right msg: ${rightError.msg}`,
-                `  right path: ${rightError.path}`,
               ].join("\n"),
             })
           } else {
