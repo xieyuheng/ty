@@ -9,7 +9,7 @@ export class NullSchema extends Schema<null> {
   validate(data: any): null {
     if (data !== null) {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be null.",
+        message: "I expect the data to be null.",
       })
     }
 

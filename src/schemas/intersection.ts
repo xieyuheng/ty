@@ -27,11 +27,11 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
       } catch (rightError) {
         if (isValidationReport(rightError)) {
           throw new ValidationReport(data, {
-            msg: [
+            message: [
               `I expect the data to be the interseciton of left and right type.`,
               `but it is not of right type:`,
               ``,
-              `  right msg: ${rightError.msg}`,
+              `  right message: ${rightError.message}`,
             ].join("\n"),
           })
         } else {
@@ -41,11 +41,11 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
     } catch (leftError) {
       if (isValidationReport(leftError)) {
         throw new ValidationReport(data, {
-          msg: [
+          message: [
             `I expect the data to be the interseciton of left and right type.`,
             `but it is not of left type:`,
             ``,
-            `  left msg: ${leftError.msg}`,
+            `  left message: ${leftError.message}`,
           ].join("\n"),
         })
       } else {

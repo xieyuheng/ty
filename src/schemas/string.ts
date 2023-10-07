@@ -23,7 +23,7 @@ export class StringSchema extends Schema<string> {
   validate(data: any): string {
     if (typeof data !== "string") {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be string.",
+        message: "I expect the data to be string.",
       })
     }
 
@@ -31,25 +31,25 @@ export class StringSchema extends Schema<string> {
 
     if (max !== undefined && !(data.length <= max)) {
       throw new ValidationReport(data, {
-        msg: `I expect the max string length to be ${max}`,
+        message: `I expect the max string length to be ${max}`,
       })
     }
 
     if (min !== undefined && !(data.length >= min)) {
       throw new ValidationReport(data, {
-        msg: `I expect the min string length to be ${min}`,
+        message: `I expect the min string length to be ${min}`,
       })
     }
 
     if (length !== undefined && !(data.length === length)) {
       throw new ValidationReport(data, {
-        msg: `I expect the string length to be ${length}`,
+        message: `I expect the string length to be ${length}`,
       })
     }
 
     if (within !== undefined && !within.includes(data)) {
       throw new ValidationReport(data, {
-        msg: `I expect the string to be within: ${within.join(", ")}`,
+        message: `I expect the string to be within: ${within.join(", ")}`,
       })
     }
 

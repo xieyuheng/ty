@@ -9,7 +9,7 @@ export class BooleanSchema extends Schema<boolean> {
   validate(data: any): boolean {
     if (typeof data !== "boolean") {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be boolean.",
+        message: "I expect the data to be boolean.",
       })
     }
 

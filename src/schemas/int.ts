@@ -18,7 +18,7 @@ export class IntSchema extends NumberSchema {
 
     if (!Number.isInteger(data)) {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be integer.",
+        message: "I expect the data to be integer.",
       })
     }
 

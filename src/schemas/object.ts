@@ -35,7 +35,7 @@ export class ObjectSchema<T> extends Schema<T> {
   validate(data: any): T {
     if (!isObject(data)) {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be object.",
+        message: "I expect the data to be object.",
       })
     }
 

@@ -19,7 +19,7 @@ export class ConstSchema<T> extends Schema<T> {
     if (!jsonEqual(this.data as Json, data)) {
       const repr = JSON.stringify(data)
       throw new ValidationReport(data, {
-        msg: `I expect the data to be a const data: ${repr}`,
+        message: `I expect the data to be a const data: ${repr}`,
       })
     }
 

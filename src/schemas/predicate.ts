@@ -16,7 +16,7 @@ export class PredicateSchema<T> extends Schema<T> {
   validate(data: any): T {
     if (!this.predicate(data)) {
       throw new ValidationReport(data, {
-        msg: `I expect the data to be a predicateed by: ${this.predicate}`,
+        message: `I expect the data to be a predicateed by: ${this.predicate}`,
       })
     }
 

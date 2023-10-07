@@ -18,7 +18,7 @@ export class NumberSchema extends Schema<number> {
   validate(data: any): number {
     if (typeof data !== "number") {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be number.",
+        message: "I expect the data to be number.",
       })
     }
 
@@ -26,13 +26,13 @@ export class NumberSchema extends Schema<number> {
 
     if (min !== undefined && !(data >= min)) {
       throw new ValidationReport(data, {
-        msg: `I expect the number to be greater than or equal to ${min}`,
+        message: `I expect the number to be greater than or equal to ${min}`,
       })
     }
 
     if (max !== undefined && !(data <= max)) {
       throw new ValidationReport(data, {
-        msg: `I expect the number to be less than or equal to ${max}`,
+        message: `I expect the number to be less than or equal to ${max}`,
       })
     }
 

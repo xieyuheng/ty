@@ -9,7 +9,7 @@ export class UndefinedSchema extends Schema<undefined> {
   validate(data: any): undefined {
     if (data !== undefined) {
       throw new ValidationReport(data, {
-        msg: "I expect the data to be undefined.",
+        message: "I expect the data to be undefined.",
       })
     }
 

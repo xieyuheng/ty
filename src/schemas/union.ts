@@ -28,11 +28,11 @@ export class UnionSchema<T, U> extends Schema<T | U> {
         } catch (rightError) {
           if (isValidationReport(rightError)) {
             throw new ValidationReport(data, {
-              msg: [
+              message: [
                 `I expect the data to be the union of left and right type.`,
                 ``,
-                `  left msg: ${leftError.msg}`,
-                `  right msg: ${rightError.msg}`,
+                `  left message: ${leftError.message}`,
+                `  right message: ${rightError.message}`,
               ].join("\n"),
             })
           } else {
