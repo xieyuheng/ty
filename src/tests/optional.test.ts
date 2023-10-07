@@ -9,5 +9,5 @@ const data0: { id: number; name?: string } = schema.validate({
   name: "xie",
 })
 const data1: { id: number; name?: string } = schema.validate({ id: 2 })
-schema.assertInvalid({ name: "xie" })
-schema.assertInvalid({})
+schema.expectInvalid({ name: "xie" })
+schema.expectInvalid({})

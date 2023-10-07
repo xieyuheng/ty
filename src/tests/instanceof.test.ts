@@ -20,6 +20,6 @@ export function v(strs: TemplateStringsArray): Var {
 {
   const schema = ty.instanceof(Var)
   const data0: Var = schema.validate(v`0`)
-  schema.assertInvalid(0)
-  schema.assertInvalid({ id: 0, name: "x" })
+  schema.expectInvalid(0)
+  schema.expectInvalid({ id: 0, name: "x" })
 }

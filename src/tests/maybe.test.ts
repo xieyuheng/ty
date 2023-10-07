@@ -12,6 +12,6 @@ const data1: { id: number; name: string | null } = schema.validate({
   id: 2,
   name: null,
 })
-schema.assertInvalid({ id: 2 })
-schema.assertInvalid({ name: "xie" })
-schema.assertInvalid({})
+schema.expectInvalid({ id: 2 })
+schema.expectInvalid({ name: "xie" })
+schema.expectInvalid({})

@@ -3,14 +3,14 @@ import ty from ".."
 {
   const schema = ty.string()
   const data: string = schema.validate("123")
-  schema.assertInvalid(123)
+  schema.expectInvalid(123)
 }
 
 {
   const schema = ty.string({ constraint: (x) => x.length === 3 })
   const data: string = schema.validate("123")
-  schema.assertInvalid("12")
-  schema.assertInvalid("1234")
+  schema.expectInvalid("12")
+  schema.expectInvalid("1234")
 }
 
 {
@@ -20,8 +20,8 @@ import ty from ".."
   const data1: string = schema.validate("1")
   const data2: string = schema.validate("12")
   const data3: string = schema.validate("123")
-  schema.assertInvalid("")
-  schema.assertInvalid("1234")
+  schema.expectInvalid("")
+  schema.expectInvalid("1234")
 }
 
 {
@@ -52,6 +52,6 @@ import ty from ".."
   const data1: string = schema.validate("red")
   const data2: string = schema.validate("rose")
   const data3: string = schema.validate("sky")
-  schema.assertInvalid("")
-  schema.assertInvalid("no a color")
+  schema.expectInvalid("")
+  schema.expectInvalid("no a color")
 }

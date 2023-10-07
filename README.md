@@ -72,9 +72,9 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   const data3: List<string> = schema.validate(
     cons("a", cons("b", cons("c", null))),
   )
-  schema.assertInvalid(cons(1, null))
-  schema.assertInvalid(cons(1, cons(2, null)))
-  schema.assertInvalid(cons(1, cons(2, cons(3, null))))
+  schema.expectInvalid(cons(1, null))
+  schema.expectInvalid(cons(1, cons(2, null)))
+  schema.expectInvalid(cons(1, cons(2, cons(3, null))))
 }
 
 {
@@ -83,9 +83,9 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
   const data1: List<number> = schema.validate(cons(1, null))
   const data2: List<number> = schema.validate(cons(1, cons(2, null)))
   const data3: List<number> = schema.validate(cons(1, cons(2, cons(3, null))))
-  schema.assertInvalid(cons("a", null))
-  schema.assertInvalid(cons("a", cons("b", null)))
-  schema.assertInvalid(cons("a", cons("b", cons("c", null))))
+  schema.expectInvalid(cons("a", null))
+  schema.expectInvalid(cons("a", cons("b", null)))
+  schema.expectInvalid(cons("a", cons("b", cons("c", null))))
 }
 ```
 

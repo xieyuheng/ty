@@ -18,12 +18,12 @@ export abstract class Schema<T> {
     }
   }
 
-  assertInvalid(data: any): void {
+  expectInvalid(data: any): void {
     try {
       this.validate(data)
       throw new Error(
         [
-          `[assertInvalid] I expect the data to be invalid according to the schema.`,
+          `[expectInvalid] I expect the data to be invalid according to the schema.`,
           ``,
           `  data:`,
           indent(JSON.stringify(data, null, 2), "    "),
