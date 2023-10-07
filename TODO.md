@@ -1,5 +1,3 @@
-remove all json() methods
-
 ty.url
 ty.date
 

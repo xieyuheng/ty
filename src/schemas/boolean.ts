@@ -6,10 +6,6 @@ export class BooleanSchema extends Schema<boolean> {
     return new BooleanSchema()
   }
 
-  json(): "boolean" {
-    return "boolean"
-  }
-
   validate(data: any): boolean {
     if (typeof data !== "boolean") {
       throw new ValidationReport(data, {

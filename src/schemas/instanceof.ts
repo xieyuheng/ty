@@ -17,10 +17,6 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
     return new InstanceofSchema(givenClass)
   }
 
-  json(): { $instanceof: string } {
-    return { $instanceof: this.givenClass.name }
-  }
-
   validate(data: any): InstanceType<T> {
     if (!(data instanceof this.givenClass)) {
       throw new ValidationReport(data, {

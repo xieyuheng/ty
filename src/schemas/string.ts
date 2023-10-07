@@ -20,10 +20,6 @@ export class StringSchema extends Schema<string> {
     return new StringSchema(constraints)
   }
 
-  json(): any {
-    return "string"
-  }
-
   validate(data: any): string {
     if (typeof data !== "string") {
       throw new ValidationReport(data, {

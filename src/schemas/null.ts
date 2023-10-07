@@ -6,10 +6,6 @@ export class NullSchema extends Schema<null> {
     return new NullSchema()
   }
 
-  json(): "null" {
-    return "null"
-  }
-
   validate(data: any): null {
     if (data !== null) {
       throw new ValidationReport(data, {
