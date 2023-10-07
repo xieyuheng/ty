@@ -4,9 +4,12 @@ ty.url
 ty.date
 
 rename guard to predicate
+
 quit using min and max -- use guard
 
-Report recursively report error
+ty.validate -- Report recursively report error
+ty.isValid
+ty.assertInvalid -- for testing
 
 # refactor
 

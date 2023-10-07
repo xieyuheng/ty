@@ -1,4 +1,4 @@
-import * as Errors from "../errors"
+import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 import { isObject } from "../utils/isObject"
 
@@ -21,13 +21,13 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       this.left.validate(data)
       return data
     } catch (leftError) {
-      if (Errors.ValidationReport.guard(leftError)) {
+      if (ValidationReport.guard(leftError)) {
         try {
           this.right.validate(data)
           return data
         } catch (rightError) {
-          if (Errors.ValidationReport.guard(rightError)) {
-            throw new Errors.ValidationReport(data, {
+          if (ValidationReport.guard(rightError)) {
+            throw new ValidationReport(data, {
               msg: [
                 `I expect the data to be the union of left and right type.`,
                 ``,

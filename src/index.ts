@@ -2,7 +2,6 @@
 
 export * from "./schema"
 export * from "./json"
-export * as Schemas from "./schemas"
 export * from "./errors"
 
 import * as Schemas from "./schemas"

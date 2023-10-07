@@ -1,4 +1,4 @@
-import * as Errors from "../errors"
+import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export interface StringConstraints {
@@ -26,7 +26,7 @@ export class StringSchema extends Schema<string> {
 
   validate(data: any): string {
     if (typeof data !== "string") {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: "I expect the data to be string.",
       })
     }
@@ -34,25 +34,25 @@ export class StringSchema extends Schema<string> {
     const { max, min, length, within } = this.constraints
 
     if (max !== undefined && !(data.length <= max)) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: `I expect the max string length to be ${max}`,
       })
     }
 
     if (min !== undefined && !(data.length >= min)) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: `I expect the min string length to be ${min}`,
       })
     }
 
     if (length !== undefined && !(data.length === length)) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: `I expect the string length to be ${length}`,
       })
     }
 
     if (within !== undefined && !within.includes(data)) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: `I expect the string to be within: ${within.join(", ")}`,
       })
     }

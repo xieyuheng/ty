@@ -1,4 +1,4 @@
-import * as Errors from "../errors"
+import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export class GuardSchema<T> extends Schema<T> {
@@ -19,7 +19,7 @@ export class GuardSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     if (!this.guard(data)) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: `I expect the data to be a guarded by: ${this.guard}`,
       })
     }

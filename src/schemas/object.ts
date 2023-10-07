@@ -1,4 +1,4 @@
-import * as Errors from "../errors"
+import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 import { isObject } from "../utils/isObject"
 
@@ -34,18 +34,18 @@ export class ObjectSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     if (!isObject(data)) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: "I expect the data to be object.",
       })
     }
 
     const keys: Array<string> = []
-    const errors: Array<Errors.ValidationReport> = []
+    const errors: Array<ValidationReport> = []
     for (const key in this.properties) {
       try {
         this.properties[key].validate(data[key])
       } catch (error) {
-        if (Errors.ValidationReport.guard(error)) {
+        if (ValidationReport.guard(error)) {
           keys.push(key)
           errors.push(error)
         } else {

@@ -1,4 +1,4 @@
-import * as Errors from "../errors"
+import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export class BooleanSchema extends Schema<boolean> {
@@ -12,7 +12,7 @@ export class BooleanSchema extends Schema<boolean> {
 
   validate(data: any): boolean {
     if (typeof data !== "boolean") {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: "I expect the data to be boolean.",
       })
     }

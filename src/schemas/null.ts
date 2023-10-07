@@ -1,4 +1,4 @@
-import * as Errors from "../errors"
+import { ValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export class NullSchema extends Schema<null> {
@@ -12,7 +12,7 @@ export class NullSchema extends Schema<null> {
 
   validate(data: any): null {
     if (data !== null) {
-      throw new Errors.ValidationReport(data, {
+      throw new ValidationReport(data, {
         msg: "I expect the data to be null.",
       })
     }
