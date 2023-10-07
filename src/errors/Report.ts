@@ -1,24 +1,29 @@
+import { indent } from "../utils/indent"
+import { ReportEntry } from "./ReportEntry"
+
 export class Report extends Error {
-  data: any
-
-  keys: Array<string | number | symbol | Array<string | number | symbol>> = []
-
-  // NOTE We can not use `instanceof` to check whether an error is `Report`,
-  //   because `ty` might be imported by different clients,
-  //   and the schema written by them might be composed together.
-  // When this happened, different references to the `Report` class,
-  //   will not be viewed as the same by `instanceof`.
   private instanceofReport = true
 
-  constructor(
-    data: any,
-    options: {
-      message: string
-      keys?: Array<string | number | symbol | Array<string | number | symbol>>
-    },
-  ) {
-    super(options.message)
-    this.data = data
-    this.keys = options.keys || []
+  constructor(public entries: Array<ReportEntry> = []) {
+    super()
+  }
+
+  get message(): string {
+    return this.entries
+      .map(formatReportEntry)
+      .map((s) => s.trim())
+      .join("\n\n")
+  }
+}
+
+function formatReportEntry(entry: ReportEntry): string {
+  if (entry.data === undefined) {
+    return entry.message
+  } else {
+    return [
+      entry.message,
+      "",
+      `  data: ${indent(JSON.stringify(entry.data, null, 2))}`,
+    ].join("\n")
   }
 }

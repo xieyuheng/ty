@@ -1,53 +1,20 @@
-import { Report, isReport } from "../errors"
+import { appendReport, createReport } from "../errors"
 import { Schema } from "../schema"
 
-export interface ArrayConstraints {
-  max?: number
-  min?: number
-  length?: number
-}
-
 export class ArraySchema<T> extends Schema<Array<T>> {
-  item: Schema<T>
-  constraints: ArrayConstraints
-
-  constructor(item: Schema<T>, constraints: ArrayConstraints) {
+  constructor(public item: Schema<T>) {
     super()
-    this.item = item
-    this.constraints = constraints
   }
 
-  static create<T>(
-    item: Schema<T>,
-    constraints: ArrayConstraints = {},
-  ): ArraySchema<T> {
-    return new ArraySchema(item, constraints)
+  static create<T>(item: Schema<T>): ArraySchema<T> {
+    return new ArraySchema(item)
   }
 
   validate(data: any): Array<T> {
     if (!(data instanceof Array)) {
-      throw new Report(data, {
-        message: "I expect the data to be array.",
-      })
-    }
-
-    const { max, min, length } = this.constraints
-
-    if (max !== undefined && !(data.length <= max)) {
-      throw new Report(data, {
-        message: `I expect the max array length to be ${max}, length: ${data.length}`,
-      })
-    }
-
-    if (min !== undefined && !(data.length >= min)) {
-      throw new Report(data, {
-        message: `I expect the min array length to be ${min}, length: ${data.length}`,
-      })
-    }
-
-    if (length !== undefined && !(data.length === length)) {
-      throw new Report(data, {
-        message: `I expect the array length to be ${length}, length: ${data.length}`,
+      throw createReport({
+        message: `[ArraySchema] I expect the data to be array.`,
+        data,
       })
     }
 
@@ -55,10 +22,14 @@ export class ArraySchema<T> extends Schema<Array<T>> {
       try {
         this.item.validate(item)
       } catch (error) {
-        if (isReport(error)) {
-          error.keys.push(i)
-        }
-        throw error
+        throw appendReport(error, {
+          message: [
+            `[ArraySchema] I find invalid element in array.`,
+            ``,
+            `  index: ${i}`,
+          ].join("\n"),
+          data,
+        })
       }
     }
 

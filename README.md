@@ -116,10 +116,6 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
 
 **Structural:**
 
-- [ty.omit(schema, key)](src/tests/omit.test.ts)
-- [ty.omitMany(schema, keys)](src/tests/omit-many.test.ts)
-- [ty.pick(schema, key)](src/tests/pick.test.ts)
-- [ty.pickMany(schema, keys)](src/tests/pick-many.test.ts)
 - [ty.optional(schema)](src/tests/optional.test.ts)
 
 **Recursion:**

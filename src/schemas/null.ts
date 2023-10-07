@@ -1,4 +1,4 @@
-import { Report } from "../errors"
+import { createReport } from "../errors"
 import { Schema } from "../schema"
 
 export class NullSchema extends Schema<null> {
@@ -8,8 +8,9 @@ export class NullSchema extends Schema<null> {
 
   validate(data: any): null {
     if (data !== null) {
-      throw new Report(data, {
-        message: "I expect the data to be null.",
+      throw createReport({
+        message: `[NullSchema] I expect the data to be null.`,
+        data,
       })
     }
 

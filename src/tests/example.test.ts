@@ -24,4 +24,3 @@ const data: any = {
 }
 
 const user: User = userSchema.validate(data)
-const userOmitId: Omit<User, "id"> = ty.omit(userSchema, "id").validate(data)

@@ -1,4 +1,4 @@
-import { Report } from "../errors"
+import { createReport } from "../errors"
 import { Schema } from "../schema"
 
 type Constructor = abstract new (...args: Array<any>) => any
@@ -19,12 +19,14 @@ export class InstanceofSchema<T extends Constructor> extends Schema<
 
   validate(data: any): InstanceType<T> {
     if (!(data instanceof this.givenClass)) {
-      throw new Report(data, {
+      throw createReport({
         message: [
-          `I expect the data to be instance of given class`,
+          `[InstanceofSchema] I expect the data to be instance of given class.`,
+          ``,
           `  given class name: ${this.givenClass.name}`,
           `  data class name: ${data.constructor.name}`,
         ].join("\n"),
+        data,
       })
     }
 

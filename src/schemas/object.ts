@@ -1,4 +1,4 @@
-import { Report, isReport } from "../errors"
+import { appendReport, createReport } from "../errors"
 import { Schema } from "../schema"
 import { isObject } from "../utils/isObject"
 
@@ -34,37 +34,24 @@ export class ObjectSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     if (!isObject(data)) {
-      throw new Report(data, {
-        message: "I expect the data to be object.",
+      throw createReport({
+        message: `[ObjectSchema] I expect the data to be object.`,
+        data,
       })
     }
 
-    const keys: Array<string> = []
-    const errors: Array<Report> = []
     for (const key in this.properties) {
       try {
         this.properties[key].validate(data[key])
       } catch (error) {
-        if (isReport(error)) {
-          keys.push(key)
-          errors.push(error)
-        } else {
-          throw error
-        }
+        throw appendReport(error, {
+          message: `[ObjectSchema] I fail on key: ${key}.`,
+          data,
+        })
       }
     }
 
-    const firstError = errors[0]
-
-    if (firstError === undefined) {
-      return data
-    } else if (errors.length === 1) {
-      firstError.keys.push(keys[0])
-      throw firstError
-    } else {
-      firstError.keys.push(keys)
-      throw firstError
-    }
+    return data
   }
 
   prune(data: any): T {

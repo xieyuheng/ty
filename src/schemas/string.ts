@@ -1,4 +1,4 @@
-import { Report } from "../errors"
+import { createReport } from "../errors"
 import { Schema } from "../schema"
 
 export type StringConstraint = (x: string) => boolean
@@ -18,14 +18,16 @@ export class StringSchema extends Schema<string> {
 
   validate(data: any): string {
     if (typeof data !== "string") {
-      throw new Report(data, {
-        message: "I expect the data to be string.",
+      throw createReport({
+        message: `[StringSchema] I expect the data to be string.`,
+        data,
       })
     }
 
     if (this.constraint && !this.constraint(data)) {
-      throw new Report(data, {
-        message: `I expect the string to satisfy the constraint.`,
+      throw createReport({
+        message: `[StringSchema] I expect the string to satisfy the constraint.`,
+        data,
       })
     }
 

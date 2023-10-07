@@ -1,4 +1,4 @@
-import { Report, isReport } from "../errors"
+import { appendReport, createReport } from "../errors"
 import { Schema } from "../schema"
 
 type SchemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
@@ -19,8 +19,9 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
 
   validate(data: any): T {
     if (!(data instanceof Array)) {
-      throw new Report(data, {
-        message: "I expect the data to be tuple.",
+      throw createReport({
+        message: `[TupleSchema] I expect the data to be tuple.`,
+        data,
       })
     }
 
@@ -28,10 +29,10 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
       try {
         this.items[i].validate(data[i])
       } catch (error) {
-        if (isReport(error)) {
-          error.keys.push(i)
-        }
-        throw error
+        throw appendReport(error, {
+          message: `[TupleSchema] I fail on index: ${i}.`,
+          data,
+        })
       }
     }
 

@@ -1,4 +1,4 @@
-import { Report } from "../errors"
+import { createReport } from "../errors"
 import { Schema } from "../schema"
 
 export type NumberConstraint = (x: number) => boolean
@@ -18,14 +18,16 @@ export class NumberSchema extends Schema<number> {
 
   validate(data: any): number {
     if (typeof data !== "number") {
-      throw new Report(data, {
-        message: "I expect the data to be number.",
+      throw createReport({
+        message: `[NumberSchema] I expect the data to be number.`,
+        data,
       })
     }
 
     if (this.constraint && !this.constraint(data)) {
-      throw new Report(data, {
-        message: `I expect the number to satisfy the constraint.`,
+      throw createReport({
+        message: `[NumberSchema] I expect the number to satisfy the constraint.`,
+        data,
       })
     }
 

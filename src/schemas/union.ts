@@ -1,4 +1,4 @@
-import { Report, isReport } from "../errors"
+import { appendReport } from "../errors"
 import { Schema } from "../schema"
 import { isObject } from "../utils/isObject"
 
@@ -21,26 +21,14 @@ export class UnionSchema<T, U> extends Schema<T | U> {
       this.left.validate(data)
       return data
     } catch (leftError) {
-      if (isReport(leftError)) {
-        try {
-          this.right.validate(data)
-          return data
-        } catch (rightError) {
-          if (isReport(rightError)) {
-            throw new Report(data, {
-              message: [
-                `I expect the data to be the union of left and right type.`,
-                ``,
-                `  left message: ${leftError.message}`,
-                `  right message: ${rightError.message}`,
-              ].join("\n"),
-            })
-          } else {
-            throw rightError
-          }
-        }
-      } else {
-        throw leftError
+      try {
+        this.right.validate(data)
+        return data
+      } catch (rightError) {
+        throw appendReport(leftError, {
+          message: `[UnionSchema] I fail on both left and right of the union.`,
+          data,
+        })
       }
     }
   }

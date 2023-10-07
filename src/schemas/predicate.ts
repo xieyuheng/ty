@@ -1,4 +1,4 @@
-import { Report } from "../errors"
+import { createReport } from "../errors"
 import { Schema } from "../schema"
 
 export class PredicateSchema<T> extends Schema<T> {
@@ -15,8 +15,9 @@ export class PredicateSchema<T> extends Schema<T> {
 
   validate(data: any): T {
     if (!this.predicate(data)) {
-      throw new Report(data, {
-        message: `I expect the data to be a predicateed by: ${this.predicate}`,
+      throw createReport({
+        message: `[PredicateSchema] I expect the data to satisfy the predicate: ${this.predicate}`,
+        data,
       })
     }
 

@@ -38,13 +38,6 @@ const sets = {
   intersection: Schemas.IntersectionSchema.create,
 }
 
-const structural = {
-  omit: Schemas.OmitSchema.create,
-  omitMany: Schemas.OmitManySchema.create,
-  pick: Schemas.PickSchema.create,
-  pickMany: Schemas.PickManySchema.create,
-}
-
 const recursion = {
   lazy: Schemas.LazySchema.create,
 }
@@ -58,7 +51,6 @@ export const ty = {
   ...primitive,
   ...collection,
   ...sets,
-  ...structural,
   ...recursion,
   ...utilities,
 }
@@ -67,7 +59,6 @@ export default {
   ...primitive,
   ...collection,
   ...sets,
-  ...structural,
   ...recursion,
   ...utilities,
 }
