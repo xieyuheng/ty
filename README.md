@@ -93,6 +93,8 @@ function listSchema<T>(itemSchema: Schema<T>): Schema<List<T>> {
 **Primitive:**
 
 - [ty.string()](src/tests/string.test.ts)
+- [ty.url()](src/tests/url.test.ts)
+- [ty.date()](src/tests/date.test.ts)
 - [ty.number()](src/tests/number.test.ts)
 - [ty.int()](src/tests/int.test.ts)
 - [ty.boolean()](src/tests/boolean.test.ts)
