@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { isValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
@@ -23,7 +23,7 @@ export class PickSchema<T, Key extends keyof T> extends Schema<Pick<T, Key>> {
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (ValidationReport.guard(error)) {
+      if (isValidationReport(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey instanceof Array) {
           if (lastKey.includes(this.key)) {

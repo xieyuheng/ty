@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { ValidationReport, isValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export interface ArrayConstraints {
@@ -55,7 +55,7 @@ export class ArraySchema<T> extends Schema<Array<T>> {
       try {
         this.item.validate(item)
       } catch (error) {
-        if (ValidationReport.guard(error)) {
+        if (isValidationReport(error)) {
           error.keys.push(i)
         }
         throw error

@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { isValidationReport } from "../errors"
 
 export abstract class Schema<T> {
   abstract validate(data: any): T
@@ -9,7 +9,7 @@ export abstract class Schema<T> {
       this.validate(data)
       return true
     } catch (error) {
-      if (ValidationReport.guard(error)) {
+      if (isValidationReport(error)) {
         return false
       } else {
         throw error
@@ -28,7 +28,7 @@ export abstract class Schema<T> {
         ].join("\n"),
       )
     } catch (error) {
-      if (ValidationReport.guard(error)) {
+      if (isValidationReport(error)) {
         return
       } else {
         throw error

@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { isValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export class OmitManySchema<
@@ -26,7 +26,7 @@ export class OmitManySchema<
       this.schema.validate(data)
       return data
     } catch (error) {
-      if (ValidationReport.guard(error)) {
+      if (isValidationReport(error)) {
         const lastKey = error.keys[error.keys.length - 1]
         if (lastKey instanceof Array) {
           if (lastKey.every((key) => this.keys.includes(key as keyof T))) {

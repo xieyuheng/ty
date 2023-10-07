@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { ValidationReport, isValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export interface DictConstraints {
@@ -64,7 +64,7 @@ export class DictSchema<T> extends Schema<Record<string, T>> {
       try {
         this.item.validate(item)
       } catch (error) {
-        if (ValidationReport.guard(error)) {
+        if (isValidationReport(error)) {
           error.keys.push(key)
         }
         throw error

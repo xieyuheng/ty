@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { ValidationReport, isValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 export class IntersectionSchema<T, U> extends Schema<T & U> {
@@ -25,7 +25,7 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
         this.right.validate(data)
         return data
       } catch (rightError) {
-        if (ValidationReport.guard(rightError)) {
+        if (isValidationReport(rightError)) {
           throw new ValidationReport(data, {
             msg: [
               `I expect the data to be the interseciton of left and right type.`,
@@ -39,7 +39,7 @@ export class IntersectionSchema<T, U> extends Schema<T & U> {
         }
       }
     } catch (leftError) {
-      if (ValidationReport.guard(leftError)) {
+      if (isValidationReport(leftError)) {
         throw new ValidationReport(data, {
           msg: [
             `I expect the data to be the interseciton of left and right type.`,

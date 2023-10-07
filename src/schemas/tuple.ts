@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { ValidationReport, isValidationReport } from "../errors"
 import { Schema } from "../schema"
 
 type SchemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
@@ -28,7 +28,7 @@ export class TupleSchema<T extends Array<any>> extends Schema<T> {
       try {
         this.items[i].validate(data[i])
       } catch (error) {
-        if (ValidationReport.guard(error)) {
+        if (isValidationReport(error)) {
           error.keys.push(i)
         }
         throw error

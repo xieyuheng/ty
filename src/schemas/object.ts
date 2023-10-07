@@ -1,4 +1,4 @@
-import { ValidationReport } from "../errors"
+import { ValidationReport, isValidationReport } from "../errors"
 import { Schema } from "../schema"
 import { isObject } from "../utils/isObject"
 
@@ -45,7 +45,7 @@ export class ObjectSchema<T> extends Schema<T> {
       try {
         this.properties[key].validate(data[key])
       } catch (error) {
-        if (ValidationReport.guard(error)) {
+        if (isValidationReport(error)) {
           keys.push(key)
           errors.push(error)
         } else {
