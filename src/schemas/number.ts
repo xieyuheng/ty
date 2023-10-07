@@ -4,22 +4,30 @@ import { Schema } from "../schema"
 export type NumberConstraint = (x: number) => boolean
 
 export class NumberSchema extends Schema<number> {
-  constructor(public constraint?: NumberConstraint) {
+  constructor(
+    public constraint?: NumberConstraint,
+    public message?: string,
+  ) {
     super()
   }
 
   static create(
     options: {
       constraint?: NumberConstraint
+      message?: string
     } = {},
   ): NumberSchema {
-    return new NumberSchema(options?.constraint)
+    return new NumberSchema(options?.constraint, options?.message)
   }
 
   validate(data: any): number {
     if (typeof data !== "number") {
       throw createReport({
-        message: `[NumberSchema] I expect the data to be number.`,
+        message: [
+          `[NumberSchema] I expect the data to be number.`,
+          ``,
+          `  constraint: ${this.message || this.constraint}`,
+        ].join("\n"),
         data,
       })
     }
