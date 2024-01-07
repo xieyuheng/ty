@@ -1,6 +1,6 @@
-import { appendReport, createReport } from "../errors"
-import { isJsonObject } from "../json"
-import { Schema } from "../schema"
+import { appendReport, createReport } from "../errors/index.js"
+import { isJsonObject } from "../json/index.js"
+import { Schema } from "../schema/index.js"
 
 export class DictSchema<T> extends Schema<Record<string, T>> {
   constructor(public item: Schema<T>) {

@@ -1,4 +1,4 @@
-import { Schema } from "../schema"
+import { Schema } from "../schema/index.js"
 
 export class AnySchema extends Schema<any> {
   constructor() {

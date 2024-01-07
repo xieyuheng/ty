@@ -1,4 +1,4 @@
-import { Obtain, ty } from ".."
+import { ty, type Obtain } from "../index.js"
 
 const userSchema = ty.object({
   id: ty.int({ constraint: (x) => x >= 0 }),

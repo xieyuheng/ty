@@ -1,5 +1,5 @@
-import { isReport } from "../errors"
-import { indent } from "../utils/indent"
+import { isReport } from "../errors/index.js"
+import { indent } from "../utils/indent.js"
 
 export abstract class Schema<T> {
   abstract validate(data: any): T

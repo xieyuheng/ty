@@ -1,5 +1,5 @@
-import { createReport } from "../errors"
-import { Schema } from "../schema"
+import { createReport } from "../errors/index.js"
+import { Schema } from "../schema/index.js"
 
 export type StringConstraint = (x: string) => boolean
 

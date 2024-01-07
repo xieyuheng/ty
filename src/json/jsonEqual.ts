@@ -1,4 +1,4 @@
-import { Json, isJsonArray, isJsonObject } from "./Json"
+import { isJsonArray, isJsonObject, type Json } from "./Json.js"
 
 export function jsonEqual(x: Json, y: Json): boolean {
   if (x === y) return true

@@ -1,5 +1,5 @@
-import { indent } from "../utils/indent"
-import { ReportEntry } from "./ReportEntry"
+import { indent } from "../utils/indent.js"
+import { type ReportEntry } from "./ReportEntry.js"
 
 export class Report extends Error {
   private instanceofReport = true

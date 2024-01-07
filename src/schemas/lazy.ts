@@ -1,4 +1,4 @@
-import { Schema } from "../schema"
+import { Schema } from "../schema/index.js"
 
 export class LazySchema<T> extends Schema<T> {
   thunk: () => Schema<T>

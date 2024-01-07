@@ -1,5 +1,5 @@
-import { appendReport } from "../errors"
-import { Schema } from "../schema"
+import { appendReport } from "../errors/index.js"
+import { Schema } from "../schema/index.js"
 
 export class IntersectionSchema<T, U> extends Schema<T & U> {
   left: Schema<T>

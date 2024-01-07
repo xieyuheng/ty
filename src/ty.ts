@@ -1,5 +1,5 @@
-import { Schema } from "./schema"
-import * as Schemas from "./schemas"
+import { Schema } from "./schema/index.js"
+import * as Schemas from "./schemas/index.js"
 
 const primitive = {
   string: Schemas.StringSchema.create,

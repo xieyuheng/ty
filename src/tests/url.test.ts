@@ -1,4 +1,4 @@
-import { ty } from ".."
+import { ty } from "../index.js"
 
 const schema = ty.url()
 const data0: string = schema.validate("https://tools.ietf.org/html/rfc3986")

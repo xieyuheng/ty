@@ -1,8 +1,8 @@
-import { createReport } from "../errors"
-import { Json } from "../json"
-import { jsonEqual } from "../json/jsonEqual"
-import { Schema } from "../schema"
-import { indent } from "../utils/indent"
+import { createReport } from "../errors/index.js"
+import { type Json } from "../json/index.js"
+import { jsonEqual } from "../json/jsonEqual.js"
+import { Schema } from "../schema/index.js"
+import { indent } from "../utils/indent.js"
 
 export class ConstSchema<T> extends Schema<T> {
   data: T

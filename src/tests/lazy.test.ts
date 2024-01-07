@@ -1,4 +1,4 @@
-import { Schema, ty } from ".."
+import { Schema, ty } from "../index.js"
 
 type Nat = "zero" | { prev: Nat }
 

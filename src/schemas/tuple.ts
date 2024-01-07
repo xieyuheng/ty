@@ -1,5 +1,5 @@
-import { appendReport, createReport } from "../errors"
-import { Schema } from "../schema"
+import { appendReport, createReport } from "../errors/index.js"
+import { Schema } from "../schema/index.js"
 
 type SchemaTuple<T extends Array<any>> = { [P in keyof T]: Schema<T[P]> }
 

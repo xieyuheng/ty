@@ -1,6 +1,6 @@
-import { appendReport } from "../errors"
-import { Schema } from "../schema"
-import { isObject } from "../utils/isObject"
+import { appendReport } from "../errors/index.js"
+import { Schema } from "../schema/index.js"
+import { isObject } from "../utils/isObject.js"
 
 export class UnionSchema<T, U> extends Schema<T | U> {
   left: Schema<T>

@@ -1,5 +1,5 @@
-import { createReport } from "../errors"
-import { NumberConstraint, NumberSchema } from "./number"
+import { createReport } from "../errors/index.js"
+import { NumberSchema, type NumberConstraint } from "./number.js"
 
 export class IntSchema extends NumberSchema {
   constructor(public constraint?: NumberConstraint) {

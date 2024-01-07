@@ -1,4 +1,4 @@
-import { ty } from ".."
+import { ty } from "../index.js"
 
 const schema = ty.object({
   id: ty.number(),

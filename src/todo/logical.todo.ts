@@ -1,4 +1,4 @@
-import { Schema } from ".."
+import { Schema } from "../schema/index.js"
 
 export class Var {
   id: number

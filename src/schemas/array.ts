@@ -1,5 +1,5 @@
-import { appendReport, createReport } from "../errors"
-import { Schema } from "../schema"
+import { appendReport, createReport } from "../errors/index.js"
+import { Schema } from "../schema/index.js"
 
 export class ArraySchema<T> extends Schema<Array<T>> {
   constructor(public item: Schema<T>) {

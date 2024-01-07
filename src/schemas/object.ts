@@ -1,6 +1,6 @@
-import { appendReport, createReport } from "../errors"
-import { Schema } from "../schema"
-import { isObject } from "../utils/isObject"
+import { appendReport, createReport } from "../errors/index.js"
+import { Schema } from "../schema/index.js"
+import { isObject } from "../utils/isObject.js"
 
 type PickUndefined<T> = {
   [P in keyof T as undefined extends T[P] ? P : never]: T[P]

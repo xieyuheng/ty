@@ -1,4 +1,4 @@
-import { ty } from ".."
+import { ty } from "../index.js"
 
 const schema = ty.array(ty.number())
 const data0: Array<number> = schema.validate([])

@@ -1,4 +1,4 @@
-import { ty } from ".."
+import { ty } from "../index.js"
 
 const schema = ty.dict(ty.number())
 const data0: Record<string, number> = schema.validate({})
