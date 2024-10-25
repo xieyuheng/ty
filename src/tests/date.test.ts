@@ -1,4 +1,4 @@
-import { ty } from "../index.js"
+import ty from "../index.js"
 
 const schema = ty.date()
 const data0: string = schema.validate("1893-12-26")

@@ -1,4 +1,4 @@
-import { ty } from "../index.js"
+import ty from "../index.js"
 
 const schema = ty.tuple(ty.number(), ty.string(), ty.number())
 const data0: [number, string, number] = schema.validate([1, "a", 1])

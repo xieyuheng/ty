@@ -1,4 +1,4 @@
-import { ty } from "../index.js"
+import ty from "../index.js"
 
 {
   const schema = ty.string()

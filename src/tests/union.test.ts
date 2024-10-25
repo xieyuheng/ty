@@ -1,4 +1,4 @@
-import { ty } from "../index.js"
+import ty from "../index.js"
 
 const schema = ty.union(ty.string(), ty.union(ty.number(), ty.null()))
 type Data = string | number | null
