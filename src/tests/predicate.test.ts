@@ -1,4 +1,7 @@
+import { test } from "node:test"
 import ty from "../index.js"
+
+test("predicate", () => {})
 
 export class Var {
   id: number

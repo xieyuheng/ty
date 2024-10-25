@@ -12,13 +12,12 @@
   "scripts": {
     "build": "rm -rf lib; tsc",
     "build:watch": "rm -rf lib; tsc --watch",
-    "format": "prettier src --write",
-    "test:js": "test-runner test node 'lib/**/*.test.js'",
-    "test": "npm run test:js"
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "format": "prettier src --write"
   },
   "devDependencies": {
     "@types/node": "^22.7.9",
-    "@xieyuheng/test-runner": "^0.2.10",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.1.0",
     "typescript": "^5.6.3"
